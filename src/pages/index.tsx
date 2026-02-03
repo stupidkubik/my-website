@@ -1,5 +1,6 @@
 import ProjectCard from "@/components/ui/ProjectCard";
 import Section from "@/components/ui/Section";
+import Stack from "@/components/ui/Stack";
 import TextLink from "@/components/ui/TextLink";
 import { ButtonLink } from "@/components/ui/Button";
 import { Grid, GridCol } from "@/components/ui/Grid";
@@ -28,55 +29,61 @@ export default function Home() {
       <Section size="lg" as="div">
         <Grid>
           <GridCol lg={8}>
-            <p className="text-label uppercase text-muted-fg">Frontend Developer</p>
-            <h1 className="mt-4 text-display font-semibold">
-              Frontend developer focused on content-rich, high-quality web interfaces.
-            </h1>
-            <p className="mt-4 max-w-text text-body text-muted-fg">
-              I have 2+ years in production CMS and design systems. I take a quality-first
-              approach: semantic markup, accessible layouts, cross-browser responsiveness, and careful QA.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/projects">
-                View Projects
-              </ButtonLink>
-              <ButtonLink href="/contact" variant="outline">
-                Get in Touch
-              </ButtonLink>
-            </div>
+            <Stack size="lg">
+              <p className="text-label uppercase text-muted-fg">Frontend Developer</p>
+              <h1 className="text-display font-semibold">
+                Frontend developer focused on content-rich, high-quality web interfaces.
+              </h1>
+              <p className="max-w-text text-body text-muted-fg">
+                I have 2+ years in production CMS and design systems. I take a quality-first
+                approach: semantic markup, accessible layouts, cross-browser responsiveness, and careful QA.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <ButtonLink href="/projects">
+                  View Projects
+                </ButtonLink>
+                <ButtonLink href="/contact" variant="outline">
+                  Get in Touch
+                </ButtonLink>
+              </div>
+            </Stack>
           </GridCol>
         </Grid>
       </Section>
 
       <Section borderTop>
-        <div className="flex items-baseline justify-between">
-          <h2 className="text-h2 font-semibold">Selected Work</h2>
-          <TextLink href="/projects">All projects</TextLink>
-        </div>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2">
-          {selectedProjects.map((project) => (
-            <ProjectCard
-              key={project.name}
-              href={project.href}
-              title={project.name}
-              summary={project.summary}
-            />
-          ))}
-        </div>
+        <Stack size="lg">
+          <div className="flex items-baseline justify-between">
+            <h2 className="text-h2 font-semibold">Selected Work</h2>
+            <TextLink href="/projects">All projects</TextLink>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {selectedProjects.map((project) => (
+              <ProjectCard
+                key={project.name}
+                href={project.href}
+                title={project.name}
+                summary={project.summary}
+              />
+            ))}
+          </div>
+        </Stack>
       </Section>
 
       <Section borderTop>
         <Grid>
           <GridCol lg={8}>
-            <h2 className="text-h2 font-semibold">Contact</h2>
-            <p className="mt-3 text-body text-muted-fg">
-              Interested in working together or have a question? I’m just an email away.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-4 text-sm">
-              <TextLink href="mailto:stupidkubik@gmail.com">stupidkubik@gmail.com</TextLink>
-              <TextLink href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">LinkedIn</TextLink>
-              <TextLink href="https://t.me/stupidpotato">Telegram</TextLink>
-            </div>
+            <Stack size="md">
+              <h2 className="text-h2 font-semibold">Contact</h2>
+              <p className="text-body text-muted-fg">
+                Interested in working together or have a question? I’m just an email away.
+              </p>
+              <div className="flex flex-wrap gap-4 text-sm">
+                <TextLink href="mailto:stupidkubik@gmail.com">stupidkubik@gmail.com</TextLink>
+                <TextLink href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">LinkedIn</TextLink>
+                <TextLink href="https://t.me/stupidpotato">Telegram</TextLink>
+              </div>
+            </Stack>
           </GridCol>
         </Grid>
       </Section>

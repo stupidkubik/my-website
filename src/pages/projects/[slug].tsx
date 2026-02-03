@@ -1,7 +1,9 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import Badge from "@/components/ui/Badge";
 import BulletList from "@/components/ui/BulletList";
+import PageTitle from "@/components/ui/PageTitle";
 import Section from "@/components/ui/Section";
+import Stack from "@/components/ui/Stack";
 import { ButtonLink } from "@/components/ui/Button";
 import { Grid, GridCol } from "@/components/ui/Grid";
 
@@ -10,6 +12,8 @@ const projectData = {
     title: "Kanban Board App",
     summary:
       "Real-time collaborative Kanban board with authentication, roles, and drag-and-drop.",
+    context:
+      "Built as a collaboration-focused Kanban tool to explore real-time workflows, access control, and complex drag-and-drop interactions.",
     role: "Frontend Developer",
     stack: [
       "Next.js App Router",
@@ -42,6 +46,8 @@ const projectData = {
     title: "Stripe Mini App",
     summary:
       "Compact e-commerce demo with Stripe Checkout, webhooks, and validation.",
+    context:
+      "Created to validate a full checkout flow with Stripe, from catalog to payment confirmation and webhook handling.",
     role: "Frontend Developer",
     stack: [
       "Next.js App Router",
@@ -74,6 +80,8 @@ const projectData = {
     title: "Admin Dashboard MVP",
     summary:
       "Dashboard UI for data-heavy screens with tables, charts, filters, and i18n.",
+    context:
+      "Designed to practice building complex dashboard layouts with data states, reusable components, and localization.",
     role: "Frontend Developer",
     stack: [
       "Next.js",
@@ -127,67 +135,76 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
   return (
     <main>
       <Section>
-        <Grid>
-          <GridCol lg={8}>
-            <p className="text-label uppercase text-muted-fg">Projects</p>
-            <h1 className="mt-2 text-h2 font-semibold">{project.title}</h1>
-            <p className="mt-3 max-w-text text-body text-muted-fg">{project.summary}</p>
-          </GridCol>
-        </Grid>
+        <Stack size="xl">
+          <Grid>
+            <GridCol lg={8}>
+              <p className="text-label uppercase text-muted-fg">Projects</p>
+              <div className="mt-2">
+                <PageTitle>{project.title}</PageTitle>
+              </div>
+              <p className="mt-3 max-w-text text-body text-muted-fg">{project.summary}</p>
+            </GridCol>
+          </Grid>
 
-        <div className="mt-8 rounded-lg border border-dashed border-border bg-muted px-6 py-10 text-center text-sm text-muted-fg">
-          Screenshot placeholder (to be replaced)
-        </div>
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Context</h2>
+            <p className="max-w-text text-body text-muted-fg">{project.context}</p>
+          </Stack>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          <div>
-            <h2 className="text-label uppercase text-muted-fg">Role</h2>
-            <p className="mt-2 text-sm text-muted-fg">{project.role}</p>
+          <div className="rounded-lg border border-dashed border-border bg-muted px-6 py-10 text-center text-sm text-muted-fg">
+            Screenshot placeholder (to be replaced)
           </div>
-          <div>
-            <h2 className="text-label uppercase text-muted-fg">Stack</h2>
-            <ul className="mt-2 flex flex-wrap gap-2">
-              {project.stack.map((item) => (
-                <li key={item}>
-                  <Badge>{item}</Badge>
-                </li>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div>
+              <h2 className="text-label uppercase text-muted-fg">Role</h2>
+              <p className="mt-2 text-sm text-muted-fg">{project.role}</p>
+            </div>
+            <div>
+              <h2 className="text-label uppercase text-muted-fg">Stack</h2>
+              <ul className="mt-2 flex flex-wrap gap-2">
+                {project.stack.map((item) => (
+                  <li key={item}>
+                    <Badge>{item}</Badge>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Challenges</h2>
+            <BulletList className="max-w-text">
+              {project.challenges.map((challenge) => (
+                <li key={challenge}>{challenge}</li>
               ))}
-            </ul>
-          </div>
-        </div>
+            </BulletList>
+          </Stack>
 
-        <div className="mt-10">
-          <h2 className="text-h3 font-semibold">Challenges</h2>
-          <BulletList className="mt-4">
-            {project.challenges.map((challenge) => (
-              <li key={challenge}>{challenge}</li>
-            ))}
-          </BulletList>
-        </div>
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Approach</h2>
+            <BulletList className="max-w-text">
+              {project.approach.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </BulletList>
+          </Stack>
 
-        <div className="mt-10">
-          <h2 className="text-h3 font-semibold">Approach</h2>
-          <BulletList className="mt-4">
-            {project.approach.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </BulletList>
-        </div>
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Outcome</h2>
+            <p className="max-w-text text-body text-muted-fg">{project.outcome}</p>
+          </Stack>
 
-        <div className="mt-10">
-          <h2 className="text-h3 font-semibold">Outcome</h2>
-          <p className="mt-3 text-body text-muted-fg">{project.outcome}</p>
-        </div>
-
-        <div className="mt-10">
-          <h2 className="text-h3 font-semibold">Links</h2>
-          <div className="mt-3 flex flex-wrap gap-3 text-sm">
-            <ButtonLink href={project.links.demo}>Live Demo</ButtonLink>
-            <ButtonLink href={project.links.code} variant="outline">
-              Source Code
-            </ButtonLink>
-          </div>
-        </div>
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Links</h2>
+            <div className="flex flex-wrap gap-3 text-sm">
+              <ButtonLink href={project.links.demo}>Live Demo</ButtonLink>
+              <ButtonLink href={project.links.code} variant="outline">
+                Source Code
+              </ButtonLink>
+            </div>
+          </Stack>
+        </Stack>
       </Section>
     </main>
   );

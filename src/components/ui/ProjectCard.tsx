@@ -15,7 +15,7 @@ export default function ProjectCard({ title, summary, href, children }: ProjectC
         <h3 className="text-h3 font-semibold">{title}</h3>
         <p className="mt-2 text-sm text-muted-fg">{summary}</p>
       </Link>
-      {children ? <div className="mt-4 flex flex-wrap gap-4 text-sm">{children}</div> : null}
+      {children ? <div className="mt-4 space-y-3 text-sm">{children}</div> : null}
     </div>
   );
 }

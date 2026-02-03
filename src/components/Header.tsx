@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <header className="border-b border-border bg-bg">
-      <div className="container flex flex-wrap items-center justify-between gap-4 py-6">
+      <div className="container flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <Link className="text-sm font-semibold uppercase tracking-[0.2em]" href="/">
             Evgenii Rubin
@@ -22,7 +22,10 @@ export default function Header() {
             Frontend Developer
           </p>
         </div>
-        <nav aria-label="Primary" className="flex flex-wrap items-center gap-5 text-sm">
+        <nav
+          aria-label="Primary"
+          className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.12em] text-muted-fg sm:gap-5 sm:text-sm sm:tracking-normal"
+        >
           {navItems.map((item) => {
             const isActive =
               router.pathname === item.href ||

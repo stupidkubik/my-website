@@ -22,3 +22,29 @@
     @apply underline-offset-4;
   }
 }
+
+.grid-overlay {
+  position: relative;
+}
+
+.grid-overlay--off::before {
+  display: none;
+}
+
+.grid-overlay::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(9, 9, 11, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(9, 9, 11, 0.04) 1px, transparent 1px);
+  background-size: 120px 120px, 40px 40px;
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+}
+
+.grid-overlay > * {
+  position: relative;
+  z-index: 1;
+}
