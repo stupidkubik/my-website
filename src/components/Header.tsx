@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const navItems = [
   { href: "/about", label: "About" },
@@ -8,18 +9,36 @@ const navItems = [
 ];
 
 export default function Header() {
+  const router = useRouter();
+
   return (
     <header className="border-b border-border bg-bg">
       <div className="container flex flex-wrap items-center justify-between gap-4 py-6">
-        <Link className="text-sm font-semibold uppercase tracking-[0.2em]" href="/">
-          Evgenii Rubin
-        </Link>
-        <nav className="flex flex-wrap items-center gap-5 text-sm text-muted-fg">
-          {navItems.map((item) => (
-            <Link key={item.href} className="transition hover:text-fg" href={item.href}>
-              {item.label}
-            </Link>
-          ))}
+        <div>
+          <Link className="text-sm font-semibold uppercase tracking-[0.2em]" href="/">
+            Evgenii Rubin
+          </Link>
+          <p className="mt-2 text-xs uppercase tracking-[0.18em] text-muted-fg">
+            Frontend Developer
+          </p>
+        </div>
+        <nav aria-label="Primary" className="flex flex-wrap items-center gap-5 text-sm">
+          {navItems.map((item) => {
+            const isActive =
+              router.pathname === item.href ||
+              (item.href !== "/" && router.pathname.startsWith(item.href));
+            return (
+              <Link
+                key={item.href}
+                className={`transition ${
+                  isActive ? "text-fg" : "text-muted-fg hover:text-fg"
+                }`}
+                href={item.href}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </header>

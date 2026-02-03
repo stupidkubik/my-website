@@ -1,5 +1,6 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import Badge from "@/components/ui/Badge";
+import { ButtonLink } from "@/components/ui/Button";
 
 const projectData = {
   "kanban-board": {
@@ -174,12 +175,10 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
         <div className="mt-10">
           <h2 className="text-h3 font-semibold">Links</h2>
           <div className="mt-3 flex flex-wrap gap-3 text-sm">
-            <a className="underline" href={project.links.demo}>
-              Live Demo
-            </a>
-            <a className="underline" href={project.links.code}>
+            <ButtonLink href={project.links.demo}>Live Demo</ButtonLink>
+            <ButtonLink href={project.links.code} variant="outline">
               Source Code
-            </a>
+            </ButtonLink>
           </div>
         </div>
       </div>

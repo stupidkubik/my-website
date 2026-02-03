@@ -25,8 +25,8 @@ module.exports = {
         "primary-contrast": "var(--color-primary-contrast)"
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "SFMono-Regular", "Menlo", "monospace"]
+        sans: ["var(--font-geist-sans)", "Inter", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "SFMono-Regular", "Menlo", "monospace"]
       },
       fontSize: {
         display: ["3.5rem", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
