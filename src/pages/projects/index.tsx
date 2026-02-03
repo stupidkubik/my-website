@@ -62,7 +62,7 @@ export default function Projects() {
                   <Badge key={item}>{item}</Badge>
                 ))}
               </div>
-              <div className="flex flex-wrap gap-4">
+              <div className="inline-flex w-fit flex-wrap gap-4 pointer-events-auto">
                 <TextLink href={project.demo}>Live Demo</TextLink>
                 <TextLink href={project.code}>Source Code</TextLink>
               </div>

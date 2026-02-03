@@ -23,6 +23,17 @@
   }
 }
 
+.stretched-link {
+  position: static;
+}
+
+.stretched-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 .grid-overlay {
   position: relative;
 }
