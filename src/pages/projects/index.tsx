@@ -3,7 +3,7 @@ import ProjectCard from "@/components/ui/ProjectCard";
 const projects = [
   {
     name: "Kanban Board App",
-    summary: "Realtime collaborative Kanban board with auth, roles, and drag-and-drop.",
+    summary: "Real-time collaborative Kanban board with auth, roles, and drag-and-drop.",
     slug: "kanban-board",
     demo: "https://kanban-board-app-ten-psi.vercel.app/",
     code: "https://github.com/stupidkubik/kanban-board-app"
@@ -30,8 +30,8 @@ export default function Projects() {
       <div className="container py-section">
         <h1 className="text-h2 font-semibold">Projects</h1>
         <p className="mt-4 max-w-text text-body text-muted-fg">
-          Projects & Code: here are a few projects I’ve developed to sharpen my React and TypeScript
-          skills. Each one tackled a different challenge—from drag-and-drop interaction design to API
+          Projects & Code — a focused set of projects I’ve shipped to sharpen my React and TypeScript
+          skills. Each one tackles a different challenge, from drag-and-drop interaction design to API
           integrations. Click a project for the full case study.
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2">

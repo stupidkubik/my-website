@@ -6,7 +6,7 @@ const projectData = {
   "kanban-board": {
     title: "Kanban Board App",
     summary:
-      "Realtime collaborative Kanban board with authentication, roles, and drag-and-drop.",
+      "Real-time collaborative Kanban board with authentication, roles, and drag-and-drop.",
     role: "Frontend Developer",
     stack: [
       "Next.js App Router",
@@ -29,7 +29,7 @@ const projectData = {
       "Tested core logic with Vitest, including Firestore rules via emulator."
     ],
     outcome:
-      "Delivered a responsive, accessible board with a clear collaboration model and stable realtime sync.",
+      "Delivered a responsive, accessible board with a clear collaboration model and stable real-time sync.",
     links: {
       demo: "https://kanban-board-app-ten-psi.vercel.app/",
       code: "https://github.com/stupidkubik/kanban-board-app"

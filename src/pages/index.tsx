@@ -4,7 +4,7 @@ import { ButtonLink } from "@/components/ui/Button";
 const selectedProjects = [
   {
     name: "Kanban Board App",
-    summary: "Realtime collaborative Kanban board with roles, auth, and drag-and-drop.",
+    summary: "Real-time collaborative Kanban board with roles, auth, and drag-and-drop.",
     href: "/projects/kanban-board"
   },
   {
@@ -25,10 +25,10 @@ export default function Home() {
       <div className="container py-section-lg">
         <p className="text-label uppercase text-muted-fg">Frontend Developer</p>
         <h1 className="mt-4 text-display font-semibold">
-          Front-End Developer focused on content-rich, high-quality web interfaces.
+          Frontend developer focused on content-rich, high-quality web interfaces.
         </h1>
         <p className="mt-4 max-w-text text-body text-muted-fg">
-          UI developer with ~2 years in production CMS and design systems. I take a quality-first
+          I have 2+ years in production CMS and design systems. I take a quality-first
           approach: semantic markup, accessible layouts, cross-browser responsiveness, and careful QA.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">

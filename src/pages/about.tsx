@@ -4,12 +4,12 @@ export default function About() {
       <div className="container py-section">
         <h1 className="text-h2 font-semibold">About</h1>
         <p className="mt-6 max-w-text text-body text-muted-fg">
-          I’m a frontend developer based in Novi Sad, Serbia. I specialize in content-heavy publishing
-          workflows and design systems, with a strong focus on semantic markup, accessibility, and
+          I’m a frontend developer based in Novi Sad, Serbia. I build content-heavy publishing
+          workflows and design systems with a focus on semantic markup, accessibility, and
           predictable releases.
         </p>
         <p className="mt-4 max-w-text text-body text-muted-fg">
-          Over the past ~2 years, I’ve built and maintained UI components in production CMS
+          Over the past 2+ years, I’ve built and maintained UI components in production CMS
           environments, improved delivery speed through reusable patterns, and contributed to
           internal tooling that reduces manual work.
         </p>

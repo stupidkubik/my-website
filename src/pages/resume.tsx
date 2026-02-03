@@ -33,7 +33,7 @@ export default function Resume() {
           <h2 className="text-h3 font-semibold">Summary</h2>
           <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
             <li>
-              UI Developer with ~2 years in production CMS and design systems (content-heavy
+              Frontend developer with 2+ years in production CMS and design systems (content-heavy
               publishing). Strong quality mindset: semantic markup, cross-browser responsiveness,
               predictable releases, and careful QA.
             </li>
