@@ -1,3 +1,6 @@
+import ProjectCard from "@/components/ui/ProjectCard";
+import { ButtonLink } from "@/components/ui/Button";
+
 const selectedProjects = [
   {
     name: "Kanban Board App",
@@ -29,18 +32,12 @@ export default function Home() {
           approach: semantic markup, accessible layouts, cross-browser responsiveness, and careful QA.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <a
-            className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-contrast"
-            href="/projects"
-          >
+          <ButtonLink href="/projects">
             View Projects
-          </a>
-          <a
-            className="inline-flex items-center rounded-md border border-border px-4 py-2 text-sm font-medium text-fg"
-            href="/contact"
-          >
+          </ButtonLink>
+          <ButtonLink href="/contact" variant="outline">
             Get in Touch
-          </a>
+          </ButtonLink>
         </div>
       </div>
 
@@ -54,14 +51,12 @@ export default function Home() {
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {selectedProjects.map((project) => (
-              <a
+              <ProjectCard
                 key={project.name}
-                className="rounded-lg border border-border p-5 transition hover:border-fg"
                 href={project.href}
-              >
-                <h3 className="text-h3 font-semibold">{project.name}</h3>
-                <p className="mt-2 text-sm text-muted-fg">{project.summary}</p>
-              </a>
+                title={project.name}
+                summary={project.summary}
+              />
             ))}
           </div>
         </div>

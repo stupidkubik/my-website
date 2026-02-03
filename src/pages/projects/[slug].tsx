@@ -1,4 +1,5 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
+import Badge from "@/components/ui/Badge";
 
 const projectData = {
   "kanban-board": {
@@ -139,11 +140,8 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
             <h2 className="text-label uppercase text-muted-fg">Stack</h2>
             <ul className="mt-2 flex flex-wrap gap-2">
               {project.stack.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-full border border-border px-3 py-1 text-xs text-muted-fg"
-                >
-                  {item}
+                <li key={item}>
+                  <Badge>{item}</Badge>
                 </li>
               ))}
             </ul>

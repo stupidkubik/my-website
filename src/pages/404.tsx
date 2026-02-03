@@ -1,3 +1,5 @@
+import { ButtonLink } from "@/components/ui/Button";
+
 export default function NotFound() {
   return (
     <main>
@@ -7,12 +9,11 @@ export default function NotFound() {
         <p className="mt-4 text-body text-muted-fg">
           The page you are looking for doesn’t exist. Head back to the homepage.
         </p>
-        <a
-          className="mt-8 inline-flex items-center rounded-md border border-border px-4 py-2 text-sm font-medium text-fg"
-          href="/"
-        >
-          Go Home
-        </a>
+        <div className="mt-8 inline-flex">
+          <ButtonLink href="/" variant="outline">
+            Go Home
+          </ButtonLink>
+        </div>
       </div>
     </main>
   );

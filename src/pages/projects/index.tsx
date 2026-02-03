@@ -1,3 +1,5 @@
+import ProjectCard from "@/components/ui/ProjectCard";
+
 const projects = [
   {
     name: "Kanban Board App",
@@ -34,20 +36,19 @@ export default function Projects() {
         </p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {projects.map((project) => (
-            <div key={project.slug} className="rounded-lg border border-border p-5">
-              <a className="block" href={`/projects/${project.slug}`}>
-                <h2 className="text-h3 font-semibold">{project.name}</h2>
-                <p className="mt-2 text-sm text-muted-fg">{project.summary}</p>
+            <ProjectCard
+              key={project.slug}
+              href={`/projects/${project.slug}`}
+              title={project.name}
+              summary={project.summary}
+            >
+              <a className="underline" href={project.demo}>
+                Live Demo
               </a>
-              <div className="mt-4 flex flex-wrap gap-4 text-sm">
-                <a className="underline" href={project.demo}>
-                  Live Demo
-                </a>
-                <a className="underline" href={project.code}>
-                  Source Code
-                </a>
-              </div>
-            </div>
+              <a className="underline" href={project.code}>
+                Source Code
+              </a>
+            </ProjectCard>
           ))}
         </div>
       </div>

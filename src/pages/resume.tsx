@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/Button";
+
 export default function Resume() {
   return (
     <main>
@@ -7,9 +9,7 @@ export default function Resume() {
             <h1 className="text-h2 font-semibold">Evgenii Rubin</h1>
             <p className="mt-2 text-sm text-muted-fg">Frontend Developer · Novi Sad, Serbia</p>
           </div>
-          <button className="rounded-md border border-border px-3 py-2 text-sm font-medium text-fg">
-            Download PDF
-          </button>
+          <Button variant="outline">Download PDF</Button>
         </div>
 
         <section className="mt-8 text-sm text-muted-fg">
