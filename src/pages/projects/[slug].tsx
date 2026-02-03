@@ -3,62 +3,95 @@ import type { GetStaticPaths, GetStaticProps } from "next";
 const projectData = {
   "kanban-board": {
     title: "Kanban Board App",
-    summary: "A drag-and-drop task management tool built with Next.js and Firebase.",
+    summary:
+      "Realtime collaborative Kanban board with authentication, roles, and drag-and-drop.",
     role: "Frontend Developer",
-    stack: ["Next.js", "TypeScript", "Redux Toolkit", "Firebase", "dnd-kit", "Tailwind CSS"],
+    stack: [
+      "Next.js App Router",
+      "React",
+      "TypeScript",
+      "Redux Toolkit / RTK Query",
+      "Firebase Auth + Firestore",
+      "dnd-kit",
+      "shadcn/ui",
+      "Vitest"
+    ],
     challenges: [
-      "Managing complex drag-and-drop state across columns.",
-      "Ensuring performance with frequent updates.",
-      "Maintaining accessibility for keyboard users."
+      "Managing complex drag-and-drop state across columns with real-time updates.",
+      "Keeping the UI responsive while syncing with Firestore listeners.",
+      "Defining roles and protecting operations for collaboration."
     ],
     approach: [
-      "Structured state with Redux Toolkit and normalized entities.",
-      "Optimized renders with memoized selectors and component boundaries.",
-      "Used dnd-kit accessibility features and tested keyboard flows."
+      "Implemented boards/columns/cards CRUD with optimistic UI updates and Firestore listeners.",
+      "Added collaboration controls (owner/editor/viewer), email invites, and protected operations via Firebase Admin SDK.",
+      "Tested core logic with Vitest, including Firestore rules via emulator."
     ],
     outcome:
-      "Delivered a responsive, accessible board with real-time sync and a clear interaction model.",
+      "Delivered a responsive, accessible board with a clear collaboration model and stable realtime sync.",
     links: {
-      demo: "",
-      code: ""
+      demo: "https://kanban-board-app-ten-psi.vercel.app/",
+      code: "https://github.com/stupidkubik/kanban-board-app"
     }
   },
   "stripe-mini-app": {
     title: "Stripe Mini App",
-    summary: "Checkout prototype with Stripe integration and schema validation.",
+    summary:
+      "Compact e-commerce demo with Stripe Checkout, webhooks, and validation.",
     role: "Frontend Developer",
-    stack: ["Next.js", "TypeScript", "Stripe", "Zod", "Tailwind CSS"],
+    stack: [
+      "Next.js App Router",
+      "React",
+      "TypeScript",
+      "Stripe Checkout + Webhooks",
+      "Tailwind",
+      "shadcn/ui",
+      "Zod",
+      "Playwright",
+      "Vitest"
+    ],
     challenges: [
-      "Building a reliable checkout flow and error handling.",
-      "Maintaining a clean UI for sensitive forms."
+      "Building a reliable checkout flow with server-side validation.",
+      "Handling payment events safely and surfacing status to users.",
+      "Maintaining SEO fundamentals in a small demo."
     ],
     approach: [
-      "Used Stripe Checkout for secure payments.",
-      "Validated input with Zod and provided clear form feedback."
+      "Implemented checkout session creation with validation for price IDs, quantity limits, and promo codes.",
+      "Verified Stripe webhooks with signature verification and built a payment events timeline UI.",
+      "Added OG/canonical/sitemap/robots and E2E coverage with Playwright."
     ],
-    outcome: "Completed end-to-end payment flow prototype with a polished UI.",
+    outcome: "Completed an end-to-end payment flow demo with robust validation and testing.",
     links: {
-      demo: "",
-      code: ""
+      demo: "https://stripe-mini-shop.vercel.app/",
+      code: "https://github.com/stupidkubik/Stripe-mini-app"
     }
   },
   "admin-dashboard": {
     title: "Admin Dashboard MVP",
-    summary: "A modular dashboard interface for data visualization.",
+    summary:
+      "Dashboard UI for data-heavy screens with tables, charts, filters, and i18n.",
     role: "Frontend Developer",
-    stack: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS"],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Redux Toolkit / RTK Query",
+      "Tailwind CSS",
+      "Charts",
+      "i18n"
+    ],
     challenges: [
-      "Designing reusable dashboard components.",
-      "Handling async data and loading states."
+      "Designing reusable dashboard components for complex UI states.",
+      "Handling async data with consistent loading and error states."
     ],
     approach: [
-      "Defined reusable UI primitives and consistent spacing rules.",
-      "Centralized data fetching with RTK Query."
+      "Built data-heavy screens with robust loading/error handling and reusable UI pieces.",
+      "Implemented API data layer with RTK Query for caching and consistent request handling.",
+      "Added localization to support multi-language UI."
     ],
-    outcome: "Shipped a scalable admin layout with clear information hierarchy.",
+    outcome: "Shipped a scalable admin layout with clear information hierarchy and stable state management.",
     links: {
-      demo: "",
-      code: ""
+      demo: "https://admin-dashboard-mvp-three.vercel.app/",
+      code: "https://github.com/stupidkubik/Admin-Dashboard-MVP"
     }
   }
 } as const;
@@ -87,24 +120,28 @@ type ProjectPageProps = {
 
 export default function ProjectDetail({ project }: ProjectPageProps) {
   return (
-    <main className="min-h-screen bg-white text-zinc-900">
-      <div className="mx-auto max-w-4xl px-6 py-16">
-        <p className="text-sm text-zinc-500">Projects</p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight">{project.title}</h1>
-        <p className="mt-3 text-base text-zinc-700">{project.summary}</p>
+    <main>
+      <div className="container py-section">
+        <p className="text-label uppercase text-muted-fg">Projects</p>
+        <h1 className="mt-2 text-h2 font-semibold">{project.title}</h1>
+        <p className="mt-3 max-w-text text-body text-muted-fg">{project.summary}</p>
 
-        <div className="mt-8 grid gap-6 sm:grid-cols-2">
+        <div className="mt-8 rounded-lg border border-dashed border-border bg-muted px-6 py-10 text-center text-sm text-muted-fg">
+          Screenshot placeholder (to be replaced)
+        </div>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
           <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">Role</h2>
-            <p className="mt-2 text-sm text-zinc-700">{project.role}</p>
+            <h2 className="text-label uppercase text-muted-fg">Role</h2>
+            <p className="mt-2 text-sm text-muted-fg">{project.role}</p>
           </div>
           <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">Stack</h2>
+            <h2 className="text-label uppercase text-muted-fg">Stack</h2>
             <ul className="mt-2 flex flex-wrap gap-2">
               {project.stack.map((item) => (
                 <li
                   key={item}
-                  className="rounded-full border border-zinc-200 px-3 py-1 text-xs text-zinc-700"
+                  className="rounded-full border border-border px-3 py-1 text-xs text-muted-fg"
                 >
                   {item}
                 </li>
@@ -114,8 +151,8 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
         </div>
 
         <div className="mt-10">
-          <h2 className="text-xl font-semibold">Challenges</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-zinc-700">
+          <h2 className="text-h3 font-semibold">Challenges</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
             {project.challenges.map((challenge) => (
               <li key={challenge}>{challenge}</li>
             ))}
@@ -123,8 +160,8 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
         </div>
 
         <div className="mt-10">
-          <h2 className="text-xl font-semibold">Approach</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-zinc-700">
+          <h2 className="text-h3 font-semibold">Approach</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
             {project.approach.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -132,27 +169,19 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
         </div>
 
         <div className="mt-10">
-          <h2 className="text-xl font-semibold">Outcome</h2>
-          <p className="mt-3 text-base text-zinc-700">{project.outcome}</p>
+          <h2 className="text-h3 font-semibold">Outcome</h2>
+          <p className="mt-3 text-body text-muted-fg">{project.outcome}</p>
         </div>
 
         <div className="mt-10">
-          <h2 className="text-xl font-semibold">Links</h2>
+          <h2 className="text-h3 font-semibold">Links</h2>
           <div className="mt-3 flex flex-wrap gap-3 text-sm">
-            {project.links.demo ? (
-              <a className="underline" href={project.links.demo}>
-                Live Demo
-              </a>
-            ) : (
-              <span className="text-zinc-500">Live Demo (pending)</span>
-            )}
-            {project.links.code ? (
-              <a className="underline" href={project.links.code}>
-                Source Code
-              </a>
-            ) : (
-              <span className="text-zinc-500">Source Code (pending)</span>
-            )}
+            <a className="underline" href={project.links.demo}>
+              Live Demo
+            </a>
+            <a className="underline" href={project.links.code}>
+              Source Code
+            </a>
           </div>
         </div>
       </div>

@@ -17,6 +17,9 @@ node_modules/
 # Logs
 *.log
 
+# Documents (working PDFs)
+*.pdf
+
 # Env
 .env
 .env.*

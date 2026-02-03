@@ -1,51 +1,140 @@
 export default function Resume() {
   return (
-    <main className="min-h-screen bg-white text-zinc-900">
-      <div className="mx-auto max-w-4xl px-6 py-16">
+    <main>
+      <div className="container py-section">
         <div className="flex flex-wrap items-start justify-between gap-4">
-          <h1 className="text-3xl font-semibold tracking-tight">Resume</h1>
-          <button className="rounded-md border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-900">
+          <div>
+            <h1 className="text-h2 font-semibold">Evgenii Rubin</h1>
+            <p className="mt-2 text-sm text-muted-fg">Frontend Developer · Novi Sad, Serbia</p>
+          </div>
+          <button className="rounded-md border border-border px-3 py-2 text-sm font-medium text-fg">
             Download PDF
           </button>
         </div>
 
-        <section className="mt-10">
-          <h2 className="text-xl font-semibold">Summary</h2>
-          <p className="mt-3 text-base leading-7 text-zinc-700">
-            Front-end developer focused on content-rich, high-quality web interfaces. I build
-            accessible, reliable UI with a quality-first process.
-          </p>
+        <section className="mt-8 text-sm text-muted-fg">
+          <div className="flex flex-wrap gap-4">
+            <a className="underline" href="mailto:stupidkubik@gmail.com">
+              stupidkubik@gmail.com
+            </a>
+            <a className="underline" href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">
+              LinkedIn
+            </a>
+            <a className="underline" href="https://t.me/stupidpotato">
+              Telegram
+            </a>
+            <a className="underline" href="https://github.com/stupidkubik">
+              GitHub
+            </a>
+          </div>
         </section>
 
         <section className="mt-10">
-          <h2 className="text-xl font-semibold">Experience</h2>
-          <div className="mt-4 space-y-4 text-zinc-700">
+          <h2 className="text-h3 font-semibold">Summary</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
+            <li>
+              UI Developer with ~2 years in production CMS and design systems (content-heavy
+              publishing). Strong quality mindset: semantic markup, cross-browser responsiveness,
+              predictable releases, and careful QA.
+            </li>
+            <li>
+              Growing as a junior React/Next.js + TypeScript developer through shipped pet projects
+              (state management, API integration, testing, CI). Comfortable with code reviews,
+              debugging, and maintaining docs/checklists.
+            </li>
+          </ul>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="text-h3 font-semibold">Experience</h2>
+
+          <div className="mt-4 space-y-6 text-muted-fg">
             <div>
-              <p className="text-sm uppercase tracking-wide text-zinc-500">2024 — Present</p>
-              <p className="mt-1 font-medium">UI Developer, Company Name</p>
-              <p className="mt-2 text-sm leading-6">
-                Built and maintained a content-rich publishing platform, implemented design system
-                components, and ensured front-end quality through testing and reviews.
+              <p className="text-label uppercase text-muted-fg">Aug 2024 — Present</p>
+              <p className="mt-1 font-medium text-fg">
+                Senior Markup Developer (CMS & Design Systems) · Junior UI Engineer
               </p>
+              <p className="text-sm text-muted-fg">Tinkoff Journal</p>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm">
+                <li>
+                  Owned end-to-end publishing in the in-house CMS (content-heavy pages), shipping
+                  ~140 pieces/month with consistent QA and on-time releases.
+                </li>
+                <li>
+                  Cut longread production time by up to 50% by standardizing reusable layout patterns
+                  and resolving typography edge cases that bypassed the auto-formatter.
+                </li>
+                <li>
+                  Built internal tooling: co-created a Figma script saving ~3 minutes per screenshot
+                  (15–20 per article) and co-developed CMS snippets to reduce manual markup and rework.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-label uppercase text-muted-fg">Aug 2023 — Aug 2024</p>
+              <p className="mt-1 font-medium text-fg">Markup Developer</p>
+              <p className="text-sm text-muted-fg">Tinkoff Journal</p>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm">
+                <li>
+                  Built a set of reusable, regression-tested CMS components that increased layout
+                  delivery speed by ~20% and removed a class of common production bugs.
+                </li>
+                <li>
+                  Improved the Google Docs → CMS pipeline with a structured data format, reducing
+                  rework from late editorial changes by 50%+.
+                </li>
+                <li>
+                  Wrote onboarding docs and a pre-release checklist, reducing ramp-up time and
+                  deployment blockers.
+                </li>
+              </ul>
             </div>
           </div>
         </section>
 
         <section className="mt-10">
-          <h2 className="text-xl font-semibold">Skills</h2>
+          <h2 className="text-h3 font-semibold">Skills</h2>
           <div className="mt-4 grid gap-6 sm:grid-cols-2">
             <div>
-              <h3 className="text-sm uppercase tracking-wide text-zinc-500">Front-End</h3>
-              <p className="mt-2 text-sm text-zinc-700">
-                HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Redux Toolkit, Tailwind
-                CSS.
+              <h3 className="text-label uppercase text-muted-fg">Core</h3>
+              <p className="mt-2 text-sm text-muted-fg">
+                TypeScript, React, Next.js, JavaScript, HTML/CSS/SCSS, Tailwind.
               </p>
             </div>
             <div>
-              <h3 className="text-sm uppercase tracking-wide text-zinc-500">Testing & Tools</h3>
-              <p className="mt-2 text-sm text-zinc-700">Vitest, Playwright, ESLint, Prettier.</p>
+              <h3 className="text-label uppercase text-muted-fg">State & Data</h3>
+              <p className="mt-2 text-sm text-muted-fg">
+                Redux Toolkit / RTK Query, Zustand, REST.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-label uppercase text-muted-fg">Testing</h3>
+              <p className="mt-2 text-sm text-muted-fg">Vitest, Jest, RTL, Playwright, MSW.</p>
+            </div>
+            <div>
+              <h3 className="text-label uppercase text-muted-fg">Tooling</h3>
+              <p className="mt-2 text-sm text-muted-fg">Git, GitHub Actions, Vercel.</p>
             </div>
           </div>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="text-h3 font-semibold">Languages</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
+            <li>Russian — Native</li>
+            <li>English — Professional working proficiency (B2)</li>
+            <li>Serbian — Elementary proficiency (A1)</li>
+          </ul>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="text-h3 font-semibold">Certificates & Professional Development</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
+            <li>Advanced TypeScript — Hexlet.io (Nov 2024 — Feb 2025)</li>
+            <li>Web Developer ~720h — Yandex Practicum (Jan 2023 — Nov 2023)</li>
+            <li>Responsive Web Design — freeCodeCamp (Jul 2022 — Nov 2022)</li>
+          </ul>
         </section>
       </div>
     </main>

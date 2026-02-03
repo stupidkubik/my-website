@@ -1,25 +1,33 @@
 export default function About() {
   return (
-    <main className="min-h-screen bg-white text-zinc-900">
-      <div className="mx-auto max-w-4xl px-6 py-16">
-        <h1 className="text-3xl font-semibold tracking-tight">About</h1>
-        <p className="mt-6 text-base leading-7 text-zinc-700">
-          I’m a front-end developer experienced in building and maintaining content-heavy web
-          platforms. Over the past two years, I’ve helped implement and refine design systems for a
-          large publishing site, ensuring consistency and accessibility across pages.
+    <main>
+      <div className="container py-section">
+        <h1 className="text-h2 font-semibold">About</h1>
+        <p className="mt-6 max-w-text text-body text-muted-fg">
+          I’m a frontend developer based in Novi Sad, Serbia. I specialize in content-heavy publishing
+          workflows and design systems, with a strong focus on semantic markup, accessibility, and
+          predictable releases.
         </p>
-        <p className="mt-4 text-base leading-7 text-zinc-700">
-          I pride myself on writing clean, semantic code and thoroughly testing every feature for a
-          smooth release. I focus on predictable UI behavior, clear information hierarchy, and
-          accessible interfaces across devices.
+        <p className="mt-4 max-w-text text-body text-muted-fg">
+          Over the past ~2 years, I’ve built and maintained UI components in production CMS
+          environments, improved delivery speed through reusable patterns, and contributed to
+          internal tooling that reduces manual work.
         </p>
         <div className="mt-8">
-          <h2 className="text-xl font-semibold">Core Strengths</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-zinc-700">
+          <h2 className="text-h3 font-semibold">Core Strengths</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
             <li>Quality-focused development: semantic HTML, accessible & responsive CSS, QA mindset.</li>
             <li>Design systems & CMS experience: reusable components, consistency at scale.</li>
             <li>React & Next.js with TypeScript: state management, API integration, testing.</li>
             <li>Team collaboration: code reviews, documentation, checklists.</li>
+          </ul>
+        </div>
+        <div className="mt-10">
+          <h2 className="text-h3 font-semibold">Languages</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
+            <li>Russian — Native</li>
+            <li>English — Professional working proficiency (B2)</li>
+            <li>Serbian — Elementary proficiency (A1)</li>
           </ul>
         </div>
       </div>

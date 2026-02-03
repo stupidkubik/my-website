@@ -1,22 +1,22 @@
 export default function Contact() {
   return (
-    <main className="min-h-screen bg-white text-zinc-900">
-      <div className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="text-3xl font-semibold tracking-tight">Contact</h1>
-        <p className="mt-6 text-base leading-7 text-zinc-700">
+    <main>
+      <div className="container py-section">
+        <h1 className="text-h2 font-semibold">Contact</h1>
+        <p className="mt-6 max-w-text text-body text-muted-fg">
           Interested in working together or have a question about my work? I’m just an email away.
         </p>
-        <div className="mt-6">
-          <a
-            className="inline-flex items-center rounded-md border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-900"
-            href="mailto:youremail@example.com"
-          >
-            youremail@example.com
+        <div className="mt-6 flex flex-col gap-3 text-sm">
+          <a className="underline" href="mailto:stupidkubik@gmail.com">
+            stupidkubik@gmail.com
+          </a>
+          <a className="underline" href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">
+            LinkedIn
+          </a>
+          <a className="underline" href="https://t.me/stupidpotato">
+            Telegram
           </a>
         </div>
-        <p className="mt-4 text-sm text-zinc-500">
-          You can also reach me on LinkedIn (link to be added).
-        </p>
       </div>
     </main>
   );

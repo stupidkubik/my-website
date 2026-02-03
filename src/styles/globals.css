@@ -2,10 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: light;
-}
+@layer base {
+  :root {
+    color-scheme: light;
+    --color-bg: #ffffff;
+    --color-fg: #09090b;
+    --color-muted: #f4f4f5;
+    --color-muted-fg: #71717a;
+    --color-border: #e4e4e7;
+    --color-primary: #09090b;
+    --color-primary-contrast: #ffffff;
+  }
 
-body {
-  @apply bg-white text-zinc-900;
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+  }
+
+  a {
+    @apply underline-offset-4;
+  }
 }

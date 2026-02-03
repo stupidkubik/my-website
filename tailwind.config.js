@@ -6,7 +6,63 @@ module.exports = {
     "./src/styles/**/*.{css}"
   ],
   theme: {
-    extend: {}
+    container: {
+      center: true,
+      padding: "1.5rem",
+      screens: {
+        lg: "1024px",
+        xl: "1200px"
+      }
+    },
+    extend: {
+      colors: {
+        bg: "var(--color-bg)",
+        fg: "var(--color-fg)",
+        muted: "var(--color-muted)",
+        "muted-fg": "var(--color-muted-fg)",
+        border: "var(--color-border)",
+        primary: "var(--color-primary)",
+        "primary-contrast": "var(--color-primary-contrast)"
+      },
+      fontFamily: {
+        sans: [
+          "Geist Sans",
+          "Inter",
+          "SF Pro Text",
+          "SF Pro Display",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif"
+        ],
+        mono: [
+          "Geist Mono",
+          "SF Mono",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          "Liberation Mono",
+          "monospace"
+        ]
+      },
+      fontSize: {
+        display: ["3.5rem", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+        h2: ["2.25rem", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
+        h3: ["1.5rem", { lineHeight: "1.3" }],
+        body: ["1rem", { lineHeight: "1.6" }],
+        label: ["0.875rem", { lineHeight: "1.4", letterSpacing: "0.04em" }]
+      },
+      spacing: {
+        section: "5rem",
+        "section-lg": "7.5rem"
+      },
+      maxWidth: {
+        content: "1200px",
+        text: "65ch"
+      }
+    }
   },
   plugins: []
 };
