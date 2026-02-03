@@ -1,7 +1,10 @@
+import BulletList from "@/components/ui/BulletList";
+import Section from "@/components/ui/Section";
+
 export default function About() {
   return (
     <main>
-      <div className="container py-section">
+      <Section>
         <h1 className="text-h2 font-semibold">About</h1>
         <p className="mt-6 max-w-text text-body text-muted-fg">
           I’m a frontend developer based in Novi Sad, Serbia. I build content-heavy publishing
@@ -15,22 +18,22 @@ export default function About() {
         </p>
         <div className="mt-8">
           <h2 className="text-h3 font-semibold">Core Strengths</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
+          <BulletList className="mt-4">
             <li>Quality-focused development: semantic HTML, accessible & responsive CSS, QA mindset.</li>
             <li>Design systems & CMS experience: reusable components, consistency at scale.</li>
             <li>React & Next.js with TypeScript: state management, API integration, testing.</li>
             <li>Team collaboration: code reviews, documentation, checklists.</li>
-          </ul>
+          </BulletList>
         </div>
         <div className="mt-10">
           <h2 className="text-h3 font-semibold">Languages</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
+          <BulletList className="mt-4">
             <li>Russian — Native</li>
             <li>English — Professional working proficiency (B2)</li>
             <li>Serbian — Elementary proficiency (A1)</li>
-          </ul>
+          </BulletList>
         </div>
-      </div>
+      </Section>
     </main>
   );
 }

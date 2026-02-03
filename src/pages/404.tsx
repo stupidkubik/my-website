@@ -1,9 +1,10 @@
+import Section from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
     <main>
-      <div className="container py-section text-center">
+      <Section className="text-center">
         <p className="text-label uppercase text-muted-fg">404</p>
         <h1 className="mt-4 text-h2 font-semibold">Page not found</h1>
         <p className="mt-4 text-body text-muted-fg">
@@ -14,7 +15,7 @@ export default function NotFound() {
             Go Home
           </ButtonLink>
         </div>
-      </div>
+      </Section>
     </main>
   );
 }

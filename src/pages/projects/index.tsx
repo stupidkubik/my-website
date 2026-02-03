@@ -1,4 +1,6 @@
 import ProjectCard from "@/components/ui/ProjectCard";
+import Section from "@/components/ui/Section";
+import TextLink from "@/components/ui/TextLink";
 
 const projects = [
   {
@@ -27,7 +29,7 @@ const projects = [
 export default function Projects() {
   return (
     <main>
-      <div className="container py-section">
+      <Section>
         <h1 className="text-h2 font-semibold">Projects</h1>
         <p className="mt-4 max-w-text text-body text-muted-fg">
           Projects & Code — a focused set of projects I’ve shipped to sharpen my React and TypeScript
@@ -42,16 +44,12 @@ export default function Projects() {
               title={project.name}
               summary={project.summary}
             >
-              <a className="underline" href={project.demo}>
-                Live Demo
-              </a>
-              <a className="underline" href={project.code}>
-                Source Code
-              </a>
+              <TextLink href={project.demo}>Live Demo</TextLink>
+              <TextLink href={project.code}>Source Code</TextLink>
             </ProjectCard>
           ))}
         </div>
-      </div>
+      </Section>
     </main>
   );
 }

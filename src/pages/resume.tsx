@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/Button";
+import BulletList from "@/components/ui/BulletList";
+import Section from "@/components/ui/Section";
+import TextLink from "@/components/ui/TextLink";
 
 export default function Resume() {
   return (
     <main>
-      <div className="container py-section">
+      <Section>
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <h1 className="text-h2 font-semibold">Evgenii Rubin</h1>
@@ -14,24 +17,16 @@ export default function Resume() {
 
         <section className="mt-8 text-sm text-muted-fg">
           <div className="flex flex-wrap gap-4">
-            <a className="underline" href="mailto:stupidkubik@gmail.com">
-              stupidkubik@gmail.com
-            </a>
-            <a className="underline" href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">
-              LinkedIn
-            </a>
-            <a className="underline" href="https://t.me/stupidpotato">
-              Telegram
-            </a>
-            <a className="underline" href="https://github.com/stupidkubik">
-              GitHub
-            </a>
+            <TextLink href="mailto:stupidkubik@gmail.com">stupidkubik@gmail.com</TextLink>
+            <TextLink href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">LinkedIn</TextLink>
+            <TextLink href="https://t.me/stupidpotato">Telegram</TextLink>
+            <TextLink href="https://github.com/stupidkubik">GitHub</TextLink>
           </div>
         </section>
 
         <section className="mt-10">
           <h2 className="text-h3 font-semibold">Summary</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
+          <BulletList className="mt-4">
             <li>
               Frontend developer with 2+ years in production CMS and design systems (content-heavy
               publishing). Strong quality mindset: semantic markup, cross-browser responsiveness,
@@ -42,7 +37,7 @@ export default function Resume() {
               (state management, API integration, testing, CI). Comfortable with code reviews,
               debugging, and maintaining docs/checklists.
             </li>
-          </ul>
+          </BulletList>
         </section>
 
         <section className="mt-10">
@@ -55,7 +50,7 @@ export default function Resume() {
                 Senior Markup Developer (CMS & Design Systems) · Junior UI Engineer
               </p>
               <p className="text-sm text-muted-fg">Tinkoff Journal</p>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm">
+              <BulletList className="mt-3 text-sm">
                 <li>
                   Owned end-to-end publishing in the in-house CMS (content-heavy pages), shipping
                   ~140 pieces/month with consistent QA and on-time releases.
@@ -68,14 +63,14 @@ export default function Resume() {
                   Built internal tooling: co-created a Figma script saving ~3 minutes per screenshot
                   (15–20 per article) and co-developed CMS snippets to reduce manual markup and rework.
                 </li>
-              </ul>
+              </BulletList>
             </div>
 
             <div>
               <p className="text-label uppercase text-muted-fg">Aug 2023 — Aug 2024</p>
               <p className="mt-1 font-medium text-fg">Markup Developer</p>
               <p className="text-sm text-muted-fg">Tinkoff Journal</p>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm">
+              <BulletList className="mt-3 text-sm">
                 <li>
                   Built a set of reusable, regression-tested CMS components that increased layout
                   delivery speed by ~20% and removed a class of common production bugs.
@@ -88,7 +83,7 @@ export default function Resume() {
                   Wrote onboarding docs and a pre-release checklist, reducing ramp-up time and
                   deployment blockers.
                 </li>
-              </ul>
+              </BulletList>
             </div>
           </div>
         </section>
@@ -121,22 +116,22 @@ export default function Resume() {
 
         <section className="mt-10">
           <h2 className="text-h3 font-semibold">Languages</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
+          <BulletList className="mt-4">
             <li>Russian — Native</li>
             <li>English — Professional working proficiency (B2)</li>
             <li>Serbian — Elementary proficiency (A1)</li>
-          </ul>
+          </BulletList>
         </section>
 
         <section className="mt-10">
           <h2 className="text-h3 font-semibold">Certificates & Professional Development</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
+          <BulletList className="mt-4">
             <li>Advanced TypeScript — Hexlet.io (Nov 2024 — Feb 2025)</li>
             <li>Web Developer ~720h — Yandex Practicum (Jan 2023 — Nov 2023)</li>
             <li>Responsive Web Design — freeCodeCamp (Jul 2022 — Nov 2022)</li>
-          </ul>
+          </BulletList>
         </section>
-      </div>
+      </Section>
     </main>
   );
 }

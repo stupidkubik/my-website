@@ -1,3 +1,5 @@
+import TextLink from "@/components/ui/TextLink";
+
 export default function Footer() {
   return (
     <footer className="border-t border-border">
@@ -9,21 +11,12 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex flex-wrap gap-4">
-          <a className="transition hover:text-fg" href="mailto:stupidkubik@gmail.com">
-            Email
-          </a>
-          <a
-            className="transition hover:text-fg"
-            href="https://www.linkedin.com/in/evgenii-rubin-60804724b/"
-          >
+          <TextLink href="mailto:stupidkubik@gmail.com">Email</TextLink>
+          <TextLink href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">
             LinkedIn
-          </a>
-          <a className="transition hover:text-fg" href="https://t.me/stupidpotato">
-            Telegram
-          </a>
-          <a className="transition hover:text-fg" href="https://github.com/stupidkubik">
-            GitHub
-          </a>
+          </TextLink>
+          <TextLink href="https://t.me/stupidpotato">Telegram</TextLink>
+          <TextLink href="https://github.com/stupidkubik">GitHub</TextLink>
         </div>
       </div>
     </footer>

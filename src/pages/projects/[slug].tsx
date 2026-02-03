@@ -1,5 +1,7 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import Badge from "@/components/ui/Badge";
+import BulletList from "@/components/ui/BulletList";
+import Section from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
 
 const projectData = {
@@ -123,7 +125,7 @@ type ProjectPageProps = {
 export default function ProjectDetail({ project }: ProjectPageProps) {
   return (
     <main>
-      <div className="container py-section">
+      <Section>
         <p className="text-label uppercase text-muted-fg">Projects</p>
         <h1 className="mt-2 text-h2 font-semibold">{project.title}</h1>
         <p className="mt-3 max-w-text text-body text-muted-fg">{project.summary}</p>
@@ -151,20 +153,20 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
 
         <div className="mt-10">
           <h2 className="text-h3 font-semibold">Challenges</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
+          <BulletList className="mt-4">
             {project.challenges.map((challenge) => (
               <li key={challenge}>{challenge}</li>
             ))}
-          </ul>
+          </BulletList>
         </div>
 
         <div className="mt-10">
           <h2 className="text-h3 font-semibold">Approach</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
+          <BulletList className="mt-4">
             {project.approach.map((item) => (
               <li key={item}>{item}</li>
             ))}
-          </ul>
+          </BulletList>
         </div>
 
         <div className="mt-10">
@@ -181,7 +183,7 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
             </ButtonLink>
           </div>
         </div>
-      </div>
+      </Section>
     </main>
   );
 }

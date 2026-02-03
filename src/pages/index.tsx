@@ -1,4 +1,6 @@
 import ProjectCard from "@/components/ui/ProjectCard";
+import Section from "@/components/ui/Section";
+import TextLink from "@/components/ui/TextLink";
 import { ButtonLink } from "@/components/ui/Button";
 
 const selectedProjects = [
@@ -22,7 +24,7 @@ const selectedProjects = [
 export default function Home() {
   return (
     <main>
-      <div className="container py-section-lg">
+      <Section size="lg" as="div">
         <p className="text-label uppercase text-muted-fg">Frontend Developer</p>
         <h1 className="mt-4 text-display font-semibold">
           Frontend developer focused on content-rich, high-quality web interfaces.
@@ -39,48 +41,36 @@ export default function Home() {
             Get in Touch
           </ButtonLink>
         </div>
-      </div>
+      </Section>
 
-      <section className="border-t border-border">
-        <div className="container py-section">
-          <div className="flex items-baseline justify-between">
-            <h2 className="text-h2 font-semibold">Selected Work</h2>
-            <a className="text-sm text-muted-fg underline" href="/projects">
-              All projects
-            </a>
-          </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            {selectedProjects.map((project) => (
-              <ProjectCard
-                key={project.name}
-                href={project.href}
-                title={project.name}
-                summary={project.summary}
-              />
-            ))}
-          </div>
+      <Section borderTop>
+        <div className="flex items-baseline justify-between">
+          <h2 className="text-h2 font-semibold">Selected Work</h2>
+          <TextLink href="/projects">All projects</TextLink>
         </div>
-      </section>
+        <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          {selectedProjects.map((project) => (
+            <ProjectCard
+              key={project.name}
+              href={project.href}
+              title={project.name}
+              summary={project.summary}
+            />
+          ))}
+        </div>
+      </Section>
 
-      <section className="border-t border-border">
-        <div className="container py-section">
-          <h2 className="text-h2 font-semibold">Contact</h2>
-          <p className="mt-3 text-body text-muted-fg">
-            Interested in working together or have a question? I’m just an email away.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-4 text-sm">
-            <a className="underline" href="mailto:stupidkubik@gmail.com">
-              stupidkubik@gmail.com
-            </a>
-            <a className="underline" href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">
-              LinkedIn
-            </a>
-            <a className="underline" href="https://t.me/stupidpotato">
-              Telegram
-            </a>
-          </div>
+      <Section borderTop>
+        <h2 className="text-h2 font-semibold">Contact</h2>
+        <p className="mt-3 text-body text-muted-fg">
+          Interested in working together or have a question? I’m just an email away.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-4 text-sm">
+          <TextLink href="mailto:stupidkubik@gmail.com">stupidkubik@gmail.com</TextLink>
+          <TextLink href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">LinkedIn</TextLink>
+          <TextLink href="https://t.me/stupidpotato">Telegram</TextLink>
         </div>
-      </section>
+      </Section>
     </main>
   );
 }
