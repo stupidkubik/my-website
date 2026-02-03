@@ -2,6 +2,7 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import Section from "@/components/ui/Section";
 import TextLink from "@/components/ui/TextLink";
 import { ButtonLink } from "@/components/ui/Button";
+import { Grid, GridCol } from "@/components/ui/Grid";
 
 const selectedProjects = [
   {
@@ -25,22 +26,26 @@ export default function Home() {
   return (
     <main>
       <Section size="lg" as="div">
-        <p className="text-label uppercase text-muted-fg">Frontend Developer</p>
-        <h1 className="mt-4 text-display font-semibold">
-          Frontend developer focused on content-rich, high-quality web interfaces.
-        </h1>
-        <p className="mt-4 max-w-text text-body text-muted-fg">
-          I have 2+ years in production CMS and design systems. I take a quality-first
-          approach: semantic markup, accessible layouts, cross-browser responsiveness, and careful QA.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <ButtonLink href="/projects">
-            View Projects
-          </ButtonLink>
-          <ButtonLink href="/contact" variant="outline">
-            Get in Touch
-          </ButtonLink>
-        </div>
+        <Grid>
+          <GridCol lg={8}>
+            <p className="text-label uppercase text-muted-fg">Frontend Developer</p>
+            <h1 className="mt-4 text-display font-semibold">
+              Frontend developer focused on content-rich, high-quality web interfaces.
+            </h1>
+            <p className="mt-4 max-w-text text-body text-muted-fg">
+              I have 2+ years in production CMS and design systems. I take a quality-first
+              approach: semantic markup, accessible layouts, cross-browser responsiveness, and careful QA.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink href="/projects">
+                View Projects
+              </ButtonLink>
+              <ButtonLink href="/contact" variant="outline">
+                Get in Touch
+              </ButtonLink>
+            </div>
+          </GridCol>
+        </Grid>
       </Section>
 
       <Section borderTop>
@@ -61,15 +66,19 @@ export default function Home() {
       </Section>
 
       <Section borderTop>
-        <h2 className="text-h2 font-semibold">Contact</h2>
-        <p className="mt-3 text-body text-muted-fg">
-          Interested in working together or have a question? I’m just an email away.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-4 text-sm">
-          <TextLink href="mailto:stupidkubik@gmail.com">stupidkubik@gmail.com</TextLink>
-          <TextLink href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">LinkedIn</TextLink>
-          <TextLink href="https://t.me/stupidpotato">Telegram</TextLink>
-        </div>
+        <Grid>
+          <GridCol lg={8}>
+            <h2 className="text-h2 font-semibold">Contact</h2>
+            <p className="mt-3 text-body text-muted-fg">
+              Interested in working together or have a question? I’m just an email away.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-4 text-sm">
+              <TextLink href="mailto:stupidkubik@gmail.com">stupidkubik@gmail.com</TextLink>
+              <TextLink href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">LinkedIn</TextLink>
+              <TextLink href="https://t.me/stupidpotato">Telegram</TextLink>
+            </div>
+          </GridCol>
+        </Grid>
       </Section>
     </main>
   );

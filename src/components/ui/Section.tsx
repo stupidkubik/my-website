@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from "react";
+import type { ElementType, HTMLAttributes, ReactNode } from "react";
 
 const sizeClasses = {
   default: "py-section",
@@ -12,7 +12,7 @@ type SectionProps<T extends ElementType> = {
   className?: string;
   containerClassName?: string;
   children: ReactNode;
-};
+} & Omit<HTMLAttributes<HTMLElement>, "color">;
 
 export default function Section<T extends ElementType = "section">({
   as,
@@ -20,11 +20,15 @@ export default function Section<T extends ElementType = "section">({
   borderTop = false,
   className = "",
   containerClassName = "",
-  children
+  children,
+  ...rest
 }: SectionProps<T>) {
   const Component = (as ?? "section") as ElementType;
   return (
-    <Component className={`${borderTop ? "border-t border-border" : ""} ${className}`.trim()}>
+    <Component
+      className={`${borderTop ? "border-t border-border" : ""} ${className}`.trim()}
+      {...rest}
+    >
       <div className={`container ${sizeClasses[size]} ${containerClassName}`.trim()}>
         {children}
       </div>

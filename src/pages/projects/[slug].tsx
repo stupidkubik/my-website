@@ -3,6 +3,7 @@ import Badge from "@/components/ui/Badge";
 import BulletList from "@/components/ui/BulletList";
 import Section from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
+import { Grid, GridCol } from "@/components/ui/Grid";
 
 const projectData = {
   "kanban-board": {
@@ -126,9 +127,13 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
   return (
     <main>
       <Section>
-        <p className="text-label uppercase text-muted-fg">Projects</p>
-        <h1 className="mt-2 text-h2 font-semibold">{project.title}</h1>
-        <p className="mt-3 max-w-text text-body text-muted-fg">{project.summary}</p>
+        <Grid>
+          <GridCol lg={8}>
+            <p className="text-label uppercase text-muted-fg">Projects</p>
+            <h1 className="mt-2 text-h2 font-semibold">{project.title}</h1>
+            <p className="mt-3 max-w-text text-body text-muted-fg">{project.summary}</p>
+          </GridCol>
+        </Grid>
 
         <div className="mt-8 rounded-lg border border-dashed border-border bg-muted px-6 py-10 text-center text-sm text-muted-fg">
           Screenshot placeholder (to be replaced)

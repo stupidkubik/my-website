@@ -1,6 +1,7 @@
 import ProjectCard from "@/components/ui/ProjectCard";
 import Section from "@/components/ui/Section";
 import TextLink from "@/components/ui/TextLink";
+import { Grid, GridCol } from "@/components/ui/Grid";
 
 const projects = [
   {
@@ -30,12 +31,16 @@ export default function Projects() {
   return (
     <main>
       <Section>
-        <h1 className="text-h2 font-semibold">Projects</h1>
-        <p className="mt-4 max-w-text text-body text-muted-fg">
-          Projects & Code — a focused set of projects I’ve shipped to sharpen my React and TypeScript
-          skills. Each one tackles a different challenge, from drag-and-drop interaction design to API
-          integrations. Click a project for the full case study.
-        </p>
+        <Grid>
+          <GridCol lg={8}>
+            <h1 className="text-h2 font-semibold">Projects</h1>
+            <p className="mt-4 max-w-text text-body text-muted-fg">
+              Projects & Code — a focused set of projects I’ve shipped to sharpen my React and TypeScript
+              skills. Each one tackles a different challenge, from drag-and-drop interaction design to API
+              integrations. Click a project for the full case study.
+            </p>
+          </GridCol>
+        </Grid>
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {projects.map((project) => (
             <ProjectCard
