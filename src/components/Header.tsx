@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import ThemeToggle from "./ThemeToggle";
 
 const navItems = [
   { href: "/about", label: "About" },
@@ -25,30 +26,33 @@ export default function Header() {
             Frontend Developer
           </p>
         </div>
-        <nav
-          aria-label="Primary"
-          className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.08em] text-muted-fg xxs:gap-2 xxs:text-[10px] xxs:tracking-[0.06em] xs:gap-4 xs:text-xs xs:tracking-[0.12em] sm:gap-6 sm:text-[0.95rem] sm:tracking-[0.02em]"
-        >
-          {navItems.map((item) => {
-            const isActive =
-              router.pathname === item.href ||
-              (item.href !== "/" && router.pathname.startsWith(item.href));
-            return (
-              <Link
-                key={item.href}
-                aria-current={isActive ? "page" : undefined}
-                className={`transition ${
-                  isActive
-                    ? "text-fg"
-                    : "text-muted-fg hover:text-fg"
-                } inline-flex min-h-[2rem] items-center py-1`}
-                href={item.href}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
+        <div className="flex flex-wrap items-center gap-2 xs:gap-3 sm:gap-5">
+          <nav
+            aria-label="Primary"
+            className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.08em] text-muted-fg xxs:gap-2 xxs:text-[10px] xxs:tracking-[0.06em] xs:gap-4 xs:text-xs xs:tracking-[0.12em] sm:gap-6 sm:text-[0.95rem] sm:tracking-[0.02em]"
+          >
+            {navItems.map((item) => {
+              const isActive =
+                router.pathname === item.href ||
+                (item.href !== "/" && router.pathname.startsWith(item.href));
+              return (
+                <Link
+                  key={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`transition ${
+                    isActive
+                      ? "text-fg"
+                      : "text-muted-fg hover:text-fg"
+                  } inline-flex min-h-[2rem] items-center py-1`}
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

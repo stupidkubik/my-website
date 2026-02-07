@@ -28,4 +28,4 @@
 - [x] Add sitemap.xml and robots.txt
 - [x] Add accessibility pass (focus states, aria labels where needed)
 - [x] Consider subtle motion (page load/staggered reveals)
-- [ ] Optional: dark mode after light theme is finalized
+- [x] Optional: dark mode after light theme is finalized
