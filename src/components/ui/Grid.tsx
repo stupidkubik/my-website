@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from "react";
 
 export function Grid({ className = "", ...props }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={`grid grid-cols-12 gap-6 ${className}`} {...props} />;
+  return <div className={`grid grid-cols-12 gap-5 xs:gap-6 ${className}`} {...props} />;
 }
 
 const colSpan = {

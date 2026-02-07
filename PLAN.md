@@ -14,11 +14,12 @@
 - [x] Stabilize typography and copy consistency
 - [x] Add modular rhythm with `Stack` and align spacing across pages
 - [x] Add optional grid overlay (currently disabled)
+- [x] Add extra-small breakpoint (`375px`) and tiny-screen adjustments
 - [x] Lint passes
 
 ## Current Focus
-- [ ] Stabilize layouts and modular rhythm (final pass)
-- [ ] Decide on grid overlay treatment (keep off, refine, or replace)
+- [x] Stabilize layouts and modular rhythm (final pass)
+- [x] Decide on grid overlay treatment (keep off)
 
 ## Backlog
 - [ ] Replace placeholders with project screenshots/media

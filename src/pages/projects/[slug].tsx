@@ -138,11 +138,11 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
         <Stack size="xl">
           <Grid>
             <GridCol lg={8}>
-              <p className="text-label uppercase text-muted-fg">Projects</p>
-              <div className="mt-2">
+              <Stack size="sm">
+                <p className="text-label uppercase text-muted-fg">Projects</p>
                 <PageTitle>{project.title}</PageTitle>
-              </div>
-              <p className="mt-3 max-w-text text-body text-muted-fg">{project.summary}</p>
+                <p className="max-w-text text-body text-muted-fg">{project.summary}</p>
+              </Stack>
             </GridCol>
           </Grid>
 
@@ -156,20 +156,20 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2">
-            <div>
+            <Stack size="sm">
               <h2 className="text-label uppercase text-muted-fg">Role</h2>
-              <p className="mt-2 text-sm text-muted-fg">{project.role}</p>
-            </div>
-            <div>
+              <p className="text-sm text-muted-fg">{project.role}</p>
+            </Stack>
+            <Stack size="sm">
               <h2 className="text-label uppercase text-muted-fg">Stack</h2>
-              <ul className="mt-2 flex flex-wrap gap-2">
+              <ul className="flex flex-wrap gap-2">
                 {project.stack.map((item) => (
                   <li key={item}>
                     <Badge>{item}</Badge>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Stack>
           </div>
 
           <Stack size="md">

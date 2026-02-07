@@ -11,7 +11,9 @@ export default function NotFound() {
           <GridCol lg={8} className="lg:col-start-3">
             <Stack size="lg" className="items-center">
               <p className="text-label uppercase text-muted-fg">404</p>
-              <h1 className="text-h2 font-semibold">Page not found</h1>
+              <h1 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">
+                Page not found
+              </h1>
               <p className="text-body text-muted-fg">
                 The page you are looking for doesn’t exist. Head back to the homepage.
               </p>

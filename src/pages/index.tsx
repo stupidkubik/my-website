@@ -28,10 +28,10 @@ export default function Home() {
     <main>
       <Section size="lg" as="div">
         <Grid>
-          <GridCol lg={8}>
+          <GridCol lg={9}>
             <Stack size="lg">
               <p className="text-label uppercase text-muted-fg">Frontend Developer</p>
-              <h1 className="text-display font-semibold">
+              <h1 className="text-[2.125rem] font-semibold leading-[1.08] tracking-[-0.02em] xs:text-[2.5rem] sm:text-display">
                 Frontend developer focused on content-rich, high-quality web interfaces.
               </h1>
               <p className="max-w-text text-body text-muted-fg">
@@ -53,11 +53,11 @@ export default function Home() {
 
       <Section borderTop>
         <Stack size="lg">
-          <div className="flex items-baseline justify-between">
-            <h2 className="text-h2 font-semibold">Selected Work</h2>
-            <TextLink href="/projects">All projects</TextLink>
+          <div className="flex flex-col gap-2 xs:flex-row xs:items-baseline xs:justify-between lg:justify-start lg:gap-8">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">Selected Work</h2>
+            <TextLink className="self-end whitespace-nowrap xs:self-auto" href="/projects">All projects</TextLink>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {selectedProjects.map((project) => (
               <ProjectCard
                 key={project.name}
@@ -72,9 +72,9 @@ export default function Home() {
 
       <Section borderTop>
         <Grid>
-          <GridCol lg={8}>
+          <GridCol lg={9}>
             <Stack size="md">
-              <h2 className="text-h2 font-semibold">Contact</h2>
+              <h2 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">Contact</h2>
               <p className="text-body text-muted-fg">
                 Interested in working together or have a question? I’m just an email away.
               </p>

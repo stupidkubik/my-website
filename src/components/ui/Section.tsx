@@ -1,8 +1,8 @@
 import type { ElementType, HTMLAttributes, ReactNode } from "react";
 
 const sizeClasses = {
-  default: "py-section",
-  lg: "py-section-lg"
+  default: "py-12 xs:py-14 sm:py-section",
+  lg: "py-16 xs:py-20 sm:py-24 lg:py-section-lg"
 } as const;
 
 type SectionProps<T extends ElementType> = {

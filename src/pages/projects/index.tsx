@@ -37,38 +37,40 @@ export default function Projects() {
   return (
     <main>
       <Section>
-        <Grid>
-          <GridCol lg={8}>
-            <Stack size="md">
-              <PageTitle>Projects</PageTitle>
-              <p className="max-w-text text-body text-muted-fg">
-                Projects & Code — a focused set of projects I’ve shipped to sharpen my React and TypeScript
-                skills. Each one tackles a different challenge, from drag-and-drop interaction design to API
-                integrations. Click a project for the full case study.
-              </p>
-            </Stack>
-          </GridCol>
-        </Grid>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.slug}
-              href={`/projects/${project.slug}`}
-              title={project.name}
-              summary={project.summary}
-            >
-              <div className="flex flex-wrap gap-2">
-                {project.stack.map((item) => (
-                  <Badge key={item}>{item}</Badge>
-                ))}
-              </div>
-              <div className="inline-flex w-fit flex-wrap gap-4 pointer-events-auto">
-                <TextLink href={project.demo}>Live Demo</TextLink>
-                <TextLink href={project.code}>Source Code</TextLink>
-              </div>
-            </ProjectCard>
-          ))}
-        </div>
+        <Stack size="lg">
+          <Grid>
+            <GridCol lg={9}>
+              <Stack size="md">
+                <PageTitle>Projects</PageTitle>
+                <p className="max-w-text text-body text-muted-fg">
+                  Projects & Code — a focused set of projects I’ve shipped to sharpen my React and TypeScript
+                  skills. Each one tackles a different challenge, from drag-and-drop interaction design to API
+                  integrations. Click a project for the full case study.
+                </p>
+              </Stack>
+            </GridCol>
+          </Grid>
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {projects.map((project) => (
+              <ProjectCard
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                title={project.name}
+                summary={project.summary}
+              >
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((item) => (
+                    <Badge key={item}>{item}</Badge>
+                  ))}
+                </div>
+                <div className="pointer-events-auto inline-flex w-fit flex-wrap gap-4">
+                  <TextLink href={project.demo}>Live Demo</TextLink>
+                  <TextLink href={project.code}>Source Code</TextLink>
+                </div>
+              </ProjectCard>
+            ))}
+          </div>
+        </Stack>
       </Section>
     </main>
   );
