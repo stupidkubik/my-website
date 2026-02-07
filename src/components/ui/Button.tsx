@@ -19,6 +19,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 type ButtonLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   variant?: ButtonVariant;
   children: ReactNode;
+  openInNewTab?: boolean;
 };
 
 export function Button({
@@ -40,22 +41,27 @@ export function ButtonLink({
   className = "",
   variant = "primary",
   href,
+  target,
+  rel,
+  openInNewTab = true,
   children,
   ...props
 }: ButtonLinkProps) {
   const isInternal = typeof href === "string" && href.startsWith("/");
   const classes = `${baseClassName} ${variantStyles[variant]} ${className}`;
+  const resolvedTarget = target ?? (openInNewTab ? "_blank" : undefined);
+  const resolvedRel = resolvedTarget === "_blank" ? (rel ?? "noopener noreferrer") : rel;
 
   if (isInternal && href) {
     return (
-      <Link className={classes} href={href}>
+      <Link className={classes} href={href} target={resolvedTarget} rel={resolvedRel}>
         {children}
       </Link>
     );
   }
 
   return (
-    <a className={classes} href={href} {...props}>
+    <a className={classes} href={href} rel={resolvedRel} target={resolvedTarget} {...props}>
       {children}
     </a>
   );

@@ -1,4 +1,5 @@
 import Badge from "@/components/ui/Badge";
+import SeoHead from "@/components/SeoHead";
 import PageTitle from "@/components/ui/PageTitle";
 import ProjectCard from "@/components/ui/ProjectCard";
 import Section from "@/components/ui/Section";
@@ -35,8 +36,15 @@ const projects = [
 
 export default function Projects() {
   return (
-    <main>
-      <Section>
+    <>
+      <SeoHead
+        description="Selected frontend projects by Evgenii Rubin: Kanban Board App, Stripe Mini App, and Admin Dashboard MVP with case studies and source code."
+        ogImage="/og/kanban-board.webp"
+        path="/projects"
+        title="Projects"
+      />
+      <main>
+        <Section>
         <Stack size="lg">
           <Grid>
             <GridCol lg={9}>
@@ -71,7 +79,8 @@ export default function Projects() {
             ))}
           </div>
         </Stack>
-      </Section>
-    </main>
+        </Section>
+      </main>
+    </>
   );
 }

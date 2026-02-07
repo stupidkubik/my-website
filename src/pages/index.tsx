@@ -1,4 +1,5 @@
 import ProjectCard from "@/components/ui/ProjectCard";
+import SeoHead from "@/components/SeoHead";
 import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
 import TextLink from "@/components/ui/TextLink";
@@ -25,8 +26,14 @@ const selectedProjects = [
 
 export default function Home() {
   return (
-    <main>
-      <Section size="lg" as="div">
+    <>
+      <SeoHead
+        description="Frontend developer portfolio focused on content-rich, high-quality web interfaces: semantic HTML, accessible layouts, and careful QA."
+        ogImage="/media/projects/kanban-board/cover.webp"
+        path="/"
+      />
+      <main>
+        <Section size="lg" as="div">
         <Grid>
           <GridCol lg={9}>
             <Stack size="lg">
@@ -49,9 +56,9 @@ export default function Home() {
             </Stack>
           </GridCol>
         </Grid>
-      </Section>
+        </Section>
 
-      <Section borderTop>
+        <Section borderTop>
         <Stack size="lg">
           <div className="flex flex-col gap-2 xs:flex-row xs:items-baseline xs:justify-between lg:justify-start lg:gap-8">
             <h2 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">Selected Work</h2>
@@ -68,9 +75,9 @@ export default function Home() {
             ))}
           </div>
         </Stack>
-      </Section>
+        </Section>
 
-      <Section borderTop>
+        <Section borderTop>
         <Grid>
           <GridCol lg={9}>
             <Stack size="md">
@@ -86,7 +93,8 @@ export default function Home() {
             </Stack>
           </GridCol>
         </Grid>
-      </Section>
-    </main>
+        </Section>
+      </main>
+    </>
   );
 }

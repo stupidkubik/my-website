@@ -1,4 +1,6 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
+import Image from "next/image";
+import SeoHead from "@/components/SeoHead";
 import Badge from "@/components/ui/Badge";
 import BulletList from "@/components/ui/BulletList";
 import PageTitle from "@/components/ui/PageTitle";
@@ -40,7 +42,14 @@ const projectData = {
     links: {
       demo: "https://kanban-board-app-ten-psi.vercel.app/",
       code: "https://github.com/stupidkubik/kanban-board-app"
-    }
+    },
+    media: {
+      src: "/media/projects/kanban-board/cover.webp",
+      alt: "Kanban board project screenshot with column layout and cards.",
+      width: 1600,
+      height: 973
+    },
+    ogImage: "/og/kanban-board.webp"
   },
   "stripe-mini-app": {
     title: "Stripe Mini App",
@@ -74,7 +83,14 @@ const projectData = {
     links: {
       demo: "https://stripe-mini-shop.vercel.app/",
       code: "https://github.com/stupidkubik/Stripe-mini-app"
-    }
+    },
+    media: {
+      src: "/media/projects/stripe-mini-app/cover.webp",
+      alt: "Stripe mini app screenshot with product list and checkout flow.",
+      width: 1600,
+      height: 973
+    },
+    ogImage: "/og/stripe-mini-shop.webp"
   },
   "admin-dashboard": {
     title: "Admin Dashboard MVP",
@@ -105,7 +121,14 @@ const projectData = {
     links: {
       demo: "https://admin-dashboard-mvp-three.vercel.app/",
       code: "https://github.com/stupidkubik/Admin-Dashboard-MVP"
-    }
+    },
+    media: {
+      src: "/media/projects/admin-dashboard/cover.webp",
+      alt: "Admin dashboard screenshot with data table, charts, and filters.",
+      width: 1600,
+      height: 973
+    },
+    ogImage: "/og/admin-dashboard.webp"
   }
 } as const;
 
@@ -122,20 +145,34 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as ProjectSlug;
   return {
     props: {
-      project: projectData[slug]
+      project: projectData[slug],
+      slug
     }
   };
 };
 
 type ProjectPageProps = {
   project: (typeof projectData)[ProjectSlug];
+  slug: ProjectSlug;
 };
 
-export default function ProjectDetail({ project }: ProjectPageProps) {
+export default function ProjectDetail({ project, slug }: ProjectPageProps) {
   return (
-    <main>
-      <Section>
-        <Stack size="xl">
+    <>
+      <SeoHead
+        description={project.summary}
+        ogImage={project.ogImage}
+        path={`/projects/${slug}`}
+        title={project.title}
+        type="article"
+      />
+      <main>
+        <Section containerClassName="py-10 xs:py-12 sm:py-14">
+        <Stack size="lg">
+          <ButtonLink className="w-fit" href="/projects" openInNewTab={false} variant="ghost">
+            &larr; Back
+          </ButtonLink>
+
           <Grid>
             <GridCol lg={8}>
               <Stack size="sm">
@@ -151,8 +188,16 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
             <p className="max-w-text text-body text-muted-fg">{project.context}</p>
           </Stack>
 
-          <div className="rounded-lg border border-dashed border-border bg-muted px-6 py-10 text-center text-sm text-muted-fg">
-            Screenshot placeholder (to be replaced)
+          <div className="overflow-hidden rounded-lg border border-border bg-muted">
+            <Image
+              alt={project.media.alt}
+              className="h-auto w-full"
+              height={project.media.height}
+              priority
+              sizes="(min-width: 1200px) 1200px, 100vw"
+              src={project.media.src}
+              width={project.media.width}
+            />
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2">
@@ -205,7 +250,8 @@ export default function ProjectDetail({ project }: ProjectPageProps) {
             </div>
           </Stack>
         </Stack>
-      </Section>
-    </main>
+        </Section>
+      </main>
+    </>
   );
 }

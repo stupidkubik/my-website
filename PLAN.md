@@ -22,9 +22,10 @@
 - [x] Decide on grid overlay treatment (keep off)
 
 ## Backlog
-- [ ] Replace placeholders with project screenshots/media
-- [ ] Implement downloadable neutral CV (PDF)
-- [ ] Add SEO metadata (OG, canonical, sitemap, robots)
+- [x] Replace placeholders with project screenshots/media
+- [x] Implement downloadable neutral CV (PDF)
+- [x] Add SEO metadata baseline (title/description/OG/canonical/twitter)
+- [ ] Add sitemap.xml and robots.txt
 - [ ] Add accessibility pass (focus states, aria labels where needed)
 - [ ] Consider subtle motion (page load/staggered reveals)
 - [ ] Optional: dark mode after light theme is finalized

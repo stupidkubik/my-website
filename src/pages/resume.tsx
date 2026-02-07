@@ -1,5 +1,6 @@
-import { Button } from "@/components/ui/Button";
+import { ButtonLink } from "@/components/ui/Button";
 import BulletList from "@/components/ui/BulletList";
+import SeoHead from "@/components/SeoHead";
 import PageTitle from "@/components/ui/PageTitle";
 import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
@@ -8,8 +9,14 @@ import { Grid, GridCol } from "@/components/ui/Grid";
 
 export default function Resume() {
   return (
-    <main>
-      <Section>
+    <>
+      <SeoHead
+        description="Resume of Evgenii Rubin: frontend developer with CMS/design systems experience, shipped projects, and strong quality and accessibility focus."
+        path="/resume"
+        title="Resume"
+      />
+      <main>
+        <Section>
         <Grid>
           <GridCol lg={8}>
             <Stack size="xl">
@@ -18,7 +25,9 @@ export default function Resume() {
                   <PageTitle>Evgenii Rubin</PageTitle>
                   <p className="text-sm text-muted-fg">Frontend Developer · Novi Sad, Serbia</p>
                 </Stack>
-                <Button variant="outline">Download PDF</Button>
+                <ButtonLink href="/media/resume/evgenii-rubin-cv.pdf" variant="outline">
+                  Download PDF
+                </ButtonLink>
               </div>
 
               <section className="text-sm text-muted-fg">
@@ -149,7 +158,8 @@ export default function Resume() {
             </Stack>
           </GridCol>
         </Grid>
-      </Section>
-    </main>
+        </Section>
+      </main>
+    </>
   );
 }

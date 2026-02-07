@@ -1,4 +1,5 @@
 import BulletList from "@/components/ui/BulletList";
+import SeoHead from "@/components/SeoHead";
 import PageTitle from "@/components/ui/PageTitle";
 import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
@@ -6,8 +7,13 @@ import { Grid, GridCol } from "@/components/ui/Grid";
 
 export default function About() {
   return (
-    <main>
-      <Section>
+    <>
+      <SeoHead
+        description="About Evgenii Rubin: frontend developer with 2+ years in CMS and design systems, focused on semantic markup, accessibility, and stable delivery."
+        path="/about"
+      />
+      <main>
+        <Section>
         <Grid>
           <GridCol lg={8}>
             <Stack size="lg">
@@ -44,7 +50,8 @@ export default function About() {
             </Stack>
           </GridCol>
         </Grid>
-      </Section>
-    </main>
+        </Section>
+      </main>
+    </>
   );
 }

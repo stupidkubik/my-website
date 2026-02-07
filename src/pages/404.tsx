@@ -2,11 +2,14 @@ import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
 import { Grid, GridCol } from "@/components/ui/Grid";
 import { ButtonLink } from "@/components/ui/Button";
+import SeoHead from "@/components/SeoHead";
 
 export default function NotFound() {
   return (
-    <main>
-      <Section className="text-center">
+    <>
+      <SeoHead noindex path="/404" title="Page Not Found" />
+      <main>
+        <Section className="text-center">
         <Grid>
           <GridCol lg={8} className="lg:col-start-3">
             <Stack size="lg" className="items-center">
@@ -23,7 +26,8 @@ export default function NotFound() {
             </Stack>
           </GridCol>
         </Grid>
-      </Section>
-    </main>
+        </Section>
+      </main>
+    </>
   );
 }

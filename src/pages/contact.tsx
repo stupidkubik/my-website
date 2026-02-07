@@ -1,4 +1,5 @@
 import PageTitle from "@/components/ui/PageTitle";
+import SeoHead from "@/components/SeoHead";
 import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
 import TextLink from "@/components/ui/TextLink";
@@ -6,8 +7,14 @@ import { Grid, GridCol } from "@/components/ui/Grid";
 
 export default function Contact() {
   return (
-    <main>
-      <Section size="lg">
+    <>
+      <SeoHead
+        description="Contact Evgenii Rubin for frontend development work: content-heavy interfaces, design systems, and quality-first implementation."
+        path="/contact"
+        title="Contact"
+      />
+      <main>
+        <Section size="lg">
         <Grid>
           <GridCol lg={9}>
             <Stack size="lg">
@@ -35,7 +42,8 @@ export default function Contact() {
             </Stack>
           </GridCol>
         </Grid>
-      </Section>
-    </main>
+        </Section>
+      </main>
+    </>
   );
 }
