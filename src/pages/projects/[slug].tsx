@@ -1,12 +1,21 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
+import Image from "next/image";
+import SeoHead from "@/components/SeoHead";
 import Badge from "@/components/ui/Badge";
+import BulletList from "@/components/ui/BulletList";
+import PageTitle from "@/components/ui/PageTitle";
+import Section from "@/components/ui/Section";
+import Stack from "@/components/ui/Stack";
 import { ButtonLink } from "@/components/ui/Button";
+import { Grid, GridCol } from "@/components/ui/Grid";
 
 const projectData = {
   "kanban-board": {
     title: "Kanban Board App",
     summary:
       "Real-time collaborative Kanban board with authentication, roles, and drag-and-drop.",
+    context:
+      "Built as a collaboration-focused Kanban tool to explore real-time workflows, access control, and complex drag-and-drop interactions.",
     role: "Frontend Developer",
     stack: [
       "Next.js App Router",
@@ -33,12 +42,21 @@ const projectData = {
     links: {
       demo: "https://kanban-board-app-ten-psi.vercel.app/",
       code: "https://github.com/stupidkubik/kanban-board-app"
-    }
+    },
+    media: {
+      src: "/media/projects/kanban-board/cover.webp",
+      alt: "Kanban board project screenshot with column layout and cards.",
+      width: 1600,
+      height: 973
+    },
+    ogImage: "/og/kanban-board.webp"
   },
   "stripe-mini-app": {
     title: "Stripe Mini App",
     summary:
       "Compact e-commerce demo with Stripe Checkout, webhooks, and validation.",
+    context:
+      "Created to validate a full checkout flow with Stripe, from catalog to payment confirmation and webhook handling.",
     role: "Frontend Developer",
     stack: [
       "Next.js App Router",
@@ -65,12 +83,21 @@ const projectData = {
     links: {
       demo: "https://stripe-mini-shop.vercel.app/",
       code: "https://github.com/stupidkubik/Stripe-mini-app"
-    }
+    },
+    media: {
+      src: "/media/projects/stripe-mini-app/cover.webp",
+      alt: "Stripe mini app screenshot with product list and checkout flow.",
+      width: 1600,
+      height: 973
+    },
+    ogImage: "/og/stripe-mini-shop.webp"
   },
   "admin-dashboard": {
     title: "Admin Dashboard MVP",
     summary:
       "Dashboard UI for data-heavy screens with tables, charts, filters, and i18n.",
+    context:
+      "Designed to practice building complex dashboard layouts with data states, reusable components, and localization.",
     role: "Frontend Developer",
     stack: [
       "Next.js",
@@ -94,7 +121,14 @@ const projectData = {
     links: {
       demo: "https://admin-dashboard-mvp-three.vercel.app/",
       code: "https://github.com/stupidkubik/Admin-Dashboard-MVP"
-    }
+    },
+    media: {
+      src: "/media/projects/admin-dashboard/cover.webp",
+      alt: "Admin dashboard screenshot with data table, charts, and filters.",
+      width: 1600,
+      height: 973
+    },
+    ogImage: "/og/admin-dashboard.webp"
   }
 } as const;
 
@@ -111,77 +145,115 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as ProjectSlug;
   return {
     props: {
-      project: projectData[slug]
+      project: projectData[slug],
+      slug
     }
   };
 };
 
 type ProjectPageProps = {
   project: (typeof projectData)[ProjectSlug];
+  slug: ProjectSlug;
 };
 
-export default function ProjectDetail({ project }: ProjectPageProps) {
+export default function ProjectDetail({ project, slug }: ProjectPageProps) {
   return (
-    <main>
-      <div className="container py-section">
-        <p className="text-label uppercase text-muted-fg">Projects</p>
-        <h1 className="mt-2 text-h2 font-semibold">{project.title}</h1>
-        <p className="mt-3 max-w-text text-body text-muted-fg">{project.summary}</p>
+    <>
+      <SeoHead
+        description={project.summary}
+        ogImage={project.ogImage}
+        path={`/projects/${slug}`}
+        title={project.title}
+        type="article"
+      />
+      <main id="main-content" tabIndex={-1}>
+        <Section containerClassName="py-10 xs:py-12 sm:py-14 motion-reveal">
+        <Stack size="lg">
+          <ButtonLink className="w-fit" href="/projects" openInNewTab={false} variant="ghost">
+            &larr; Back
+          </ButtonLink>
 
-        <div className="mt-8 rounded-lg border border-dashed border-border bg-muted px-6 py-10 text-center text-sm text-muted-fg">
-          Screenshot placeholder (to be replaced)
-        </div>
+          <Grid>
+            <GridCol lg={8}>
+              <Stack size="sm">
+                <p className="text-label uppercase text-muted-fg">Projects</p>
+                <PageTitle>{project.title}</PageTitle>
+                <p className="max-w-text text-body text-muted-fg">{project.summary}</p>
+              </Stack>
+            </GridCol>
+          </Grid>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          <div>
-            <h2 className="text-label uppercase text-muted-fg">Role</h2>
-            <p className="mt-2 text-sm text-muted-fg">{project.role}</p>
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Context</h2>
+            <p className="max-w-text text-body text-muted-fg">{project.context}</p>
+          </Stack>
+
+          <div className="overflow-hidden rounded-lg border border-border bg-muted">
+            <Image
+              alt={project.media.alt}
+              className="h-auto w-full"
+              height={project.media.height}
+              priority
+              sizes="(min-width: 1200px) 1200px, 100vw"
+              src={project.media.src}
+              width={project.media.width}
+            />
           </div>
-          <div>
-            <h2 className="text-label uppercase text-muted-fg">Stack</h2>
-            <ul className="mt-2 flex flex-wrap gap-2">
-              {project.stack.map((item) => (
-                <li key={item}>
-                  <Badge>{item}</Badge>
-                </li>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            <Stack size="sm">
+              <h2 className="text-label uppercase text-muted-fg">Role</h2>
+              <p className="text-sm text-muted-fg">{project.role}</p>
+            </Stack>
+            <Stack size="sm">
+              <h2 className="text-label uppercase text-muted-fg">Stack</h2>
+              <ul className="flex flex-wrap gap-2">
+                {project.stack.map((item) => (
+                  <li key={item}>
+                    <Badge>{item}</Badge>
+                  </li>
+                ))}
+              </ul>
+            </Stack>
+          </div>
+
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Challenges</h2>
+            <BulletList className="max-w-text">
+              {project.challenges.map((challenge) => (
+                <li key={challenge}>{challenge}</li>
               ))}
-            </ul>
-          </div>
-        </div>
+            </BulletList>
+          </Stack>
 
-        <div className="mt-10">
-          <h2 className="text-h3 font-semibold">Challenges</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
-            {project.challenges.map((challenge) => (
-              <li key={challenge}>{challenge}</li>
-            ))}
-          </ul>
-        </div>
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Approach</h2>
+            <BulletList className="max-w-text">
+              {project.approach.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </BulletList>
+          </Stack>
 
-        <div className="mt-10">
-          <h2 className="text-h3 font-semibold">Approach</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-muted-fg">
-            {project.approach.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Outcome</h2>
+            <p className="max-w-text text-body text-muted-fg">{project.outcome}</p>
+          </Stack>
 
-        <div className="mt-10">
-          <h2 className="text-h3 font-semibold">Outcome</h2>
-          <p className="mt-3 text-body text-muted-fg">{project.outcome}</p>
-        </div>
-
-        <div className="mt-10">
-          <h2 className="text-h3 font-semibold">Links</h2>
-          <div className="mt-3 flex flex-wrap gap-3 text-sm">
-            <ButtonLink href={project.links.demo}>Live Demo</ButtonLink>
-            <ButtonLink href={project.links.code} variant="outline">
-              Source Code
-            </ButtonLink>
-          </div>
-        </div>
-      </div>
-    </main>
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Links</h2>
+            <div className="flex flex-wrap gap-3 text-sm">
+              <ButtonLink href={project.links.demo} openInNewTab>
+                Live Demo
+              </ButtonLink>
+              <ButtonLink href={project.links.code} openInNewTab variant="outline">
+                Source Code
+              </ButtonLink>
+            </div>
+          </Stack>
+        </Stack>
+        </Section>
+      </main>
+    </>
   );
 }

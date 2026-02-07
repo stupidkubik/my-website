@@ -8,13 +8,21 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "1.5rem",
+      padding: {
+        DEFAULT: "1rem",
+        xs: "1.25rem",
+        sm: "1.5rem"
+      },
       screens: {
         lg: "1024px",
         xl: "1200px"
       }
     },
     extend: {
+      screens: {
+        xxs: { max: "375px" },
+        xs: "375px"
+      },
       colors: {
         bg: "var(--color-bg)",
         fg: "var(--color-fg)",
