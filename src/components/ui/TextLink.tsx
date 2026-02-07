@@ -10,6 +10,7 @@ type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   tone?: keyof typeof toneStyles;
   children: ReactNode;
   openInNewTab?: boolean;
+  withExternalIndicator?: boolean;
 };
 
 export default function TextLink({
@@ -18,26 +19,51 @@ export default function TextLink({
   href,
   target,
   rel,
-  openInNewTab = true,
+  "aria-label": ariaLabel,
+  openInNewTab = false,
+  withExternalIndicator = false,
   children,
   ...props
 }: TextLinkProps) {
   const isInternal = typeof href === "string" && href.startsWith("/");
-  const classes = `underline transition hover:text-fg ${toneStyles[tone]} ${className}`;
+  const classes =
+    `underline transition hover:text-fg focus-visible:ring-2 focus-visible:ring-fg ` +
+    `focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${toneStyles[tone]} ${className}`;
   const resolvedTarget = target ?? (openInNewTab ? "_blank" : undefined);
   const resolvedRel = resolvedTarget === "_blank" ? (rel ?? "noopener noreferrer") : rel;
+  const resolvedAriaLabel =
+    ariaLabel ??
+    (resolvedTarget === "_blank" && typeof children === "string"
+      ? `${children} (opens in a new tab)`
+      : undefined);
+  const showExternalIndicator = withExternalIndicator && resolvedTarget === "_blank";
 
   if (isInternal && href) {
     return (
-      <Link className={classes} href={href} rel={resolvedRel} target={resolvedTarget}>
+      <Link
+        aria-label={resolvedAriaLabel}
+        className={classes}
+        href={href}
+        rel={resolvedRel}
+        target={resolvedTarget}
+      >
         {children}
+        {showExternalIndicator ? <span aria-hidden="true">{" \u2197"}</span> : null}
       </Link>
     );
   }
 
   return (
-    <a className={classes} href={href} rel={resolvedRel} target={resolvedTarget} {...props}>
+    <a
+      aria-label={resolvedAriaLabel}
+      className={classes}
+      href={href}
+      rel={resolvedRel}
+      target={resolvedTarget}
+      {...props}
+    >
       {children}
+      {showExternalIndicator ? <span aria-hidden="true">{" \u2197"}</span> : null}
     </a>
   );
 }

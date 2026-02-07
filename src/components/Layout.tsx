@@ -11,6 +11,9 @@ export default function Layout({ children }: { children: ReactNode }) {
         GRID_OVERLAY_ENABLED ? "grid-overlay" : "grid-overlay grid-overlay--off"
       }`}
     >
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <Header />
       <div className="flex-1">{children}</div>
       <Footer />

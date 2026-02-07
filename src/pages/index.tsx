@@ -32,7 +32,7 @@ export default function Home() {
         ogImage="/media/projects/kanban-board/cover.webp"
         path="/"
       />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Section size="lg" as="div">
         <Grid>
           <GridCol lg={9}>
@@ -87,8 +87,16 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4 text-sm">
                 <TextLink href="mailto:stupidkubik@gmail.com">stupidkubik@gmail.com</TextLink>
-                <TextLink href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">LinkedIn</TextLink>
-                <TextLink href="https://t.me/stupidpotato">Telegram</TextLink>
+                <TextLink
+                  href="https://www.linkedin.com/in/evgenii-rubin-60804724b/"
+                  openInNewTab
+                  withExternalIndicator
+                >
+                  LinkedIn
+                </TextLink>
+                <TextLink href="https://t.me/stupidpotato" openInNewTab withExternalIndicator>
+                  Telegram
+                </TextLink>
               </div>
             </Stack>
           </GridCol>

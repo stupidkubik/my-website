@@ -13,7 +13,7 @@ export default function Contact() {
         path="/contact"
         title="Contact"
       />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Section size="lg">
         <Grid>
           <GridCol lg={9}>
@@ -25,8 +25,16 @@ export default function Contact() {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <TextLink href="mailto:stupidkubik@gmail.com">Email</TextLink>
-                  <TextLink href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">LinkedIn</TextLink>
-                  <TextLink href="https://t.me/stupidpotato">Telegram</TextLink>
+                  <TextLink
+                    href="https://www.linkedin.com/in/evgenii-rubin-60804724b/"
+                    openInNewTab
+                    withExternalIndicator
+                  >
+                    LinkedIn
+                  </TextLink>
+                  <TextLink href="https://t.me/stupidpotato" openInNewTab withExternalIndicator>
+                    Telegram
+                  </TextLink>
                 </div>
               </Stack>
               <div className="grid gap-6 sm:grid-cols-2">

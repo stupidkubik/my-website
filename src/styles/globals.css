@@ -21,6 +21,32 @@
   a {
     @apply underline-offset-4;
   }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-none ring-2 ring-fg ring-offset-2 ring-offset-bg;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  z-index: 50;
+  border: 1px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  text-decoration: none;
+  transform: translateY(-180%);
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
 }
 
 .stretched-link {

@@ -43,7 +43,7 @@ export default function Projects() {
         path="/projects"
         title="Projects"
       />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Section>
         <Stack size="lg">
           <Grid>
@@ -72,8 +72,12 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="pointer-events-auto inline-flex w-fit flex-wrap gap-4">
-                  <TextLink href={project.demo}>Live Demo</TextLink>
-                  <TextLink href={project.code}>Source Code</TextLink>
+                  <TextLink href={project.demo} openInNewTab>
+                    Live Demo
+                  </TextLink>
+                  <TextLink href={project.code} openInNewTab>
+                    Source Code
+                  </TextLink>
                 </div>
               </ProjectCard>
             ))}

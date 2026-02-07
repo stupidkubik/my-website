@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 
 const baseClassName =
-  "inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium transition";
+  "inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-fg focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:pointer-events-none disabled:opacity-60";
 
 const variantStyles = {
   primary: "border-transparent bg-primary text-primary-contrast",
@@ -43,7 +43,8 @@ export function ButtonLink({
   href,
   target,
   rel,
-  openInNewTab = true,
+  "aria-label": ariaLabel,
+  openInNewTab = false,
   children,
   ...props
 }: ButtonLinkProps) {
@@ -51,17 +52,35 @@ export function ButtonLink({
   const classes = `${baseClassName} ${variantStyles[variant]} ${className}`;
   const resolvedTarget = target ?? (openInNewTab ? "_blank" : undefined);
   const resolvedRel = resolvedTarget === "_blank" ? (rel ?? "noopener noreferrer") : rel;
+  const resolvedAriaLabel =
+    ariaLabel ??
+    (resolvedTarget === "_blank" && typeof children === "string"
+      ? `${children} (opens in a new tab)`
+      : undefined);
 
   if (isInternal && href) {
     return (
-      <Link className={classes} href={href} target={resolvedTarget} rel={resolvedRel}>
+      <Link
+        aria-label={resolvedAriaLabel}
+        className={classes}
+        href={href}
+        rel={resolvedRel}
+        target={resolvedTarget}
+      >
         {children}
       </Link>
     );
   }
 
   return (
-    <a className={classes} href={href} rel={resolvedRel} target={resolvedTarget} {...props}>
+    <a
+      aria-label={resolvedAriaLabel}
+      className={classes}
+      href={href}
+      rel={resolvedRel}
+      target={resolvedTarget}
+      {...props}
+    >
       {children}
     </a>
   );

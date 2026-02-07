@@ -25,7 +25,7 @@
 - [x] Replace placeholders with project screenshots/media
 - [x] Implement downloadable neutral CV (PDF)
 - [x] Add SEO metadata baseline (title/description/OG/canonical/twitter)
-- [ ] Add sitemap.xml and robots.txt
-- [ ] Add accessibility pass (focus states, aria labels where needed)
+- [x] Add sitemap.xml and robots.txt
+- [x] Add accessibility pass (focus states, aria labels where needed)
 - [ ] Consider subtle motion (page load/staggered reveals)
 - [ ] Optional: dark mode after light theme is finalized

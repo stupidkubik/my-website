@@ -166,7 +166,7 @@ export default function ProjectDetail({ project, slug }: ProjectPageProps) {
         title={project.title}
         type="article"
       />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Section containerClassName="py-10 xs:py-12 sm:py-14">
         <Stack size="lg">
           <ButtonLink className="w-fit" href="/projects" openInNewTab={false} variant="ghost">
@@ -243,8 +243,10 @@ export default function ProjectDetail({ project, slug }: ProjectPageProps) {
           <Stack size="md">
             <h2 className="text-h3 font-semibold">Links</h2>
             <div className="flex flex-wrap gap-3 text-sm">
-              <ButtonLink href={project.links.demo}>Live Demo</ButtonLink>
-              <ButtonLink href={project.links.code} variant="outline">
+              <ButtonLink href={project.links.demo} openInNewTab>
+                Live Demo
+              </ButtonLink>
+              <ButtonLink href={project.links.code} openInNewTab variant="outline">
                 Source Code
               </ButtonLink>
             </div>

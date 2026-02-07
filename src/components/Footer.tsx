@@ -10,14 +10,22 @@ export default function Footer() {
             Content-first UI systems
           </p>
         </div>
-        <div className="flex flex-wrap gap-3 xs:gap-4">
+        <nav aria-label="Social links" className="flex flex-wrap gap-3 xs:gap-4">
           <TextLink href="mailto:stupidkubik@gmail.com">Email</TextLink>
-          <TextLink href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">
+          <TextLink
+            href="https://www.linkedin.com/in/evgenii-rubin-60804724b/"
+            openInNewTab
+            withExternalIndicator
+          >
             LinkedIn
           </TextLink>
-          <TextLink href="https://t.me/stupidpotato">Telegram</TextLink>
-          <TextLink href="https://github.com/stupidkubik">GitHub</TextLink>
-        </div>
+          <TextLink href="https://t.me/stupidpotato" openInNewTab withExternalIndicator>
+            Telegram
+          </TextLink>
+          <TextLink href="https://github.com/stupidkubik" openInNewTab withExternalIndicator>
+            GitHub
+          </TextLink>
+        </nav>
       </div>
     </footer>
   );

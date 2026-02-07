@@ -15,7 +15,7 @@ export default function Resume() {
         path="/resume"
         title="Resume"
       />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Section>
         <Grid>
           <GridCol lg={8}>
@@ -33,9 +33,19 @@ export default function Resume() {
               <section className="text-sm text-muted-fg">
                 <div className="flex flex-wrap gap-4">
                   <TextLink href="mailto:stupidkubik@gmail.com">stupidkubik@gmail.com</TextLink>
-                  <TextLink href="https://www.linkedin.com/in/evgenii-rubin-60804724b/">LinkedIn</TextLink>
-                  <TextLink href="https://t.me/stupidpotato">Telegram</TextLink>
-                  <TextLink href="https://github.com/stupidkubik">GitHub</TextLink>
+                  <TextLink
+                    href="https://www.linkedin.com/in/evgenii-rubin-60804724b/"
+                    openInNewTab
+                    withExternalIndicator
+                  >
+                    LinkedIn
+                  </TextLink>
+                  <TextLink href="https://t.me/stupidpotato" openInNewTab withExternalIndicator>
+                    Telegram
+                  </TextLink>
+                  <TextLink href="https://github.com/stupidkubik" openInNewTab withExternalIndicator>
+                    GitHub
+                  </TextLink>
                 </div>
               </section>
 

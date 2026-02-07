@@ -12,7 +12,7 @@ export default function About() {
         description="About Evgenii Rubin: frontend developer with 2+ years in CMS and design systems, focused on semantic markup, accessibility, and stable delivery."
         path="/about"
       />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Section>
         <Grid>
           <GridCol lg={8}>
