@@ -16,7 +16,7 @@ export default function Resume() {
         title="Resume"
       />
       <main id="main-content" tabIndex={-1}>
-        <Section>
+        <Section containerClassName="motion-reveal">
         <Grid>
           <GridCol lg={8}>
             <Stack size="xl">

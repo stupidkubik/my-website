@@ -9,7 +9,7 @@ export default function NotFound() {
     <>
       <SeoHead noindex path="/404" title="Page Not Found" />
       <main id="main-content" tabIndex={-1}>
-        <Section className="text-center">
+        <Section className="text-center" containerClassName="motion-reveal">
         <Grid>
           <GridCol lg={8} className="lg:col-start-3">
             <Stack size="lg" className="items-center">

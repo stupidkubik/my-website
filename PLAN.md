@@ -27,5 +27,5 @@
 - [x] Add SEO metadata baseline (title/description/OG/canonical/twitter)
 - [x] Add sitemap.xml and robots.txt
 - [x] Add accessibility pass (focus states, aria labels where needed)
-- [ ] Consider subtle motion (page load/staggered reveals)
+- [x] Consider subtle motion (page load/staggered reveals)
 - [ ] Optional: dark mode after light theme is finalized

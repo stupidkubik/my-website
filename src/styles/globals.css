@@ -49,6 +49,46 @@
   transform: translateY(0);
 }
 
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.motion-reveal {
+  animation: fade-rise 420ms ease-out both;
+}
+
+.motion-delay-1 {
+  animation-delay: 80ms;
+}
+
+.motion-delay-2 {
+  animation-delay: 140ms;
+}
+
+.motion-delay-3 {
+  animation-delay: 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+
+  .motion-reveal,
+  .motion-delay-1,
+  .motion-delay-2,
+  .motion-delay-3 {
+    animation: none;
+  }
+}
+
 .stretched-link {
   position: static;
 }

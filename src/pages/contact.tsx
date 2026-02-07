@@ -14,7 +14,7 @@ export default function Contact() {
         title="Contact"
       />
       <main id="main-content" tabIndex={-1}>
-        <Section size="lg">
+        <Section containerClassName="motion-reveal" size="lg">
         <Grid>
           <GridCol lg={9}>
             <Stack size="lg">

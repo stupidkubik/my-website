@@ -33,7 +33,7 @@ export default function Home() {
         path="/"
       />
       <main id="main-content" tabIndex={-1}>
-        <Section size="lg" as="div">
+        <Section containerClassName="motion-reveal" size="lg" as="div">
         <Grid>
           <GridCol lg={9}>
             <Stack size="lg">
@@ -58,7 +58,7 @@ export default function Home() {
         </Grid>
         </Section>
 
-        <Section borderTop>
+        <Section borderTop containerClassName="motion-reveal motion-delay-1">
         <Stack size="lg">
           <div className="flex flex-col gap-2 xs:flex-row xs:items-baseline xs:justify-between lg:justify-start lg:gap-8">
             <h2 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">Selected Work</h2>
@@ -77,7 +77,7 @@ export default function Home() {
         </Stack>
         </Section>
 
-        <Section borderTop>
+        <Section borderTop containerClassName="motion-reveal motion-delay-2">
         <Grid>
           <GridCol lg={9}>
             <Stack size="md">

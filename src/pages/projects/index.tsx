@@ -44,7 +44,7 @@ export default function Projects() {
         title="Projects"
       />
       <main id="main-content" tabIndex={-1}>
-        <Section>
+        <Section containerClassName="motion-reveal">
         <Stack size="lg">
           <Grid>
             <GridCol lg={9}>
