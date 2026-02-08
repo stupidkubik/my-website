@@ -29,3 +29,13 @@
 - [x] Add accessibility pass (focus states, aria labels where needed)
 - [x] Consider subtle motion (page load/staggered reveals)
 - [x] Optional: dark mode after light theme is finalized
+
+## Review Remediation Plan (2026-02-08)
+- [ ] [P1] Replace internal navigation on plain `<a>` with `next/link` (`ButtonLink`, `ProjectCard`, inline internal links) to avoid full page reloads.
+- [ ] [P1] Fix font variable scope for Geist (`--font-geist-sans` / `--font-geist-mono`) so `font-sans` is applied reliably without serif fallback.
+- [ ] [P1] Restore working lint quality gate (align ESLint v9 config and `npm run lint` script).
+- [ ] [P2] Re-apply project detail page media integration (`next/image`, responsive sizes, no placeholders).
+- [ ] [P2] Re-check SEO layer end-to-end (`SeoHead`, canonical/OG URLs, sitemap/robots availability on routes).
+- [ ] [P2] Re-check accessibility baseline end-to-end (visible focus states, skip-link target on `main`, `aria-current` in nav).
+- [ ] [P3] Deduplicate project data into a single source shared by home/projects/project-detail pages.
+- [ ] [P3] Add lightweight perf verification checklist before deploy (LCP image, route transitions, no unexpected full reloads).
