@@ -34,8 +34,8 @@ export default function Home() {
       />
       <main id="main-content" tabIndex={-1}>
         <Section containerClassName="motion-reveal" size="lg" as="div">
-        <Grid>
-          <GridCol lg={9}>
+          <Grid>
+            <GridCol lg={9}>
             <Stack size="lg">
               <p className="text-label uppercase text-muted-fg">Frontend Developer</p>
               <h1 className="text-[2.125rem] font-semibold leading-[1.08] tracking-[-0.02em] xs:text-[2.5rem] sm:text-display">
@@ -54,8 +54,8 @@ export default function Home() {
                 </ButtonLink>
               </div>
             </Stack>
-          </GridCol>
-        </Grid>
+            </GridCol>
+          </Grid>
         </Section>
 
         <Section borderTop containerClassName="motion-reveal motion-delay-1">
@@ -78,8 +78,8 @@ export default function Home() {
         </Section>
 
         <Section borderTop containerClassName="motion-reveal motion-delay-2">
-        <Grid>
-          <GridCol lg={9}>
+          <Grid>
+            <GridCol lg={9}>
             <Stack size="md">
               <h2 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">Contact</h2>
               <p className="text-body text-muted-fg">
@@ -99,8 +99,8 @@ export default function Home() {
                 </TextLink>
               </div>
             </Stack>
-          </GridCol>
-        </Grid>
+            </GridCol>
+          </Grid>
         </Section>
       </main>
     </>

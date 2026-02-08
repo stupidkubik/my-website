@@ -17,7 +17,7 @@ export default function Header() {
       <div className="container flex flex-col gap-3 py-5 xs:gap-4 xs:py-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <Link
-            className="text-[0.95rem] font-semibold tracking-[0.04em] xs:text-base xs:tracking-[0.06em]"
+            className="text-[1.25rem] font-semibold tracking-[0.03em] xs:text-[1.375rem] sm:text-[1.5rem] lg:text-[1.75rem]"
             href="/"
           >
             Evgenii Rubin

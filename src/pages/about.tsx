@@ -14,8 +14,8 @@ export default function About() {
       />
       <main id="main-content" tabIndex={-1}>
         <Section containerClassName="motion-reveal">
-        <Grid>
-          <GridCol lg={8}>
+          <Grid>
+            <GridCol lg={9}>
             <Stack size="lg">
               <PageTitle>About</PageTitle>
               <Stack size="md" className="max-w-text">
@@ -48,8 +48,8 @@ export default function About() {
                 </BulletList>
               </Stack>
             </Stack>
-          </GridCol>
-        </Grid>
+            </GridCol>
+          </Grid>
         </Section>
       </main>
     </>

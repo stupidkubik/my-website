@@ -18,7 +18,7 @@ export default function Resume() {
       <main id="main-content" tabIndex={-1}>
         <Section containerClassName="motion-reveal">
         <Grid>
-          <GridCol lg={8}>
+          <GridCol lg={9}>
             <Stack size="xl">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <Stack size="sm">
@@ -70,75 +70,79 @@ export default function Resume() {
               <section>
                 <Stack size="md">
                   <h2 className="text-h3 font-semibold">Experience</h2>
-                  <Stack size="lg" className="text-muted-fg">
-                    <Stack size="sm">
-                      <p className="text-label uppercase text-muted-fg">Aug 2024 — Present</p>
-                      <p className="font-medium text-fg">
-                        Senior Markup Developer (CMS & Design Systems) · Junior UI Engineer
-                      </p>
-                      <p className="text-sm text-muted-fg">Tinkoff Journal</p>
-                      <BulletList className="text-sm">
-                        <li>
-                          Owned end-to-end publishing in the in-house CMS (content-heavy pages), shipping
-                          ~140 pieces/month with consistent QA and on-time releases.
-                        </li>
-                        <li>
-                          Cut longread production time by up to 50% by standardizing reusable layout patterns
-                          and resolving typography edge cases that bypassed the auto-formatter.
-                        </li>
-                        <li>
-                          Built internal tooling: co-created a Figma script saving ~3 minutes per screenshot
-                          (15–20 per article) and co-developed CMS snippets to reduce manual markup and rework.
-                        </li>
-                      </BulletList>
-                    </Stack>
+                  <div className="space-y-8 text-body text-muted-fg">
+                    <article className="grid gap-3 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6">
+                      <p className="pt-1 text-label uppercase text-muted-fg">Aug 2024 — Present</p>
+                      <Stack size="sm">
+                        <p className="text-[1.125rem] font-medium leading-snug text-fg">
+                          Senior Markup Developer (CMS & Design Systems), Junior UI Engineer
+                        </p>
+                        <p className="text-sm uppercase tracking-[0.06em] text-muted-fg">Tinkoff Journal</p>
+                        <BulletList className="text-body">
+                          <li>
+                            Owned end-to-end publishing in the in-house CMS (content-heavy pages), shipping
+                            ~140 pieces/month with consistent QA and on-time releases.
+                          </li>
+                          <li>
+                            Cut longread production time by up to 50% by standardizing reusable layout patterns
+                            and resolving typography edge cases that bypassed the auto-formatter.
+                          </li>
+                          <li>
+                            Built internal tooling: co-created a Figma script saving ~3 minutes per screenshot
+                            (15–20 per article) and co-developed CMS snippets to reduce manual markup and rework.
+                          </li>
+                        </BulletList>
+                      </Stack>
+                    </article>
 
-                    <Stack size="sm">
-                      <p className="text-label uppercase text-muted-fg">Aug 2023 — Aug 2024</p>
-                      <p className="font-medium text-fg">Markup Developer</p>
-                      <p className="text-sm text-muted-fg">Tinkoff Journal</p>
-                      <BulletList className="text-sm">
-                        <li>
-                          Built a set of reusable, regression-tested CMS components that increased layout
-                          delivery speed by ~20% and removed a class of common production bugs.
-                        </li>
-                        <li>
-                          Improved the Google Docs → CMS pipeline with a structured data format, reducing
-                          rework from late editorial changes by 50%+.
-                        </li>
-                        <li>
-                          Wrote onboarding docs and a pre-release checklist, reducing ramp-up time and
-                          deployment blockers.
-                        </li>
-                      </BulletList>
-                    </Stack>
-                  </Stack>
+                    <article className="grid gap-3 border-t border-border pt-6 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6">
+                      <p className="pt-1 text-label uppercase text-muted-fg">Aug 2023 — Aug 2024</p>
+                      <Stack size="sm">
+                        <p className="text-[1.125rem] font-medium leading-snug text-fg">Markup Developer</p>
+                        <p className="text-sm uppercase tracking-[0.06em] text-muted-fg">Tinkoff Journal</p>
+                        <BulletList className="text-body">
+                          <li>
+                            Built a set of reusable, regression-tested CMS components that increased layout
+                            delivery speed by ~20% and removed a class of common production bugs.
+                          </li>
+                          <li>
+                            Improved the Google Docs → CMS pipeline with a structured data format, reducing
+                            rework from late editorial changes by 50%+.
+                          </li>
+                          <li>
+                            Wrote onboarding docs and a pre-release checklist, reducing ramp-up time and
+                            deployment blockers.
+                          </li>
+                        </BulletList>
+                      </Stack>
+                    </article>
+                  </div>
                 </Stack>
               </section>
 
               <section>
                 <Stack size="md">
                   <h2 className="text-h3 font-semibold">Skills</h2>
-                  <div className="grid gap-6 sm:grid-cols-2">
+                  <div className="grid gap-6 sm:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
                     <Stack size="sm">
                       <h3 className="text-label uppercase text-muted-fg">Core</h3>
                       <p className="text-sm text-muted-fg">
-                        TypeScript, React, Next.js, JavaScript, HTML/CSS/SCSS, Tailwind.
+                        TypeScript, React, Next.js, JavaScript, HTML/CSS/SCSS, Tailwind
                       </p>
                     </Stack>
                     <Stack size="sm">
                       <h3 className="text-label uppercase text-muted-fg">State & Data</h3>
                       <p className="text-sm text-muted-fg">
-                        Redux Toolkit / RTK Query, Zustand, REST.
+                        Redux Toolkit / RTK Query, Zustand, REST
                       </p>
                     </Stack>
                     <Stack size="sm">
                       <h3 className="text-label uppercase text-muted-fg">Testing</h3>
-                      <p className="text-sm text-muted-fg">Vitest, Jest, RTL, Playwright, MSW.</p>
+                      <p className="text-sm text-muted-fg">Vitest, Jest, RTL, Playwright, MSW</p>
                     </Stack>
                     <Stack size="sm">
                       <h3 className="text-label uppercase text-muted-fg">Tooling</h3>
-                      <p className="text-sm text-muted-fg">Git, GitHub Actions, Vercel.</p>
+                      <p className="text-sm text-muted-fg">Git, GitHub Actions, Vercel</p>
                     </Stack>
                   </div>
                 </Stack>
