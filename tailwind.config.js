@@ -21,7 +21,7 @@ module.exports = {
     extend: {
       screens: {
         xxs: { max: "375px" },
-        xs: "375px"
+        xs: "376px"
       },
       colors: {
         bg: "var(--color-bg)",

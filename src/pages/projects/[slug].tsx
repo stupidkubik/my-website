@@ -174,7 +174,7 @@ export default function ProjectDetail({ project, slug }: ProjectPageProps) {
           </ButtonLink>
 
           <Grid>
-            <GridCol lg={8}>
+            <GridCol lg={9}>
               <Stack size="sm">
                 <p className="text-label uppercase text-muted-fg">Projects</p>
                 <PageTitle>{project.title}</PageTitle>

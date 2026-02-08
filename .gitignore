@@ -17,6 +17,9 @@ node_modules/
 # Logs
 *.log
 
+# TypeScript cache
+*.tsbuildinfo
+
 # Documents (working PDFs)
 *.pdf
 
