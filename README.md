@@ -1,6 +1,6 @@
 # Evgenii Rubin - Frontend Portfolio
 
-A personal portfolio website built with Next.js (Pages Router), focused on content-heavy interfaces, typography, accessibility, and predictable front-end delivery.
+A personal portfolio website built with Next.js (Pages Router), focused on fast, user-friendly interfaces, strong typography, accessibility, and predictable front-end delivery.
 
 ## Concept
 
@@ -28,6 +28,7 @@ A personal portfolio website built with Next.js (Pages Router), focused on conte
 - Responsive behavior including tiny-screen layer (`<=375px`)
 - Subtle motion with `prefers-reduced-motion` support
 - Project media and OG images integrated from `public/`
+- Unified typography primitives (`BodyMuted`, `MetaLabel`, `SectionTitle`)
 
 ## Project Architecture
 
@@ -49,6 +50,10 @@ A personal portfolio website built with Next.js (Pages Router), focused on conte
 - `SeoHead` - centralized meta/OG/canonical component
 - UI primitives in `src/components/ui`:
   `Button`, `TextLink`, `ProjectCard`, `Badge`, `Section`, `Grid`, `Stack`, `BulletList`, `PageTitle`
+- Typography layer in `src/components/ui`:
+  `BodyMuted`, `MetaLabel`, `SectionTitle`
+- Typography re-export module:
+  `src/components/ui/typography/index.ts`
 
 ### Styling and Tokens
 
@@ -60,7 +65,7 @@ A personal portfolio website built with Next.js (Pages Router), focused on conte
   - spacing: `section`, `section-lg`
 - Additional breakpoints:
   - `xxs` - `max-width: 375px`
-  - `xs` - `min-width: 375px`
+  - `xs` - `min-width: 376px`
 
 ## Content and Media
 
@@ -135,6 +140,7 @@ npm run dev
 Notes:
 - The dev script uses `next dev --webpack` for stable local behavior
 - Lint is available via `npm run lint`
+- Typecheck can be run via `npx tsc --noEmit`
 
 ## Scripts
 
@@ -170,3 +176,4 @@ README.md
 
 - Project data is duplicated between project list and project detail page (planned to be consolidated into a single source)
 - Local TypeScript cache files (`*.tsbuildinfo`) are ignored via `.gitignore`
+- Working PDFs in repo root are ignored, but production assets in `public/` (including resume PDF) are tracked
