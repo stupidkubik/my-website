@@ -4,6 +4,7 @@ import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
 import TextLink from "@/components/ui/TextLink";
 import { ButtonLink } from "@/components/ui/Button";
+import { BodyMuted, SectionTitle } from "@/components/ui/typography";
 import { Grid, GridCol } from "@/components/ui/Grid";
 
 const selectedProjects = [
@@ -28,23 +29,22 @@ export default function Home() {
   return (
     <>
       <SeoHead
-        description="Frontend developer portfolio focused on content-rich, high-quality web interfaces: semantic HTML, accessible layouts, and careful QA."
+        description="Frontend developer portfolio focused on fast, user-friendly, and optimized React interfaces."
         ogImage="/media/projects/kanban-board/cover.webp"
         path="/"
       />
       <main id="main-content" tabIndex={-1}>
-        <Section containerClassName="motion-reveal" size="lg" as="div">
+        <Section containerClassName="motion-reveal" size="lg">
           <Grid>
             <GridCol lg={9}>
             <Stack size="lg">
-              <p className="text-label uppercase text-muted-fg">Frontend Developer</p>
               <h1 className="text-[2.125rem] font-semibold leading-[1.08] tracking-[-0.02em] xs:text-[2.5rem] sm:text-display">
-                Frontend developer focused on content-rich, high-quality web interfaces.
+                Frontend developer building fast, user-friendly, and optimized web interfaces.
               </h1>
-              <p className="max-w-text text-body text-muted-fg">
-                I have 2+ years in production CMS and design systems. I take a quality-first
-                approach: semantic markup, accessible layouts, cross-browser responsiveness, and careful QA.
-              </p>
+              <BodyMuted className="max-w-text">
+                I have 2.5+ years of production frontend experience in CMS and design systems. I build
+                responsive and accessible interfaces with strong performance, clear UX, and reliable delivery.
+              </BodyMuted>
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="/projects">
                   View Projects
@@ -59,32 +59,36 @@ export default function Home() {
         </Section>
 
         <Section borderTop containerClassName="motion-reveal motion-delay-1">
-        <Stack size="lg">
-          <div className="flex flex-col gap-2 xs:flex-row xs:items-baseline xs:justify-between lg:justify-start lg:gap-8">
-            <h2 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">Selected Work</h2>
-            <TextLink className="self-end whitespace-nowrap xs:self-auto" href="/projects">All projects</TextLink>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {selectedProjects.map((project) => (
-              <ProjectCard
-                key={project.name}
-                href={project.href}
-                title={project.name}
-                summary={project.summary}
-              />
-            ))}
-          </div>
-        </Stack>
+        <Grid className="gap-y-8">
+          <GridCol lg={9}>
+            <div className="flex flex-col gap-2 xs:flex-row xs:items-baseline xs:justify-between lg:justify-start lg:gap-8">
+              <SectionTitle>Selected Work</SectionTitle>
+              <TextLink className="self-end whitespace-nowrap xs:self-auto" href="/projects">All projects</TextLink>
+            </div>
+          </GridCol>
+          <GridCol span={12}>
+            <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+              {selectedProjects.map((project) => (
+                <ProjectCard
+                  key={project.name}
+                  href={project.href}
+                  title={project.name}
+                  summary={project.summary}
+                />
+              ))}
+            </div>
+          </GridCol>
+        </Grid>
         </Section>
 
         <Section borderTop containerClassName="motion-reveal motion-delay-2">
           <Grid>
             <GridCol lg={9}>
             <Stack size="md">
-              <h2 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">Contact</h2>
-              <p className="text-body text-muted-fg">
-                Interested in working together or have a question? I’m just an email away.
-              </p>
+              <SectionTitle>Contact</SectionTitle>
+              <BodyMuted>
+                Interested in building a fast, user-friendly product interface? I’m just an email away.
+              </BodyMuted>
               <div className="flex flex-wrap gap-4 text-sm">
                 <TextLink href="mailto:stupidkubik@gmail.com">stupidkubik@gmail.com</TextLink>
                 <TextLink

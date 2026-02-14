@@ -7,6 +7,7 @@ import PageTitle from "@/components/ui/PageTitle";
 import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
 import { ButtonLink } from "@/components/ui/Button";
+import { BodyMuted, MetaLabel } from "@/components/ui/typography";
 import { Grid, GridCol } from "@/components/ui/Grid";
 
 const projectData = {
@@ -176,16 +177,16 @@ export default function ProjectDetail({ project, slug }: ProjectPageProps) {
           <Grid>
             <GridCol lg={9}>
               <Stack size="sm">
-                <p className="text-label uppercase text-muted-fg">Projects</p>
+                <MetaLabel>Projects</MetaLabel>
                 <PageTitle>{project.title}</PageTitle>
-                <p className="max-w-text text-body text-muted-fg">{project.summary}</p>
+                <BodyMuted className="max-w-text">{project.summary}</BodyMuted>
               </Stack>
             </GridCol>
           </Grid>
 
           <Stack size="md">
             <h2 className="text-h3 font-semibold">Context</h2>
-            <p className="max-w-text text-body text-muted-fg">{project.context}</p>
+            <BodyMuted className="max-w-text">{project.context}</BodyMuted>
           </Stack>
 
           <div className="overflow-hidden rounded-lg border border-border bg-muted">
@@ -202,11 +203,11 @@ export default function ProjectDetail({ project, slug }: ProjectPageProps) {
 
           <div className="grid gap-6 sm:grid-cols-2">
             <Stack size="sm">
-              <h2 className="text-label uppercase text-muted-fg">Role</h2>
-              <p className="text-sm text-muted-fg">{project.role}</p>
+              <MetaLabel as="h2">Role</MetaLabel>
+              <BodyMuted>{project.role}</BodyMuted>
             </Stack>
             <Stack size="sm">
-              <h2 className="text-label uppercase text-muted-fg">Stack</h2>
+              <MetaLabel as="h2">Stack</MetaLabel>
               <ul className="flex flex-wrap gap-2">
                 {project.stack.map((item) => (
                   <li key={item}>
@@ -237,7 +238,7 @@ export default function ProjectDetail({ project, slug }: ProjectPageProps) {
 
           <Stack size="md">
             <h2 className="text-h3 font-semibold">Outcome</h2>
-            <p className="max-w-text text-body text-muted-fg">{project.outcome}</p>
+            <BodyMuted className="max-w-text">{project.outcome}</BodyMuted>
           </Stack>
 
           <Stack size="md">

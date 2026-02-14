@@ -1,6 +1,7 @@
 import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
 import { ButtonLink } from "@/components/ui/Button";
+import { BodyMuted, MetaLabel, SectionTitle } from "@/components/ui/typography";
 import SeoHead from "@/components/SeoHead";
 import { Grid, GridCol } from "@/components/ui/Grid";
 
@@ -13,13 +14,11 @@ export default function NotFound() {
         <Grid>
           <GridCol lg={9} className="lg:col-start-2">
             <Stack size="lg" className="items-center">
-              <p className="text-label uppercase text-muted-fg">404</p>
-              <h1 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">
-                Page not found
-              </h1>
-              <p className="text-body text-muted-fg">
+              <MetaLabel>404</MetaLabel>
+              <SectionTitle as="h1">Page not found</SectionTitle>
+              <BodyMuted>
                 The page you are looking for doesn’t exist. Head back to the homepage.
-              </p>
+              </BodyMuted>
               <ButtonLink href="/" variant="outline">
                 Go Home
               </ButtonLink>
