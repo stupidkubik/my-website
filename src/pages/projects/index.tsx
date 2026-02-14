@@ -5,6 +5,7 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
 import TextLink from "@/components/ui/TextLink";
+import { BodyMuted } from "@/components/ui/typography";
 import { Grid, GridCol } from "@/components/ui/Grid";
 
 const projects = [
@@ -50,11 +51,11 @@ export default function Projects() {
             <GridCol lg={9}>
               <Stack size="md">
                 <PageTitle>Projects</PageTitle>
-                <p className="max-w-text text-body text-muted-fg">
+                <BodyMuted className="max-w-text">
                   Projects & Code — a focused set of projects I’ve shipped to sharpen my React and TypeScript
                   skills. Each one tackles a different challenge, from drag-and-drop interaction design to API
                   integrations. Click a project for the full case study.
-                </p>
+                </BodyMuted>
               </Stack>
             </GridCol>
           </Grid>
@@ -71,7 +72,7 @@ export default function Projects() {
                     <Badge key={item}>{item}</Badge>
                   ))}
                 </div>
-                <div className="pointer-events-auto inline-flex w-fit flex-wrap gap-4">
+                <div className="pointer-events-auto flex flex-wrap gap-4">
                   <TextLink href={project.demo} openInNewTab>
                     Live Demo
                   </TextLink>

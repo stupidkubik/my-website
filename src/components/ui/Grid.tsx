@@ -58,7 +58,7 @@ type GridColProps = HTMLAttributes<HTMLDivElement> & {
 export function GridCol({ span = 12, md, lg, className = "", ...props }: GridColProps) {
   return (
     <div
-      className={`${colSpan[span]} ${md ? colSpanMd[md] : ""} ${lg ? colSpanLg[lg] : ""} ${className}`}
+      className={`min-w-0 ${colSpan[span]} ${md ? colSpanMd[md] : ""} ${lg ? colSpanLg[lg] : ""} ${className}`}
       {...props}
     />
   );

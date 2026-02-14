@@ -20,8 +20,8 @@ node_modules/
 # TypeScript cache
 *.tsbuildinfo
 
-# Documents (working PDFs)
-*.pdf
+# Documents (working PDFs in repo root only)
+/*.pdf
 
 # Env
 .env
@@ -33,3 +33,6 @@ node_modules/
 
 # Local tooling
 .tmp_pdf_text*/
+
+# Local architecture/audit notes
+audit-findings-*.md
