@@ -21,7 +21,7 @@ node_modules/
 *.tsbuildinfo
 
 # Documents (working PDFs)
-*.pdf
+/*.pdf
 
 # Env
 .env
@@ -33,3 +33,6 @@ node_modules/
 
 # Local tooling
 .tmp_pdf_text*/
+
+# Local architecture/audit notes
+audit-findings-*.md

@@ -9,7 +9,7 @@ export default function Contact() {
   return (
     <>
       <SeoHead
-        description="Contact Evgenii Rubin for frontend development work: content-heavy interfaces, design systems, and quality-first implementation."
+        description="Contact Evgenii Rubin for frontend development work focused on reliable, user-friendly interfaces."
         path="/contact"
         title="Contact"
       />
@@ -21,10 +21,12 @@ export default function Contact() {
               <Stack size="md">
                 <PageTitle>Contact</PageTitle>
                 <p className="max-w-text text-body text-muted-fg">
-                  Interested in working together or have a question about my work? I’m just an email away.
+                  Interested in working together or have a question? Reach out via email, Telegram, LinkedIn,
+                  or phone.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <TextLink href="mailto:stupidkubik@gmail.com">Email</TextLink>
+                  <TextLink href="tel:+381638355517">Phone</TextLink>
                   <TextLink
                     href="https://www.linkedin.com/in/evgenii-rubin-60804724b/"
                     openInNewTab
@@ -43,8 +45,8 @@ export default function Contact() {
                   <p className="text-body text-muted-fg">Novi Sad, Serbia (CET/CEST)</p>
                 </Stack>
                 <Stack size="sm">
-                  <p className="text-label uppercase text-muted-fg">Response Time</p>
-                  <p className="text-body text-muted-fg">Usually within one business day.</p>
+                  <p className="text-label uppercase text-muted-fg">Work Permit</p>
+                  <p className="text-body text-muted-fg">Serbia (active)</p>
                 </Stack>
               </div>
             </Stack>

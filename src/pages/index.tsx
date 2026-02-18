@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <>
       <SeoHead
-        description="Frontend developer portfolio focused on content-rich, high-quality web interfaces: semantic HTML, accessible layouts, and careful QA."
+        description="Frontend developer portfolio focused on reliable, user-friendly interfaces with stable delivery and strong production quality."
         ogImage="/media/projects/kanban-board/cover.webp"
         path="/"
       />
@@ -39,11 +39,11 @@ export default function Home() {
             <Stack size="lg">
               <p className="text-label uppercase text-muted-fg">Frontend Developer</p>
               <h1 className="text-[2.125rem] font-semibold leading-[1.08] tracking-[-0.02em] xs:text-[2.5rem] sm:text-display">
-                Frontend developer focused on content-rich, high-quality web interfaces.
+                Frontend developer building reliable, user-friendly web interfaces.
               </h1>
               <p className="max-w-text text-body text-muted-fg">
-                I have 2+ years in production CMS and design systems. I take a quality-first
-                approach: semantic markup, accessible layouts, cross-browser responsiveness, and careful QA.
+                I have 2.5+ years of production experience where quality and deadlines matter. I work closely
+                with content and design teams to ship stable, accessible releases and predictable results.
               </p>
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="/projects">
@@ -83,7 +83,7 @@ export default function Home() {
             <Stack size="md">
               <h2 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">Contact</h2>
               <p className="text-body text-muted-fg">
-                Interested in working together or have a question? I’m just an email away.
+                Interested in working together? I’m available via email, Telegram, and phone.
               </p>
               <div className="flex flex-wrap gap-4 text-sm">
                 <TextLink href="mailto:stupidkubik@gmail.com">stupidkubik@gmail.com</TextLink>

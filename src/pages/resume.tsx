@@ -11,7 +11,7 @@ export default function Resume() {
   return (
     <>
       <SeoHead
-        description="Resume of Evgenii Rubin: frontend developer with CMS/design systems experience, shipped projects, and strong quality and accessibility focus."
+        description="Resume of Evgenii Rubin: frontend developer with production CMS and web production experience, reliable delivery, and React/TypeScript expertise."
         path="/resume"
         title="Resume"
       />
@@ -23,7 +23,7 @@ export default function Resume() {
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <Stack size="sm">
                   <PageTitle>Evgenii Rubin</PageTitle>
-                  <p className="text-sm text-muted-fg">Frontend Developer · Novi Sad, Serbia</p>
+                  <p className="text-sm text-muted-fg">Frontend Developer (React, Next.js) · Novi Sad, Serbia</p>
                 </Stack>
                 <ButtonLink href="/media/resume/evgenii-rubin-cv.pdf" variant="outline">
                   Download PDF
@@ -32,6 +32,7 @@ export default function Resume() {
 
               <section className="text-sm text-muted-fg">
                 <div className="flex flex-wrap gap-4">
+                  <TextLink href="tel:+381638355517">+381 63 835 5517</TextLink>
                   <TextLink href="mailto:stupidkubik@gmail.com">stupidkubik@gmail.com</TextLink>
                   <TextLink
                     href="https://www.linkedin.com/in/evgenii-rubin-60804724b/"
@@ -47,6 +48,7 @@ export default function Resume() {
                     GitHub
                   </TextLink>
                 </div>
+                <p className="mt-3 text-label uppercase tracking-[0.06em]">Serbian Work Permit</p>
               </section>
 
               <section>
@@ -54,14 +56,20 @@ export default function Resume() {
                   <h2 className="text-h3 font-semibold">Summary</h2>
                   <BulletList>
                     <li>
-                      Frontend developer with 2+ years in production CMS and design systems (content-heavy
-                      publishing). Strong quality mindset: semantic markup, cross-browser responsiveness,
-                      predictable releases, and careful QA.
+                      Frontend developer with a background in production work where quality and deadlines
+                      matter.
                     </li>
                     <li>
-                      Growing as a junior React/Next.js + TypeScript developer through shipped pet projects
-                      (state management, API integration, testing, CI). Comfortable with code reviews,
-                      debugging, and maintaining docs/checklists.
+                      I’m used to collaborating with content and design teams, keeping releases stable, and
+                      making processes more predictable.
+                    </li>
+                    <li>
+                      Comfortable owning tasks end-to-end: clarifying requirements, documenting decisions,
+                      and shipping reliably.
+                    </li>
+                    <li>
+                      Curious and fast-learning, I leverage AI-assisted tools to stay efficient and focused
+                      on user value.
                     </li>
                   </BulletList>
                 </Stack>
@@ -72,48 +80,39 @@ export default function Resume() {
                   <h2 className="text-h3 font-semibold">Experience</h2>
                   <div className="space-y-8 text-body text-muted-fg">
                     <article className="grid gap-3 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6">
-                      <p className="pt-1 text-label uppercase text-muted-fg">Aug 2024 — Present</p>
+                      <p className="pt-1 text-label uppercase text-muted-fg">Aug 2023 — Jan 2026</p>
                       <Stack size="sm">
                         <p className="text-[1.125rem] font-medium leading-snug text-fg">
-                          Senior Markup Developer (CMS & Design Systems), Junior UI Engineer
+                          Frontend Developer (CMS & Web Production)
                         </p>
-                        <p className="text-sm uppercase tracking-[0.06em] text-muted-fg">Tinkoff Journal</p>
+                        <p className="text-sm uppercase tracking-[0.06em] text-muted-fg">
+                          Tinkoff Journal · Part of Tinkoff Group (40M+ customers)
+                        </p>
                         <BulletList className="text-body">
                           <li>
-                            Owned end-to-end publishing in the in-house CMS (content-heavy pages), shipping
-                            ~140 pieces/month with consistent QA and on-time releases.
+                            Shipped and maintained user-facing pages in a CMS-driven production workflow
+                            where quality and deadlines matter.
                           </li>
                           <li>
-                            Cut longread production time by up to 50% by standardizing reusable layout patterns
-                            and resolving typography edge cases that bypassed the auto-formatter.
+                            Worked closely with content and design teams to keep releases stable and layouts
+                            consistent across browsers.
                           </li>
                           <li>
-                            Built internal tooling: co-created a Figma script saving ~3 minutes per screenshot
-                            (15–20 per article) and co-developed CMS snippets to reduce manual markup and rework.
+                            Improved publishing reliability by introducing clear content rules and structured
+                            data formats for import (JSON/XML).
+                          </li>
+                          <li>
+                            Built reusable HTML/CSS patterns and resolved tricky layout and typography edge
+                            cases in production.
+                          </li>
+                          <li>
+                            Automated repetitive production tasks with JavaScript and regex (with AI-assisted
+                            tooling), reducing manual work and review friction.
                           </li>
                         </BulletList>
-                      </Stack>
-                    </article>
-
-                    <article className="grid gap-3 border-t border-border pt-6 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6">
-                      <p className="pt-1 text-label uppercase text-muted-fg">Aug 2023 — Aug 2024</p>
-                      <Stack size="sm">
-                        <p className="text-[1.125rem] font-medium leading-snug text-fg">Markup Developer</p>
-                        <p className="text-sm uppercase tracking-[0.06em] text-muted-fg">Tinkoff Journal</p>
-                        <BulletList className="text-body">
-                          <li>
-                            Built a set of reusable, regression-tested CMS components that increased layout
-                            delivery speed by ~20% and removed a class of common production bugs.
-                          </li>
-                          <li>
-                            Improved the Google Docs → CMS pipeline with a structured data format, reducing
-                            rework from late editorial changes by 50%+.
-                          </li>
-                          <li>
-                            Wrote onboarding docs and a pre-release checklist, reducing ramp-up time and
-                            deployment blockers.
-                          </li>
-                        </BulletList>
+                        <p className="text-sm text-muted-fg">
+                          Tools: HTML/CSS, JavaScript, Git, JSON/XML, Regex, Cross-browser QA, Automation
+                        </p>
                       </Stack>
                     </article>
                   </div>
@@ -123,28 +122,53 @@ export default function Resume() {
               <section>
                 <Stack size="md">
                   <h2 className="text-h3 font-semibold">Skills</h2>
-                  <div className="grid gap-6 sm:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
+                  <div className="grid gap-6 sm:grid-cols-2">
                     <Stack size="sm">
                       <h3 className="text-label uppercase text-muted-fg">Core</h3>
                       <p className="text-sm text-muted-fg">
-                        TypeScript, React, Next.js, JavaScript, HTML/CSS/SCSS, Tailwind
+                        HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS
                       </p>
                     </Stack>
                     <Stack size="sm">
-                      <h3 className="text-label uppercase text-muted-fg">State & Data</h3>
+                      <h3 className="text-label uppercase text-muted-fg">State & Integrations</h3>
                       <p className="text-sm text-muted-fg">
-                        Redux Toolkit / RTK Query, Zustand, REST
+                        Redux Toolkit, Firebase, Stripe API, JSON/XML
                       </p>
                     </Stack>
                     <Stack size="sm">
-                      <h3 className="text-label uppercase text-muted-fg">Testing</h3>
-                      <p className="text-sm text-muted-fg">Vitest, Jest, RTL, Playwright, MSW</p>
+                      <h3 className="text-label uppercase text-muted-fg">Quality & Delivery</h3>
+                      <p className="text-sm text-muted-fg">
+                        Git, CI/CD (GitHub Actions), Cross-browser QA, Vitest, Playwright
+                      </p>
                     </Stack>
                     <Stack size="sm">
-                      <h3 className="text-label uppercase text-muted-fg">Tooling</h3>
-                      <p className="text-sm text-muted-fg">Git, GitHub Actions, Vercel</p>
+                      <h3 className="text-label uppercase text-muted-fg">AI-assisted Tools</h3>
+                      <p className="text-sm text-muted-fg">GitHub Copilot, Cursor, Codex</p>
                     </Stack>
                   </div>
+                </Stack>
+              </section>
+
+              <section>
+                <Stack size="md">
+                  <h2 className="text-h3 font-semibold">Personal Projects</h2>
+                  <BulletList>
+                    <li>
+                      <strong>Kanban Board</strong> (Next.js, React, TypeScript, Redux Toolkit, Firebase,
+                      dnd-kit, Vitest): real-time collaborative Kanban with auth, roles, and drag-and-drop.
+                      Leveraged AI-assisted development workflows to speed up routine delivery.
+                    </li>
+                    <li>
+                      <strong>Stripe E-commerce</strong> (Next.js, TypeScript, Stripe, Tailwind, shadcn/ui,
+                      Zod, Playwright/Vitest): Stripe-powered catalog with cart and checkout-to-success flow.
+                      Added Zod validation and automated tests.
+                    </li>
+                    <li>
+                      <strong>Admin Dashboard MVP</strong> (Next.js, React, TypeScript, RTK Query, Tailwind,
+                      Charts, i18n): MVP focused on complex UI states (tables, charts, filters, i18n) with
+                      reusable UI components.
+                    </li>
+                  </BulletList>
                 </Stack>
               </section>
 
@@ -161,7 +185,7 @@ export default function Resume() {
 
               <section>
                 <Stack size="md">
-                  <h2 className="text-h3 font-semibold">Certificates & Professional Development</h2>
+                  <h2 className="text-h3 font-semibold">Education & Certificates</h2>
                   <BulletList>
                     <li>Advanced TypeScript — Hexlet.io (Nov 2024 — Feb 2025)</li>
                     <li>Web Developer ~720h — Yandex Practicum (Jan 2023 — Nov 2023)</li>
