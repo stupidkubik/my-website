@@ -5,24 +5,8 @@ import Stack from "@/components/ui/Stack";
 import TextLink from "@/components/ui/TextLink";
 import { ButtonLink } from "@/components/ui/Button";
 import { Grid, GridCol } from "@/components/ui/Grid";
+import { featuredProjects } from "@/data/projects";
 
-const selectedProjects = [
-  {
-    name: "Kanban Board App",
-    summary: "Real-time collaborative Kanban board with roles, auth, and drag-and-drop.",
-    href: "/projects/kanban-board"
-  },
-  {
-    name: "Stripe Mini App",
-    summary: "Compact e-commerce demo with Stripe Checkout, webhooks, and validation.",
-    href: "/projects/stripe-mini-app"
-  },
-  {
-    name: "Admin Dashboard MVP",
-    summary: "Dashboard UI for data-heavy screens with tables, charts, and filters.",
-    href: "/projects/admin-dashboard"
-  }
-];
 
 export default function Home() {
   return (
@@ -65,11 +49,11 @@ export default function Home() {
             <TextLink className="self-end whitespace-nowrap xs:self-auto" href="/projects">All projects</TextLink>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {selectedProjects.map((project) => (
+            {featuredProjects.map((project) => (
               <ProjectCard
-                key={project.name}
-                href={project.href}
-                title={project.name}
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                title={project.title}
                 summary={project.summary}
               />
             ))}
