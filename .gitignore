@@ -20,7 +20,7 @@ node_modules/
 # TypeScript cache
 *.tsbuildinfo
 
-# Documents (working PDFs in repo root only)
+# Documents (working PDFs)
 /*.pdf
 
 # Env

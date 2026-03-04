@@ -11,7 +11,7 @@
 - Framework: Next.js Pages Router with static generation (SSG).
 - Language: React + TypeScript.
 - UI: Tailwind CSS + shadcn/ui (copy-in components).
-- Content: MDX for pages/case studies; JSON/TS for structured data (skills, resume).
+- Content: TypeScript data modules for projects/case studies and resume; MDX optional later.
 - Contact: mailto link (no backend form yet).
 - Hosting target: Vercel (CDN).
 

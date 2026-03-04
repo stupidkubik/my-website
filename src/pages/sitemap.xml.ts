@@ -1,7 +1,7 @@
 import type { GetServerSideProps } from "next";
 import type { IncomingHttpHeaders } from "node:http";
+import { projectSlugs } from "@/data/projects";
 
-const projectSlugs = ["kanban-board", "stripe-mini-app", "admin-dashboard"] as const;
 
 function getBaseUrl(headers: IncomingHttpHeaders) {
   const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");

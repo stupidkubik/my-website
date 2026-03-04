@@ -8,7 +8,7 @@ import { Grid, GridCol } from "@/components/ui/Grid";
 export default function NotFound() {
   return (
     <>
-      <SeoHead noindex path="/404" title="Page Not Found" />
+      <SeoHead noindex title="Page Not Found" />
       <main id="main-content" tabIndex={-1}>
         <Section className="text-center" containerClassName="motion-reveal">
         <Grid>

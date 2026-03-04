@@ -3,14 +3,13 @@ import SeoHead from "@/components/SeoHead";
 import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
 import TextLink from "@/components/ui/TextLink";
-import { BodyMuted, MetaLabel } from "@/components/ui/typography";
 import { Grid, GridCol } from "@/components/ui/Grid";
 
 export default function Contact() {
   return (
     <>
       <SeoHead
-        description="Contact Evgenii Rubin for frontend development focused on fast, user-friendly, optimized interfaces."
+        description="Contact Evgenii Rubin for frontend development work focused on reliable, user-friendly interfaces."
         path="/contact"
         title="Contact"
       />
@@ -21,10 +20,10 @@ export default function Contact() {
             <Stack size="lg">
               <Stack size="md">
                 <PageTitle>Contact</PageTitle>
-                <BodyMuted className="max-w-text">
-                  Interested in working together or have a question about React development, UX, or
-                  frontend performance? Reach out via email, Telegram, or phone.
-                </BodyMuted>
+                <p className="max-w-text text-body text-muted-fg">
+                  Interested in working together or have a question? Reach out via email, Telegram, LinkedIn,
+                  or phone.
+                </p>
                 <div className="flex flex-wrap gap-3">
                   <TextLink href="mailto:stupidkubik@gmail.com">Email</TextLink>
                   <TextLink href="tel:+381638355517">Phone</TextLink>
@@ -42,12 +41,12 @@ export default function Contact() {
               </Stack>
               <div className="grid gap-6 sm:grid-cols-2">
                 <Stack size="sm">
-                  <MetaLabel>Timezone</MetaLabel>
-                  <BodyMuted>Novi Sad, Serbia (CET/CEST)</BodyMuted>
+                  <p className="text-label uppercase text-muted-fg">Timezone</p>
+                  <p className="text-body text-muted-fg">Novi Sad, Serbia (CET/CEST)</p>
                 </Stack>
                 <Stack size="sm">
-                  <MetaLabel>Work Permit</MetaLabel>
-                  <BodyMuted>Serbia (active)</BodyMuted>
+                  <p className="text-label uppercase text-muted-fg">Work Permit</p>
+                  <p className="text-body text-muted-fg">Serbia (active)</p>
                 </Stack>
               </div>
             </Stack>

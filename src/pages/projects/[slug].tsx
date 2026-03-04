@@ -9,152 +9,35 @@ import Stack from "@/components/ui/Stack";
 import { ButtonLink } from "@/components/ui/Button";
 import { BodyMuted, MetaLabel } from "@/components/ui/typography";
 import { Grid, GridCol } from "@/components/ui/Grid";
-
-const projectData = {
-  "kanban-board": {
-    title: "Kanban Board App",
-    summary:
-      "Real-time collaborative Kanban board with authentication, roles, and drag-and-drop.",
-    context:
-      "Built as a collaboration-focused Kanban tool to explore real-time workflows, access control, and complex drag-and-drop interactions.",
-    role: "Frontend Developer",
-    stack: [
-      "Next.js App Router",
-      "React",
-      "TypeScript",
-      "Redux Toolkit / RTK Query",
-      "Firebase Auth + Firestore",
-      "dnd-kit",
-      "shadcn/ui",
-      "Vitest"
-    ],
-    challenges: [
-      "Managing complex drag-and-drop state across columns with real-time updates.",
-      "Keeping the UI responsive while syncing with Firestore listeners.",
-      "Defining roles and protecting operations for collaboration."
-    ],
-    approach: [
-      "Implemented boards/columns/cards CRUD with optimistic UI updates and Firestore listeners.",
-      "Added collaboration controls (owner/editor/viewer), email invites, and protected operations via Firebase Admin SDK.",
-      "Tested core logic with Vitest, including Firestore rules via emulator."
-    ],
-    outcome:
-      "Delivered a responsive, accessible board with a clear collaboration model and stable real-time sync.",
-    links: {
-      demo: "https://kanban-board-app-ten-psi.vercel.app/",
-      code: "https://github.com/stupidkubik/kanban-board-app"
-    },
-    media: {
-      src: "/media/projects/kanban-board/cover.webp",
-      alt: "Kanban board project screenshot with column layout and cards.",
-      width: 1600,
-      height: 973
-    },
-    ogImage: "/og/kanban-board.webp"
-  },
-  "stripe-mini-app": {
-    title: "Stripe Mini App",
-    summary:
-      "Compact e-commerce demo with Stripe Checkout, webhooks, and validation.",
-    context:
-      "Created to validate a full checkout flow with Stripe, from catalog to payment confirmation and webhook handling.",
-    role: "Frontend Developer",
-    stack: [
-      "Next.js App Router",
-      "React",
-      "TypeScript",
-      "Stripe Checkout + Webhooks",
-      "Tailwind",
-      "shadcn/ui",
-      "Zod",
-      "Playwright",
-      "Vitest"
-    ],
-    challenges: [
-      "Building a reliable checkout flow with server-side validation.",
-      "Handling payment events safely and surfacing status to users.",
-      "Maintaining SEO fundamentals in a small demo."
-    ],
-    approach: [
-      "Implemented checkout session creation with validation for price IDs, quantity limits, and promo codes.",
-      "Verified Stripe webhooks with signature verification and built a payment events timeline UI.",
-      "Added OG/canonical/sitemap/robots and E2E coverage with Playwright."
-    ],
-    outcome: "Completed an end-to-end payment flow demo with robust validation and testing.",
-    links: {
-      demo: "https://stripe-mini-shop.vercel.app/",
-      code: "https://github.com/stupidkubik/Stripe-mini-app"
-    },
-    media: {
-      src: "/media/projects/stripe-mini-app/cover.webp",
-      alt: "Stripe mini app screenshot with product list and checkout flow.",
-      width: 1600,
-      height: 973
-    },
-    ogImage: "/og/stripe-mini-shop.webp"
-  },
-  "admin-dashboard": {
-    title: "Admin Dashboard MVP",
-    summary:
-      "Dashboard UI for data-heavy screens with tables, charts, filters, and i18n.",
-    context:
-      "Designed to practice building complex dashboard layouts with data states, reusable components, and localization.",
-    role: "Frontend Developer",
-    stack: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Redux Toolkit / RTK Query",
-      "Tailwind CSS",
-      "Charts",
-      "i18n"
-    ],
-    challenges: [
-      "Designing reusable dashboard components for complex UI states.",
-      "Handling async data with consistent loading and error states."
-    ],
-    approach: [
-      "Built data-heavy screens with robust loading/error handling and reusable UI pieces.",
-      "Implemented API data layer with RTK Query for caching and consistent request handling.",
-      "Added localization to support multi-language UI."
-    ],
-    outcome: "Shipped a scalable admin layout with clear information hierarchy and stable state management.",
-    links: {
-      demo: "https://admin-dashboard-mvp-three.vercel.app/",
-      code: "https://github.com/stupidkubik/Admin-Dashboard-MVP"
-    },
-    media: {
-      src: "/media/projects/admin-dashboard/cover.webp",
-      alt: "Admin dashboard screenshot with data table, charts, and filters.",
-      width: 1600,
-      height: 973
-    },
-    ogImage: "/og/admin-dashboard.webp"
-  }
-} as const;
-
-type ProjectSlug = keyof typeof projectData;
+import { isProjectSlug, projectSlugs } from "@/data/projects";
+import { projectCaseStudiesBySlug } from "@/data/project-case-studies";
+import type { ProjectCaseStudy } from "@/data/project-case-studies";
+import type { ProjectSlug } from "@/data/projects";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: Object.keys(projectData).map((slug) => ({ params: { slug } })),
+    paths: projectSlugs.map((slug) => ({ params: { slug } })),
     fallback: false
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.slug as ProjectSlug;
+type ProjectPageProps = {
+  project: ProjectCaseStudy;
+  slug: ProjectSlug;
+};
+
+export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({ params }) => {
+  const slug = params?.slug;
+  if (typeof slug !== "string" || !isProjectSlug(slug)) {
+    return { notFound: true };
+  }
+  const project = projectCaseStudiesBySlug[slug];
   return {
     props: {
-      project: projectData[slug],
+      project,
       slug
     }
   };
-};
-
-type ProjectPageProps = {
-  project: (typeof projectData)[ProjectSlug];
-  slug: ProjectSlug;
 };
 
 export default function ProjectDetail({ project, slug }: ProjectPageProps) {
@@ -162,7 +45,9 @@ export default function ProjectDetail({ project, slug }: ProjectPageProps) {
     <>
       <SeoHead
         description={project.summary}
-        ogImage={project.ogImage}
+        ogImage={project.ogImage.src}
+        ogImageWidth={project.ogImage.width}
+        ogImageHeight={project.ogImage.height}
         path={`/projects/${slug}`}
         title={project.title}
         type="article"
@@ -170,7 +55,7 @@ export default function ProjectDetail({ project, slug }: ProjectPageProps) {
       <main id="main-content" tabIndex={-1}>
         <Section containerClassName="py-10 xs:py-12 sm:py-14 motion-reveal">
         <Stack size="lg">
-          <ButtonLink className="w-fit" href="/projects" openInNewTab={false} variant="ghost">
+          <ButtonLink className="w-fit" href="/projects" variant="ghost">
             &larr; Back
           </ButtonLink>
 

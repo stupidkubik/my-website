@@ -3,14 +3,13 @@ import SeoHead from "@/components/SeoHead";
 import PageTitle from "@/components/ui/PageTitle";
 import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
-import { BodyMuted } from "@/components/ui/typography";
 import { Grid, GridCol } from "@/components/ui/Grid";
 
 export default function About() {
   return (
     <>
       <SeoHead
-        description="About Evgenii Rubin: frontend developer with 2.5+ years in CMS and design systems, focused on performance, usability, and stable delivery."
+        description="About Evgenii Rubin: frontend developer with production CMS and web production experience, focused on reliable delivery and user-friendly interfaces."
         path="/about"
       />
       <main id="main-content" tabIndex={-1}>
@@ -20,24 +19,24 @@ export default function About() {
             <Stack size="lg">
               <PageTitle>About</PageTitle>
               <Stack size="md" className="max-w-text">
-                <BodyMuted>
-                  I’m a frontend developer based in Novi Sad, Serbia. I build content-heavy publishing
-                  workflows and design systems with a focus on semantic markup, accessibility, performance,
-                  and predictable releases.
-                </BodyMuted>
-                <BodyMuted>
-                  Over the past 2.5+ years, I’ve owned delivery in production CMS environments, improved UI
-                  consistency through reusable patterns, and reduced bugs with clear standards and QA
-                  checklists.
-                </BodyMuted>
+                <p className="text-body text-muted-fg">
+                  I’m a frontend developer based in Novi Sad, Serbia. I work in production environments
+                  where quality and deadlines matter, building user-facing interfaces and keeping releases
+                  stable.
+                </p>
+                <p className="text-body text-muted-fg">
+                  Over the past 2.5+ years, I’ve collaborated with content and design teams, improved
+                  publishing reliability with clearer rules and structured formats, and reduced repetitive
+                  manual work with practical tooling.
+                </p>
               </Stack>
               <Stack size="md">
                 <h2 className="text-h3 font-semibold">Core Strengths</h2>
                 <BulletList>
-                  <li>Performance & UX: fast loading, clear interaction patterns, smooth responsive behavior.</li>
-                  <li>Design systems & CMS delivery: reusable components, consistency at scale.</li>
-                  <li>React & Next.js with TypeScript: scalable UI, state management, API integration.</li>
-                  <li>Quality mindset: semantic HTML, responsive CSS, cross-browser QA, documentation.</li>
+                  <li>Production reliability: stable releases, predictable workflows, deadline discipline.</li>
+                  <li>Content & design collaboration: clear communication and smoother handoffs.</li>
+                  <li>Frontend delivery: React/Next.js + TypeScript, reusable UI patterns, QA mindset.</li>
+                  <li>Continuous improvement: docs, checklists, and practical automation for routine tasks.</li>
                 </BulletList>
               </Stack>
               <Stack size="md">
