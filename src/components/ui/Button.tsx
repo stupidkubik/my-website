@@ -45,10 +45,11 @@ export function ButtonLink({
   rel,
   "aria-label": ariaLabel,
   openInNewTab = false,
+  download,
   children,
   ...props
 }: ButtonLinkProps) {
-  const isInternal = typeof href === "string" && href.startsWith("/");
+  const internalHref = typeof href === "string" && href.startsWith("/") ? href : undefined;
   const classes = `${baseClassName} ${variantStyles[variant]} ${className}`;
   const resolvedTarget = target ?? (openInNewTab ? "_blank" : undefined);
   const resolvedRel = resolvedTarget === "_blank" ? (rel ?? "noopener noreferrer") : rel;
@@ -58,18 +59,22 @@ export function ButtonLink({
       ? `${children} (opens in a new tab)`
       : undefined);
 
-  if (isInternal && href) {
+  if (internalHref && !download) {
     return (
       <Link
         aria-label={resolvedAriaLabel}
         className={classes}
-        href={href}
+        href={internalHref}
         rel={resolvedRel}
         target={resolvedTarget}
       >
         {children}
       </Link>
     );
+  }
+
+  if (href == null || href === "") {
+    return <span className={classes}>{children}</span>;
   }
 
   return (
@@ -79,6 +84,7 @@ export function ButtonLink({
       href={href}
       rel={resolvedRel}
       target={resolvedTarget}
+      download={download}
       {...props}
     >
       {children}

@@ -25,7 +25,7 @@ export default function Resume() {
                   <PageTitle>Evgenii Rubin</PageTitle>
                   <p className="text-sm text-muted-fg">Frontend Developer (React, Next.js) · Novi Sad, Serbia</p>
                 </Stack>
-                <ButtonLink href="/media/resume/evgenii-rubin-cv.pdf" variant="outline">
+                <ButtonLink download href="/media/resume/evgenii-rubin-cv.pdf" variant="outline">
                   Download PDF
                 </ButtonLink>
               </div>

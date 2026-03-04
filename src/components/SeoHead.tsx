@@ -10,6 +10,8 @@ type SeoHeadProps = {
   description?: string;
   path?: string;
   ogImage?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   noindex?: boolean;
   type?: "website" | "article";
 };
@@ -30,6 +32,8 @@ export default function SeoHead({
   description = DEFAULT_DESCRIPTION,
   path,
   ogImage,
+  ogImageWidth,
+  ogImageHeight,
   noindex = false,
   type = "website"
 }: SeoHeadProps) {
@@ -50,6 +54,12 @@ export default function SeoHead({
       <meta content={SITE_NAME} property="og:site_name" />
       {canonicalUrl ? <meta content={canonicalUrl} property="og:url" /> : null}
       {ogImageUrl ? <meta content={ogImageUrl} property="og:image" /> : null}
+      {ogImageUrl && ogImageWidth ? (
+        <meta content={String(ogImageWidth)} property="og:image:width" />
+      ) : null}
+      {ogImageUrl && ogImageHeight ? (
+        <meta content={String(ogImageHeight)} property="og:image:height" />
+      ) : null}
 
       <meta content={ogImageUrl ? "summary_large_image" : "summary"} name="twitter:card" />
       <meta content={pageTitle} name="twitter:title" />
