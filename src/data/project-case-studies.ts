@@ -57,8 +57,8 @@ const caseStudyContentBySlug: Record<ProjectSlug, ProjectCaseStudyContent> = {
     media: {
       src: "/media/projects/kanban-board/cover.webp",
       alt: "Kanban board project screenshot with column layout and cards.",
-      width: 1600,
-      height: 973
+      width: 1280,
+      height: 778
     },
     ogImage: {
       src: "/og/kanban-board.webp",
@@ -95,8 +95,8 @@ const caseStudyContentBySlug: Record<ProjectSlug, ProjectCaseStudyContent> = {
     media: {
       src: "/media/projects/stripe-mini-app/cover.webp",
       alt: "Stripe mini app screenshot with product list and checkout flow.",
-      width: 1600,
-      height: 973
+      width: 1280,
+      height: 778
     },
     ogImage: {
       src: "/og/stripe-mini-shop.webp",
@@ -131,8 +131,8 @@ const caseStudyContentBySlug: Record<ProjectSlug, ProjectCaseStudyContent> = {
     media: {
       src: "/media/projects/admin-dashboard/cover.webp",
       alt: "Admin dashboard screenshot with data table, charts, and filters.",
-      width: 1600,
-      height: 973
+      width: 1280,
+      height: 778
     },
     ogImage: {
       src: "/og/admin-dashboard.webp",

@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "npm run generate:seo",
+    "prebuild": "npm run generate:seo",
     "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .ts,.tsx"
+    "lint": "eslint . --ext .ts,.tsx",
+    "generate:seo": "node scripts/generate-static-seo.mjs"
   },
   "dependencies": {
     "geist": "^1.5.1",
