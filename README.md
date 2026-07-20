@@ -26,6 +26,7 @@ A personal portfolio website built with Next.js (Pages Router), focused on fast,
 - Theme switcher (light/dark) with `localStorage` persistence
 - SEO baseline: title/description/canonical/OG/Twitter tags
 - Technical SEO: `sitemap.xml` and `robots.txt`
+- Defence-in-depth response headers: framing protection, nosniff, referrer, and permissions policy
 - Responsive behavior including tiny-screen layer (`<=375px`)
 - Subtle motion with `prefers-reduced-motion` support
 - Project media and OG images integrated from `public/`
@@ -160,6 +161,7 @@ Notes:
 - `npm run check` - run lint, typecheck, and tests
 - `npm run generate:seo` - generate static sitemap and robots files
 - `npm run test:seo` - test URL validation and deterministic SEO output
+- `npm run test:security` - test the catch-all response security-header policy
 
 ## Directory Structure
 

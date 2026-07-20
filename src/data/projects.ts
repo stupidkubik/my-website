@@ -15,6 +15,7 @@ export type ProjectListItem = {
   featured: boolean;
   stackPreview: readonly string[];
   links: ProjectLinks;
+  demoNote: string | null;
 };
 
 export const projectsList = [
@@ -24,6 +25,7 @@ export const projectsList = [
     summary: "Real-time collaborative Kanban board with auth, roles, and drag-and-drop.",
     featured: true,
     stackPreview: ["Next.js", "TypeScript", "Firebase", "dnd-kit"],
+    demoNote: "Sign-in required; the live app does not include a public demo board.",
     links: {
       demo: "https://kanban-board-app-ten-psi.vercel.app/",
       code: "https://github.com/stupidkubik/kanban-board-app"
@@ -35,6 +37,7 @@ export const projectsList = [
     summary: "Compact e-commerce demo with Stripe Checkout, webhooks, and validation.",
     featured: true,
     stackPreview: ["Next.js", "TypeScript", "Stripe", "Zod"],
+    demoNote: null,
     links: {
       demo: "https://stripe-mini-shop.vercel.app/",
       code: "https://github.com/stupidkubik/Stripe-mini-app"
@@ -46,6 +49,7 @@ export const projectsList = [
     summary: "Dashboard UI for data-heavy screens with tables, charts, filters, and i18n.",
     featured: true,
     stackPreview: ["Next.js", "TypeScript", "RTK Query", "i18n"],
+    demoNote: null,
     links: {
       demo: "https://admin-dashboard-mvp-three.vercel.app/",
       code: "https://github.com/stupidkubik/Admin-Dashboard-MVP"

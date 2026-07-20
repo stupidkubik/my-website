@@ -37,3 +37,9 @@ A lightweight verification list before shipping.
 ## Assets
 - [ ] `favicon.ico`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png` exist in `public/`.
 - [ ] Resume PDF link downloads/opens as expected.
+
+## Security headers
+- [ ] Production HTML includes `X-Content-Type-Options: nosniff`.
+- [ ] Production HTML includes the expected `Referrer-Policy` and `Permissions-Policy`.
+- [ ] Framing is denied by CSP `frame-ancestors 'none'` (with `X-Frame-Options: DENY` fallback).
+- [ ] Vercel continues to provide HSTS on the HTTPS production domain.

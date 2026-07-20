@@ -13,6 +13,8 @@
 
 > **Статус P2 на 20 июля 2026:** закрыт. Node.js закреплён на линии 22.13+, `@types/node` согласован с runtime major, добавлены `typecheck`/`test`/`check` scripts и GitHub Actions gate: clean install, lint, typecheck, tests, production audit и build. README, CHECKLIST, PLAN и исторический REVIEW синхронизированы с текущим состоянием.
 
+> **Статус P3 на 21 июля 2026:** repository-часть закрыта. Для Kanban demo явно указано требование входа до перехода по ссылке. В `next.config.js` добавлена тестируемая catch-all политика `nosniff`, Referrer/Permissions Policy и защита от framing; Vercel уже предоставляет HSTS. Повторная проверка effective headers остаётся обязательным post-deploy шагом.
+
 ## 1. Краткий итог
 
 Проект небольшой и в целом хорошо структурирован: страницы статически генерируются, данные проектов типизированы, базовые SEO- и accessibility-механизмы присутствуют. После чистой установки зависимостей проходят ESLint, TypeScript и production build.
@@ -23,7 +25,7 @@
 2. В тёмной системной теме на каждой странице воспроизводится React hydration mismatch в `ThemeToggle`.
 3. Geist фактически не загружается: CSS-переменные шрифта пустые, вычисленный шрифт страницы — `Times`.
 
-P0, P1 и P2 закрыты. Следующий блок — P3: публичный вход в Kanban demo, проверка production security headers и затем контролируемый content/refactoring pass. Миграции Tailwind 4, ESLint 10 и TypeScript 7 не следует смешивать с ним в одном изменении.
+P0, P1, P2 и repository-часть P3 закрыты. Следующий блок — контролируемый content/refactoring pass; после deploy текущего блока нужно подтвердить effective security headers на production URL. Миграции Tailwind 4, ESLint 10 и TypeScript 7 не следует смешивать с ним в одном изменении.
 
 ## 2. Что проверено
 
@@ -143,13 +145,17 @@ README всё ещё говорит о runtime sitemap/robots и дублиро�
 
 **Выполнено:** README и CHECKLIST описывают актуальные runtime, scripts и SEO pipeline; PLAN синхронизирован с выполненными пунктами; REVIEW явно помечен как исторический snapshot и ссылается на актуальный debug-план.
 
-### P3 — demo Kanban начинается с экрана входа
+### P3 — demo Kanban начинается с экрана входа — закрыто 21 июля 2026
 
 Ссылка работает, но рекрутер не видит продукт без дополнительного действия. Лучше добавить read-only demo account, публичную demo board или рядом со ссылкой указать, что требуется вход.
 
-### P3 — security headers
+**Выполнено:** live URL повторно проверен и возвращает `307` на `/sign-in`. В списке проектов и case study CTA помечен как `Live Demo (sign-in)`, рядом показано пояснение об отсутствии публичной demo board.
+
+### P3 — security headers — repository policy закрыта 21 июля 2026
 
 В `next.config.js` нет repository-level политики security headers. Это уже подробно зафиксировано в `SECURITY_REVIEW_2026-07-11.md`. Сначала нужно проверить реальные headers production-домена, затем добавить минимум `nosniff`, `Referrer-Policy`, `Permissions-Policy` и защиту от framing. Строгий CSP потребует hash/nonce для inline theme script.
+
+**Выполнено:** effective production headers проверены на `https://evgenii-rubin.vercel.app/`: Vercel отдаёт HSTS, но остальные перечисленные headers отсутствовали. В `next.config.js` добавлена catch-all policy с `Content-Security-Policy` для `base-uri`, `form-action`, `object-src` и `frame-ancestors`, а также `Permissions-Policy`, `Referrer-Policy`, `X-Content-Type-Options` и legacy `X-Frame-Options`. Политика покрыта автоматическим тестом. Полный `script-src` намеренно отложен до nonce/hash для inline theme script; effective headers нужно повторно проверить после deploy.
 
 ## 4. Поэтапный план
 

@@ -21,7 +21,8 @@
 - [x] Stabilize layouts and modular rhythm (final pass)
 - [x] Decide on grid overlay treatment (keep off)
 - [x] Close security, runtime, SEO, and quality-gate priorities from the 2026-07-20 debug review
-- [ ] Start P3 content refresh and production security-header verification
+- [x] Close P3 demo-entry and repository security-header findings
+- [ ] Start the controlled content/refactoring pass
 
 ## Backlog
 - [x] Replace placeholders with project screenshots/media

@@ -50,12 +50,15 @@ export default function Projects() {
                 </div>
                 <div className="pointer-events-auto inline-flex w-fit flex-wrap gap-4">
                   <TextLink href={project.links.demo} openInNewTab>
-                    Live Demo
+                    {project.demoNote ? "Live Demo (sign-in)" : "Live Demo"}
                   </TextLink>
                   <TextLink href={project.links.code} openInNewTab>
                     Source Code
                   </TextLink>
                 </div>
+                {project.demoNote ? (
+                  <p className="text-xs leading-relaxed text-muted-fg">{project.demoNote}</p>
+                ) : null}
               </ProjectCard>
             ))}
           </div>
