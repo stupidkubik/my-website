@@ -13,7 +13,7 @@
 
 > **Статус P2 на 20 июля 2026:** закрыт. Node.js закреплён на линии 22.13+, `@types/node` согласован с runtime major, добавлены `typecheck`/`test`/`check` scripts и GitHub Actions gate: clean install, lint, typecheck, tests, production audit и build. README, CHECKLIST, PLAN и исторический REVIEW синхронизированы с текущим состоянием.
 
-> **Статус P3 на 21 июля 2026:** repository-часть закрыта. Для Kanban demo явно указано требование входа до перехода по ссылке. В `next.config.js` добавлена тестируемая catch-all политика `nosniff`, Referrer/Permissions Policy и защита от framing; Vercel уже предоставляет HSTS. Повторная проверка effective headers остаётся обязательным post-deploy шагом.
+> **Статус P3 на 21 июля 2026:** закрыт, включая production verification. Для Kanban demo явно указано требование входа до перехода по ссылке. Production отдаёт тестируемую catch-all политику `nosniff`, Referrer/Permissions Policy и защиту от framing; HSTS от Vercel сохранён, `X-Powered-By` отсутствует.
 
 ## 1. Краткий итог
 
@@ -25,7 +25,7 @@
 2. В тёмной системной теме на каждой странице воспроизводится React hydration mismatch в `ThemeToggle`.
 3. Geist фактически не загружается: CSS-переменные шрифта пустые, вычисленный шрифт страницы — `Times`.
 
-P0, P1, P2 и repository-часть P3 закрыты. Следующий блок — контролируемый content/refactoring pass; после deploy текущего блока нужно подтвердить effective security headers на production URL. Миграции Tailwind 4, ESLint 10 и TypeScript 7 не следует смешивать с ним в одном изменении.
+P0, P1, P2 и P3 закрыты, включая production verification. Следующий блок — контролируемый content/refactoring pass. Миграции Tailwind 4, ESLint 10 и TypeScript 7 не следует смешивать с ним в одном изменении.
 
 ## 2. Что проверено
 
@@ -151,11 +151,11 @@ README всё ещё говорит о runtime sitemap/robots и дублиро�
 
 **Выполнено:** live URL повторно проверен и возвращает `307` на `/sign-in`. В списке проектов и case study CTA помечен как `Live Demo (sign-in)`, рядом показано пояснение об отсутствии публичной demo board.
 
-### P3 — security headers — repository policy закрыта 21 июля 2026
+### P3 — security headers — закрыто 21 июля 2026
 
 В `next.config.js` нет repository-level политики security headers. Это уже подробно зафиксировано в `SECURITY_REVIEW_2026-07-11.md`. Сначала нужно проверить реальные headers production-домена, затем добавить минимум `nosniff`, `Referrer-Policy`, `Permissions-Policy` и защиту от framing. Строгий CSP потребует hash/nonce для inline theme script.
 
-**Выполнено:** effective production headers проверены на `https://evgenii-rubin.vercel.app/`: Vercel отдаёт HSTS, но остальные перечисленные headers отсутствовали. В `next.config.js` добавлена catch-all policy с `Content-Security-Policy` для `base-uri`, `form-action`, `object-src` и `frame-ancestors`, а также `Permissions-Policy`, `Referrer-Policy`, `X-Content-Type-Options` и legacy `X-Frame-Options`. Политика покрыта автоматическим тестом. Полный `script-src` намеренно отложен до nonce/hash для inline theme script; effective headers нужно повторно проверить после deploy.
+**Выполнено:** до изменения effective production headers проверены на `https://evgenii-rubin.vercel.app/`: Vercel отдавал только HSTS из требуемого набора. В `next.config.js` добавлена catch-all policy с `Content-Security-Policy` для `base-uri`, `form-action`, `object-src` и `frame-ancestors`, а также `Permissions-Policy`, `Referrer-Policy`, `X-Content-Type-Options` и legacy `X-Frame-Options`. Политика покрыта автоматическим тестом. После deploy повторная проверка подтвердила все перечисленные headers, сохранённый HSTS и отсутствие `X-Powered-By`. Полный `script-src` намеренно отложен до nonce/hash для inline theme script.
 
 ## 4. Поэтапный план
 
