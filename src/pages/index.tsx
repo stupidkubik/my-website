@@ -13,7 +13,9 @@ export default function Home() {
     <>
       <SeoHead
         description="Frontend developer portfolio focused on reliable, user-friendly interfaces with stable delivery and strong production quality."
-        ogImage="/media/projects/kanban-board/cover.webp"
+        ogImage="/og/kanban-board.webp"
+        ogImageHeight={630}
+        ogImageWidth={1200}
         path="/"
       />
       <main id="main-content" tabIndex={-1}>

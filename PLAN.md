@@ -20,6 +20,9 @@
 ## Current Focus
 - [x] Stabilize layouts and modular rhythm (final pass)
 - [x] Decide on grid overlay treatment (keep off)
+- [x] Close security, runtime, SEO, and quality-gate priorities from the 2026-07-20 debug review
+- [x] Close P3 demo-entry and repository security-header findings
+- [ ] Start the controlled content/refactoring pass
 
 ## Backlog
 - [x] Replace placeholders with project screenshots/media
@@ -34,8 +37,8 @@
 - [x] [P1] Replace internal navigation on plain `<a>` with `next/link` (`ButtonLink`, `ProjectCard`, inline internal links) to avoid full page reloads.
 - [x] [P1] Fix font variable scope for Geist (`--font-geist-sans` / `--font-geist-mono`) so `font-sans` is applied reliably without serif fallback.
 - [x] [P1] Restore working lint quality gate (align ESLint v9 config and `npm run lint` script).
-- [ ] [P2] Re-apply project detail page media integration (`next/image`, responsive sizes, no placeholders).
-- [ ] [P2] Re-check SEO layer end-to-end (`SeoHead`, canonical/OG URLs, sitemap/robots availability on routes).
-- [ ] [P2] Re-check accessibility baseline end-to-end (visible focus states, skip-link target on `main`, `aria-current` in nav).
+- [x] [P2] Re-apply project detail page media integration (`next/image`, responsive sizes, no placeholders).
+- [x] [P2] Re-check SEO layer end-to-end (`SeoHead`, canonical/OG URLs, sitemap/robots availability on routes).
+- [x] [P2] Re-check accessibility baseline end-to-end (visible focus states, skip-link target on `main`, `aria-current` in nav).
 - [x] [P3] Deduplicate project data into a single source shared by home/projects/project-detail pages.
 - [ ] [P3] Add lightweight perf verification checklist before deploy (LCP image, route transitions, no unexpected full reloads).

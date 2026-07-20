@@ -130,12 +130,13 @@ export default function ProjectDetail({ project, slug }: ProjectPageProps) {
             <h2 className="text-h3 font-semibold">Links</h2>
             <div className="flex flex-wrap gap-3 text-sm">
               <ButtonLink href={project.links.demo} openInNewTab>
-                Live Demo
+                {project.demoNote ? "Live Demo (sign-in)" : "Live Demo"}
               </ButtonLink>
               <ButtonLink href={project.links.code} openInNewTab variant="outline">
                 Source Code
               </ButtonLink>
             </div>
+            {project.demoNote ? <BodyMuted className="text-sm">{project.demoNote}</BodyMuted> : null}
           </Stack>
         </Stack>
         </Section>

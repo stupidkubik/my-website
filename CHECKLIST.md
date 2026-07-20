@@ -3,8 +3,12 @@
 A lightweight verification list before shipping.
 
 ## Build & hygiene
-- [ ] Run `npm run lint` (no errors).
+- [ ] Use the pinned Node version with `nvm use`.
+- [ ] Run `npm ci` from the committed lockfile.
+- [ ] Run `npm run check` (lint, typecheck, and tests).
+- [ ] Run `npm audit --omit=dev` (no production vulnerabilities).
 - [ ] Run `npm run build` (no errors).
+- [ ] Confirm the Git worktree stays clean apart from intentional source changes.
 
 ## Performance (quick pass)
 - [ ] **Home**: hero content renders immediately; no layout jumps.
@@ -33,3 +37,9 @@ A lightweight verification list before shipping.
 ## Assets
 - [ ] `favicon.ico`, `apple-touch-icon.png`, `icon-192.png`, `icon-512.png` exist in `public/`.
 - [ ] Resume PDF link downloads/opens as expected.
+
+## Security headers
+- [ ] Production HTML includes `X-Content-Type-Options: nosniff`.
+- [ ] Production HTML includes the expected `Referrer-Policy` and `Permissions-Policy`.
+- [ ] Framing is denied by CSP `frame-ancestors 'none'` (with `X-Frame-Options: DENY` fallback).
+- [ ] Vercel continues to provide HSTS on the HTTPS production domain.

@@ -3,6 +3,8 @@
 **Дата:** 4 марта 2026  
 **Проект:** Evgenii Rubin — Frontend Portfolio (Next.js 16, Pages Router, React 19, Tailwind)
 
+> **Архивный snapshot.** Findings ниже отражают состояние на 4 марта 2026 и не являются активным backlog. Актуальные статусы и последовательность работ находятся в `DEBUG_REVIEW_AND_REFACTOR_PLAN_2026-07-20.md`; выполненные пункты синхронизированы в `PLAN.md`.
+
 ---
 
 ## 1. Резюме

@@ -11,6 +11,7 @@ export default function About() {
       <SeoHead
         description="About Evgenii Rubin: frontend developer with production CMS and web production experience, focused on reliable delivery and user-friendly interfaces."
         path="/about"
+        title="About"
       />
       <main id="main-content" tabIndex={-1}>
         <Section containerClassName="motion-reveal">
