@@ -1,4 +1,6 @@
-export const projectSlugs = ["kanban-board", "stripe-mini-app", "admin-dashboard"] as const;
+import { projectSlugs } from "@/data/project-slugs.mjs";
+
+export { projectSlugs };
 export type ProjectSlug = (typeof projectSlugs)[number];
 
 type ProjectLinks = {

@@ -3,8 +3,12 @@
 A lightweight verification list before shipping.
 
 ## Build & hygiene
-- [ ] Run `npm run lint` (no errors).
+- [ ] Use the pinned Node version with `nvm use`.
+- [ ] Run `npm ci` from the committed lockfile.
+- [ ] Run `npm run check` (lint, typecheck, and tests).
+- [ ] Run `npm audit --omit=dev` (no production vulnerabilities).
 - [ ] Run `npm run build` (no errors).
+- [ ] Confirm the Git worktree stays clean apart from intentional source changes.
 
 ## Performance (quick pass)
 - [ ] **Home**: hero content renders immediately; no layout jumps.

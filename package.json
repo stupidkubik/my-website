@@ -2,6 +2,9 @@
   "name": "my-website",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.13.0 <23"
+  },
   "scripts": {
     "predev": "npm run generate:seo",
     "prebuild": "npm run generate:seo",
@@ -9,7 +12,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx",
-    "generate:seo": "node scripts/generate-static-seo.mjs"
+    "typecheck": "tsc --noEmit",
+    "generate:seo": "node scripts/generate-static-seo.mjs",
+    "test:seo": "node --test scripts/generate-static-seo.test.mjs",
+    "test": "npm run test:seo",
+    "check": "npm run lint && npm run typecheck && npm run test"
   },
   "dependencies": {
     "geist": "^1.5.1",
@@ -18,7 +25,7 @@
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
-    "@types/node": "^25.2.0",
+    "@types/node": "^22.20.1",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.24",

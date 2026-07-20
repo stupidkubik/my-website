@@ -9,6 +9,10 @@
 
 > **Статус runtime P1 на 20 июля 2026:** закрыт. `ThemeToggle` переведён на SSR-safe external-store snapshot, а Geist Sans/Mono подключены через `_app` согласно контракту Pages Router. Light/dark reload и переключение темы проходят без hydration errors; computed font — Geist Sans, обе font variables определены.
 
+> **Статус SEO P1 и metadata-части P2 на 20 июля 2026:** закрыты. Sitemap/robots стали детерминированными build artifacts вне Git, project slugs вынесены в общий источник, URL валидируется, XML экранируется и генератор покрыт тестами. About получил уникальный title, главная — корректный 1200×630 OG asset и размеры.
+
+> **Статус P2 на 20 июля 2026:** закрыт. Node.js закреплён на линии 22.13+, `@types/node` согласован с runtime major, добавлены `typecheck`/`test`/`check` scripts и GitHub Actions gate: clean install, lint, typecheck, tests, production audit и build. README, CHECKLIST, PLAN и исторический REVIEW синхронизированы с текущим состоянием.
+
 ## 1. Краткий итог
 
 Проект небольшой и в целом хорошо структурирован: страницы статически генерируются, данные проектов типизированы, базовые SEO- и accessibility-механизмы присутствуют. После чистой установки зависимостей проходят ESLint, TypeScript и production build.
@@ -19,7 +23,7 @@
 2. В тёмной системной теме на каждой странице воспроизводится React hydration mismatch в `ThemeToggle`.
 3. Geist фактически не загружается: CSS-переменные шрифта пустые, вычисленный шрифт страницы — `Times`.
 
-P0 и runtime-пункты P1 закрыты. Следующим остаётся P1 по SEO-генерации. Миграции Tailwind 4, ESLint 10 и TypeScript 7 не следует смешивать с ним в одном изменении.
+P0, P1 и P2 закрыты. Следующий блок — P3: публичный вход в Kanban demo, проверка production security headers и затем контролируемый content/refactoring pass. Миграции Tailwind 4, ESLint 10 и TypeScript 7 не следует смешивать с ним в одном изменении.
 
 ## 2. Что проверено
 
@@ -86,7 +90,7 @@ P0 и runtime-пункты P1 закрыты. Следующим остаётс�
 
 **Выполнено:** импорты Geist перенесены из `_document` в `_app`, а font variables и `font-sans` применены на общем app wrapper. Runtime-проверка подтверждает `GeistSans, "GeistSans Fallback", ...` для контента и определённые `--font-geist-sans`/`--font-geist-mono`; production build проходит.
 
-### P1 — SEO-генерация создаёт грязный и потенциально неверный артефакт
+### P1 — SEO-генерация создаёт грязный и потенциально неверный артефакт — закрыто 20 июля 2026
 
 **Где:** `scripts/generate-static-seo.mjs:17-20,41-45`, `public/sitemap.xml`, `public/robots.txt`.
 
@@ -97,7 +101,9 @@ P0 и runtime-пункты P1 закрыты. Следующим остаётс�
 
 **Решение:** выбрать один воспроизводимый режим: генерировать файлы только как build artifacts и не хранить их в Git либо коммитить детерминированные production-файлы. `lastmod` брать из реальной даты изменения контента или не выводить. Маршруты/slug-и читать из общего источника. Валидировать `NEXT_PUBLIC_SITE_URL` и экранировать XML.
 
-### P2 — отсутствует постоянный quality gate
+**Выполнено:** `public/sitemap.xml` и `public/robots.txt` исключены из Git и генерируются перед dev/build. Временной `lastmod` удалён, XML форматируется детерминированно, URL нормализуется и валидируется, а production-сборка отклоняет localhost. Slug-и импортируются из общего `src/data/project-slugs.mjs`. Добавлены Node.js-тесты на маршруты, XML escaping, детерминизм, robots и production URL.
+
+### P2 — отсутствует постоянный quality gate — закрыто 20 июля 2026
 
 **Где:** `package.json:5-12`; `.github/workflows` отсутствует.
 
@@ -105,7 +111,9 @@ P0 и runtime-пункты P1 закрыты. Следующим остаётс�
 
 **Решение:** добавить scripts и GitHub Actions для clean install, lint, typecheck, tests, production audit и build. Для build задавать явный тестовый `NEXT_PUBLIC_SITE_URL`.
 
-### P2 — версия среды не закреплена, типы Node не соответствуют runtime
+**Выполнено:** добавлены `typecheck`, `test` и объединённый `check`; workflow `.github/workflows/quality.yml` запускает `npm ci`, полный локальный gate, production audit и build с явным публичным тестовым URL. Browserslist database обновлена; production build проходит без предупреждения об устаревшем `caniuse-lite`.
+
+### P2 — версия среды не закреплена, типы Node не соответствуют runtime — закрыто 20 июля 2026
 
 **Где:** `package.json:21`; отсутствуют `engines`, `.nvmrc`/`.node-version`.
 
@@ -113,7 +121,9 @@ P0 и runtime-пункты P1 закрыты. Следующим остаётс�
 
 **Решение:** выбрать Node 22 LTS как baseline, добавить `engines` и файл версии, согласовать `@types/node` с runtime major.
 
-### P2 — неполные SEO-метаданные отдельных страниц
+**Выполнено:** добавлен `.nvmrc` с Node 22.13.1 и диапазон `engines.node >=22.13.0 <23`; `@types/node` переведён с major 25 на совместимую линию 22.
+
+### P2 — неполные SEO-метаданные отдельных страниц — закрыто 20 июля 2026
 
 **Где:** `src/pages/about.tsx:11-14`, `src/pages/index.tsx`.
 
@@ -121,13 +131,17 @@ About не передаёт `title`, поэтому получает title гл�
 
 **Решение:** добавить `title="About"`; для главной использовать отдельный 1200×630 OG asset либо передать корректные размеры текущего изображения.
 
-### P2 — документация и фактическое состояние расходятся
+**Выполнено:** About передаёт уникальный `title="About"`; главная использует `/og/kanban-board.webp` и явно задаёт размеры 1200×630.
+
+### P2 — документация и фактическое состояние расходятся — закрыто 20 июля 2026
 
 **Где:** `README.md`, `PLAN.md`, `REVIEW.md`.
 
 README всё ещё говорит о runtime sitemap/robots и дублировании project data, хотя архитектура уже изменилась. PLAN содержит незакрытые пункты, которые фактически выполнены. Старый REVIEW содержит устранённые findings. Это затрудняет возвращение к проекту после паузы.
 
 **Решение:** после исправлений обновить README и CHECKLIST, архивировать или явно пометить исторические REVIEW/PLAN. Существующий `SECURITY_REVIEW_2026-07-11.md` сохранить как отдельный audit snapshot.
+
+**Выполнено:** README и CHECKLIST описывают актуальные runtime, scripts и SEO pipeline; PLAN синхронизирован с выполненными пунктами; REVIEW явно помечен как исторический snapshot и ссылается на актуальный debug-план.
 
 ### P3 — demo Kanban начинается с экрана входа
 
