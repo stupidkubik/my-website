@@ -1,6 +1,4 @@
 import { Head, Html, Main, NextScript } from "next/document";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
 
 const themeInitScript = `
   (function () {
@@ -18,7 +16,7 @@ const themeInitScript = `
 
 export default function Document() {
   return (
-    <Html className={`${GeistSans.variable} ${GeistMono.variable}`} lang="en">
+    <Html lang="en">
       <Head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </Head>
