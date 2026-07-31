@@ -13,7 +13,7 @@ export default function Projects() {
   return (
     <>
       <SeoHead
-        description="Selected frontend projects by Evgenii Rubin: Kanban Board App, Stripe Mini App, and Admin Dashboard MVP with case studies and source code."
+        description="Frontend case studies by Evgenii Rubin: a real-time Kanban workspace, the Verdant Lane Stripe storefront, and a production-ready admin dashboard template."
         ogImage="/og/kanban-board.webp"
         ogImageWidth={1200}
         ogImageHeight={630}
@@ -28,9 +28,9 @@ export default function Projects() {
               <Stack size="md">
                 <PageTitle>Projects</PageTitle>
                 <p className="max-w-text text-body text-muted-fg">
-                  Projects & Code — a focused set of projects I’ve shipped to sharpen my React and TypeScript
-                  skills. Each one tackles a different challenge, from drag-and-drop interaction design to API
-                  integrations. Click a project for the full case study.
+                  Three production-minded case studies spanning real-time collaboration, payments, and
+                  data-heavy product UI. Each project documents its architecture, reliability boundaries,
+                  testing strategy, and the trade-offs behind the implementation.
                 </p>
               </Stack>
             </GridCol>

@@ -154,19 +154,19 @@ export default function Resume() {
                   <h2 className="text-h3 font-semibold">Personal Projects</h2>
                   <BulletList>
                     <li>
-                      <strong>Kanban Board</strong> (Next.js, React, TypeScript, Redux Toolkit, Firebase,
-                      dnd-kit, Vitest): real-time collaborative Kanban with auth, roles, and drag-and-drop.
-                      Leveraged AI-assisted development workflows to speed up routine delivery.
+                      <strong>Kanban Board</strong> (Next.js, TypeScript, RTK Query, Firebase, dnd-kit,
+                      Vitest/Cypress): bilingual real-time workspace with role-based collaboration, optimistic
+                      updates, labels, multiple assignees, and isolated emulator E2E.
                     </li>
                     <li>
-                      <strong>Stripe E-commerce</strong> (Next.js, TypeScript, Stripe, Tailwind, shadcn/ui,
-                      Zod, Playwright/Vitest): Stripe-powered catalog with cart and checkout-to-success flow.
-                      Added Zod validation and automated tests.
+                      <strong>Verdant Lane</strong> (Next.js, TypeScript, Stripe, Postgres, Zustand,
+                      Zod, Playwright/Vitest): live test-mode storefront with a Stripe-backed catalog,
+                      persistent cart, protected receipts, signed webhooks, and idempotent order processing.
                     </li>
                     <li>
-                      <strong>Admin Dashboard MVP</strong> (Next.js, React, TypeScript, RTK Query, Tailwind,
-                      Charts, i18n): MVP focused on complex UI states (tables, charts, filters, i18n) with
-                      reusable UI components.
+                      <strong>Admin Dashboard Template</strong> (Next.js, TypeScript, RTK Query, TanStack Table,
+                      Tailwind, MSW, Playwright/axe): reusable B2B dashboard template with charts, data
+                      tables, form patterns, four locales, mock API boundaries, and accessibility-focused QA.
                     </li>
                   </BulletList>
                 </Stack>

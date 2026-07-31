@@ -22,10 +22,11 @@ export const projectsList = [
   {
     slug: "kanban-board",
     title: "Kanban Board App",
-    summary: "Real-time collaborative Kanban board with auth, roles, and drag-and-drop.",
+    summary:
+      "Real-time collaborative Kanban with role-based access, optimistic updates, labels, assignees, and drag-and-drop.",
     featured: true,
     stackPreview: ["Next.js", "TypeScript", "Firebase", "dnd-kit"],
-    demoNote: "Sign-in required; the live app does not include a public demo board.",
+    demoNote: "Sign in with Google or email; boards are private by default.",
     links: {
       demo: "https://kanban-board-app-ten-psi.vercel.app/",
       code: "https://github.com/stupidkubik/kanban-board-app"
@@ -33,10 +34,11 @@ export const projectsList = [
   },
   {
     slug: "stripe-mini-app",
-    title: "Stripe Mini App",
-    summary: "Compact e-commerce demo with Stripe Checkout, webhooks, and validation.",
+    title: "Verdant Lane",
+    summary:
+      "Production-minded storefront with a Stripe-backed catalog, persistent cart, protected receipts, and durable order processing.",
     featured: true,
-    stackPreview: ["Next.js", "TypeScript", "Stripe", "Zod"],
+    stackPreview: ["Next.js", "TypeScript", "Stripe", "Postgres"],
     demoNote: null,
     links: {
       demo: "https://stripe-mini-shop.vercel.app/",
@@ -45,10 +47,11 @@ export const projectsList = [
   },
   {
     slug: "admin-dashboard",
-    title: "Admin Dashboard MVP",
-    summary: "Dashboard UI for data-heavy screens with tables, charts, filters, and i18n.",
+    title: "Admin Dashboard Template",
+    summary:
+      "Production-ready B2B dashboard template with reusable data views, four locales, mock APIs, and accessibility-focused QA.",
     featured: true,
-    stackPreview: ["Next.js", "TypeScript", "RTK Query", "i18n"],
+    stackPreview: ["Next.js", "TypeScript", "RTK Query", "TanStack Table"],
     demoNote: null,
     links: {
       demo: "https://admin-dashboard-mvp-three.vercel.app/",
