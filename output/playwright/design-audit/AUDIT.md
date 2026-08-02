@@ -586,3 +586,45 @@ This audit verifies captured visual states, real responsive reflow at 1440/375/3
 - `10-projects-dark-mobile.png`
 - `11-case-study-mobile-dark.png`
 - `12-about-mobile-dark.png`
+
+## Post-implementation verification
+
+Date: 2026-08-02
+
+### After screenshot set
+
+The accepted after screenshots are saved in `after-2026-08-02/` next to this report. They cover Home, Projects, the Kanban case study, and Contact at 1440 px, 375 px, and 320 px in light mode; Projects and the case study at those widths in dark mode; and a focused skip-link state.
+
+- `13-home-desktop-light.png` through `16-contact-desktop-light.png`
+- `17-home-mobile-375-light.png` through `20-contact-mobile-375-light.png`
+- `21-home-mobile-320-light.png` through `24-contact-mobile-320-light.png`
+- `25-projects-desktop-dark.png` through `30-case-study-mobile-320-dark.png`
+- `31-contact-skip-link-dark.png`
+
+### Approved findings status
+
+| Audit finding | Status | Verification |
+| --- | --- | --- |
+| Project discovery lacks visual proof | Resolved | Each project card now uses the existing product cover in a consistent 16:10 treatment. Desktop and mobile captures show distinct covers without disrupting equal card height or the card action hierarchy. |
+| Case studies need stronger evidence and scanability | Partially resolved | The typed snapshot, constraints, key decisions, verified outcomes, trade-offs where grounded, and an explicit full-size screenshot link make the content scannable. Additional annotated product views remain out of scope because this pass does not add screenshots. |
+| Home promise is too generic | Resolved | The Home opening now states the frontend/product and interactive-ad focus, supported by three evidence-based proof points. |
+| Contact conversion is visually underweighted | Resolved | The address is visible and selectable, `Email me` is the primary action, and availability, location, timezone, work permit, and secondary channels form a balanced supporting block. |
+| Mobile navigation is not comfortably touch-oriented | Resolved | Primary links and the theme control have 40 px minimum heights. At 320 px the final review also tightened only the base nav gap and tracking so Contact no longer crowds the theme control. |
+| Interactive boundaries are too subtle | Resolved | Interactive-border contrast is 3.38:1 on white and 4.10:1 on the dark background, exceeding the 3:1 non-text target. Structural dividers remain intentionally quieter. |
+| Heading and active-state cues are too subtle | Resolved | Project-card titles are `h2` on the listing, and the active navigation item now has a visible underline and weight change in both themes. |
+
+### QA record
+
+- `npm run check` passed: lint, TypeScript, SEO tests, and security-header tests.
+- The production build passed and generated every static route plus all three project routes.
+- Browser console checks found no errors on Home, Projects, Kanban, Resume, About, or Contact.
+- No horizontal overflow was observed at 320 px in light or dark mode; all captured images loaded.
+- Internal navigation was exercised through a project card. The demo, source, full-size screenshot, mailto, tel, and PDF links have the expected destinations and accessible names.
+- The theme was switched in the browser. Focus-visible rings were confirmed on the skip link, navigation, theme toggle, email, primary email action, and phone; the skip link was captured in its visible keyboard-focused state.
+- Semantic snapshots retain sequential heading structure across the audited routes. The reduced-motion stylesheet disables the reveal animation and skip-link transition.
+
+### Intentional trade-offs and limits
+
+- Broad single-cover case-study imagery remains the chosen scope; the adjacent full-size link is the mobile inspection path rather than introducing new annotated visuals.
+- The 320 px header uses slightly tighter base tracking and gaps to preserve 40 px touch targets without adding a second navigation row.
+- This pass does not establish full WCAG conformance. Browser zoom emulation, screen-reader behavior, high-contrast modes, external demo flows, and local email/phone handlers require dedicated environment-specific testing.
