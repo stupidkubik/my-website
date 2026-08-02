@@ -43,7 +43,7 @@ export default function ThemeToggle() {
     <button
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       aria-pressed={isDark}
-      className="inline-flex min-h-[2rem] items-center rounded-md border border-border px-2.5 py-1 text-[11px] uppercase tracking-[0.08em] text-muted-fg transition hover:border-fg hover:text-fg xxs:text-[10px] xxs:tracking-[0.06em] xs:text-xs xs:tracking-[0.1em]"
+      className="inline-flex min-h-10 items-center rounded-md border border-interactive-border px-2 py-1 text-xs uppercase tracking-[0.06em] text-muted-fg transition hover:border-fg hover:text-fg xs:tracking-[0.1em]"
       onClick={handleToggle}
       type="button"
     >

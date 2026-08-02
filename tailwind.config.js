@@ -29,6 +29,7 @@ module.exports = {
         muted: "var(--color-muted)",
         "muted-fg": "var(--color-muted-fg)",
         border: "var(--color-border)",
+        "interactive-border": "var(--color-interactive-border)",
         primary: "var(--color-primary)",
         "primary-contrast": "var(--color-primary-contrast)"
       },
