@@ -11,7 +11,7 @@ export default function Resume() {
   return (
     <>
       <SeoHead
-        description="Resume of Evgenii Rubin: frontend developer with production CMS and web production experience, reliable delivery, and React/TypeScript expertise."
+        description="Resume of Evgenii Rubin: frontend developer with experience in high-traffic publishing, interactive advertising, React, TypeScript, and Cocos Creator."
         path="/resume"
         title="Resume"
       />
@@ -56,20 +56,20 @@ export default function Resume() {
                   <h2 className="text-h3 font-semibold">Summary</h2>
                   <BulletList>
                     <li>
-                      Frontend developer with a background in production work where quality and deadlines
-                      matter.
+                      Frontend developer with 3+ years of experience across high-traffic publishing and
+                      interactive advertising.
                     </li>
                     <li>
-                      I’m used to collaborating with content and design teams, keeping releases stable, and
-                      making processes more predictable.
+                      Expanded from CMS and web production automation at Tinkoff Journal into TypeScript and
+                      Cocos Creator playable experiences at Playbox.
                     </li>
                     <li>
-                      Comfortable owning tasks end-to-end: clarifying requirements, documenting decisions,
-                      and shipping reliably.
+                      Build reusable component structures, responsive layouts, platform integrations, and
+                      dependable release workflows.
                     </li>
                     <li>
-                      Curious and fast-learning, I leverage AI-assisted tools to stay efficient and focused
-                      on user value.
+                      Complement production experience with React and Next.js projects covering real-time
+                      collaboration, payments, and data-heavy UI.
                     </li>
                   </BulletList>
                 </Stack>
@@ -80,34 +80,60 @@ export default function Resume() {
                   <h2 className="text-h3 font-semibold">Experience</h2>
                   <div className="space-y-8 text-body text-muted-fg">
                     <article className="grid gap-3 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6">
-                      <p className="pt-1 text-label uppercase text-muted-fg">Aug 2023 — Jan 2026</p>
+                      <p className="pt-1 text-label uppercase text-muted-fg">Mar 2026 — Present</p>
+                      <Stack size="sm">
+                        <p className="text-[1.125rem] font-medium leading-snug text-fg">
+                          Creative Developer (Playable Ads)
+                        </p>
+                        <p className="text-sm uppercase tracking-[0.06em] text-muted-fg">
+                          Playbox · Part-time · Remote
+                        </p>
+                        <BulletList className="text-body">
+                          <li>
+                            Develop and optimize interactive playable ads in TypeScript and Cocos Creator for
+                            20+ advertising platforms, including ironSource and Unity Ads, for campaigns with
+                            a combined audience of 100M+ users.
+                          </li>
+                          <li>
+                            Build reusable component-driven structures—systems, views, state flows, and
+                            adapters—to speed up creative variants and platform-specific releases.
+                          </li>
+                          <li>
+                            Implement portrait and landscape layouts, CTA and analytics integrations,
+                            audio and animation flows, and build variants for differing network requirements.
+                          </li>
+                        </BulletList>
+                        <p className="text-sm text-muted-fg">
+                          Tools: Cocos Creator, TypeScript, Component-driven Architecture, Responsive Layout,
+                          Platform Integrations
+                        </p>
+                      </Stack>
+                    </article>
+                    <article className="grid gap-3 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6">
+                      <p className="pt-1 text-label uppercase text-muted-fg">Aug 2023 — Aug 2026</p>
                       <Stack size="sm">
                         <p className="text-[1.125rem] font-medium leading-snug text-fg">
                           Frontend Developer (CMS & Web Production)
                         </p>
                         <p className="text-sm uppercase tracking-[0.06em] text-muted-fg">
-                          Tinkoff Journal · Part of Tinkoff Group (40M+ customers)
+                          Tinkoff Journal · Tinkoff Group · Full-time · Remote
                         </p>
                         <BulletList className="text-body">
                           <li>
-                            Shipped and maintained user-facing pages in a CMS-driven production workflow
-                            where quality and deadlines matter.
+                            Cut manual assembly time for complex articles by 50% by creating automation
+                            scripts and standardizing JSON/XML content imports.
                           </li>
                           <li>
-                            Worked closely with content and design teams to keep releases stable and layouts
-                            consistent across browsers.
+                            Engineered and maintained a library of reusable UI components and snippets for a
+                            high-traffic CMS used to publish approximately 140 articles per month.
                           </li>
                           <li>
-                            Improved publishing reliability by introducing clear content rules and structured
-                            data formats for import (JSON/XML).
+                            Owned end-to-end technical production for feature articles, ensuring performance
+                            and cross-browser compatibility for a readership of millions.
                           </li>
                           <li>
-                            Built reusable HTML/CSS patterns and resolved tricky layout and typography edge
-                            cases in production.
-                          </li>
-                          <li>
-                            Automated repetitive production tasks with JavaScript and regex (with AI-assisted
-                            tooling), reducing manual work and review friction.
+                            Reduced post-launch bugs by 30% by introducing a standardized pre-release QA
+                            checklist and robust content validation rules.
                           </li>
                         </BulletList>
                         <p className="text-sm text-muted-fg">
@@ -126,24 +152,26 @@ export default function Resume() {
                     <Stack size="sm">
                       <h3 className="text-label uppercase text-muted-fg">Core</h3>
                       <p className="text-sm text-muted-fg">
-                        HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind CSS
+                        HTML, CSS, JavaScript, TypeScript, React, Next.js, Cocos Creator
+                      </p>
+                    </Stack>
+                    <Stack size="sm">
+                      <h3 className="text-label uppercase text-muted-fg">UI & Interactive</h3>
+                      <p className="text-sm text-muted-fg">
+                        Tailwind CSS, shadcn/ui, Radix UI, Responsive Layouts, Animation & Audio
                       </p>
                     </Stack>
                     <Stack size="sm">
                       <h3 className="text-label uppercase text-muted-fg">State & Integrations</h3>
                       <p className="text-sm text-muted-fg">
-                        Redux Toolkit, Firebase, Stripe API, JSON/XML
+                        Redux Toolkit, Zustand, Firebase, Stripe, Postgres, Event-driven Systems
                       </p>
                     </Stack>
                     <Stack size="sm">
                       <h3 className="text-label uppercase text-muted-fg">Quality & Delivery</h3>
                       <p className="text-sm text-muted-fg">
-                        Git, CI/CD (GitHub Actions), Cross-browser QA, Vitest, Playwright
+                        Git, CI/CD, Cross-browser & Multi-platform QA, Vitest, Playwright, Cypress
                       </p>
-                    </Stack>
-                    <Stack size="sm">
-                      <h3 className="text-label uppercase text-muted-fg">AI-assisted Tools</h3>
-                      <p className="text-sm text-muted-fg">GitHub Copilot, Cursor, Codex</p>
                     </Stack>
                   </div>
                 </Stack>

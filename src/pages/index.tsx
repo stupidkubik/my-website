@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <SeoHead
-        description="Frontend developer portfolio focused on reliable, user-friendly interfaces with stable delivery and strong production quality."
+        description="Frontend developer portfolio spanning high-traffic web publishing and interactive TypeScript experiences, with a focus on reusable systems and reliable delivery."
         ogImage="/og/kanban-board.webp"
         ogImageHeight={630}
         ogImageWidth={1200}
@@ -23,13 +23,15 @@ export default function Home() {
           <Grid>
             <GridCol lg={9}>
             <Stack size="lg">
-              <p className="text-label uppercase text-muted-fg">Frontend Developer</p>
+              <p className="text-label uppercase text-muted-fg">Frontend Developer · Interactive Experiences</p>
               <h1 className="text-[2.125rem] font-semibold leading-[1.08] tracking-[-0.02em] xs:text-[2.5rem] sm:text-display">
-                Frontend developer building reliable, user-friendly web interfaces.
+                Building reliable web interfaces and interactive experiences.
               </h1>
               <p className="max-w-text text-body text-muted-fg">
-                I have 2.5+ years of production experience where quality and deadlines matter. I work closely
-                with content and design teams to ship stable, accessible releases and predictable results.
+                I bring 3+ years of production experience across high-traffic publishing and interactive
+                advertising. My work has grown from CMS-driven web delivery and workflow automation into
+                TypeScript-powered playable experiences—always with reusable components, cross-platform QA,
+                and predictable releases at the core.
               </p>
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="/projects">

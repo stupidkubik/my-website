@@ -9,7 +9,7 @@ export default function About() {
   return (
     <>
       <SeoHead
-        description="About Evgenii Rubin: frontend developer with production CMS and web production experience, focused on reliable delivery and user-friendly interfaces."
+        description="About Evgenii Rubin: frontend developer with experience in high-traffic publishing and interactive advertising, focused on reusable systems and reliable delivery."
         path="/about"
         title="About"
       />
@@ -21,23 +21,23 @@ export default function About() {
               <PageTitle>About</PageTitle>
               <Stack size="md" className="max-w-text">
                 <p className="text-body text-muted-fg">
-                  I’m a frontend developer based in Novi Sad, Serbia. I work in production environments
-                  where quality and deadlines matter, building user-facing interfaces and keeping releases
-                  stable.
+                  I’m a frontend developer based in Novi Sad, Serbia. My experience spans high-traffic
+                  publishing at Tinkoff Journal and interactive advertising at Playbox.
                 </p>
                 <p className="text-body text-muted-fg">
-                  Over the past 2.5+ years, I’ve collaborated with content and design teams, improved
-                  publishing reliability with clearer rules and structured formats, and reduced repetitive
-                  manual work with practical tooling.
+                  I started by owning technical production for complex editorial releases—building reusable
+                  UI patterns, automating content workflows, and improving QA. At Playbox, I apply the same
+                  systems mindset to TypeScript and Cocos Creator playables, adapting component-driven
+                  experiences across orientations, platform requirements, and advertising networks.
                 </p>
               </Stack>
               <Stack size="md">
                 <h2 className="text-h3 font-semibold">Core Strengths</h2>
                 <BulletList>
-                  <li>Production reliability: stable releases, predictable workflows, deadline discipline.</li>
-                  <li>Content & design collaboration: clear communication and smoother handoffs.</li>
-                  <li>Frontend delivery: React/Next.js + TypeScript, reusable UI patterns, QA mindset.</li>
-                  <li>Continuous improvement: docs, checklists, and practical automation for routine tasks.</li>
+                  <li>Component-driven delivery: reusable UI and interactive systems across web and Cocos.</li>
+                  <li>Cross-platform reliability: browser QA, responsive orientations, and network constraints.</li>
+                  <li>Automation & production systems: structured imports, repeatable workflows, and faster releases.</li>
+                  <li>Cross-functional ownership: clear collaboration with design, content, and creative teams.</li>
                 </BulletList>
               </Stack>
               <Stack size="md">

@@ -9,7 +9,7 @@ export default function Contact() {
   return (
     <>
       <SeoHead
-        description="Contact Evgenii Rubin for frontend development work focused on reliable, user-friendly interfaces."
+        description="Contact Evgenii Rubin for frontend development across reliable web interfaces and interactive TypeScript experiences."
         path="/contact"
         title="Contact"
       />
