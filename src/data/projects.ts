@@ -8,10 +8,18 @@ type ProjectLinks = {
   code: string;
 };
 
+export type ProjectCover = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export type ProjectListItem = {
   slug: ProjectSlug;
   title: string;
   summary: string;
+  cover: ProjectCover;
   featured: boolean;
   stackPreview: readonly string[];
   links: ProjectLinks;
@@ -24,6 +32,12 @@ export const projectsList = [
     title: "Kanban Board App",
     summary:
       "Real-time collaborative Kanban with role-based access, optimistic updates, labels, assignees, and drag-and-drop.",
+    cover: {
+      src: "/media/projects/kanban-board/cover.webp",
+      alt: "Kanban workspace preview with four task columns and a card editor.",
+      width: 1280,
+      height: 778
+    },
     featured: true,
     stackPreview: ["Next.js", "TypeScript", "Firebase", "dnd-kit"],
     demoNote: "Sign in with Google or email; boards are private by default.",
@@ -37,6 +51,12 @@ export const projectsList = [
     title: "Verdant Lane",
     summary:
       "Production-minded storefront with a Stripe-backed catalog, persistent cart, protected receipts, and durable order processing.",
+    cover: {
+      src: "/media/projects/stripe-mini-app/cover.webp",
+      alt: "Storefront preview with a feature banner and a succulent product image.",
+      width: 1280,
+      height: 778
+    },
     featured: true,
     stackPreview: ["Next.js", "TypeScript", "Stripe", "Postgres"],
     demoNote: null,
@@ -50,6 +70,12 @@ export const projectsList = [
     title: "Admin Dashboard Template",
     summary:
       "Production-ready B2B dashboard template with reusable data views, four locales, mock APIs, and accessibility-focused QA.",
+    cover: {
+      src: "/media/projects/admin-dashboard/cover.webp",
+      alt: "Dark admin dashboard preview with KPI cards and revenue charts.",
+      width: 1280,
+      height: 778
+    },
     featured: true,
     stackPreview: ["Next.js", "TypeScript", "RTK Query", "TanStack Table"],
     demoNote: null,
