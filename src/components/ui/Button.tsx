@@ -6,7 +6,7 @@ const baseClassName =
 
 const variantStyles = {
   primary: "border-transparent bg-primary text-primary-contrast",
-  outline: "border-border text-fg",
+  outline: "border-interactive-border text-fg",
   ghost: "border-transparent text-fg hover:bg-muted"
 } as const;
 

@@ -1,0 +1,6 @@
+### Result
+"{\"theme\":\"light\",\"unapprovedInlineScriptBlocked\":true,\"violations\":[{\"directive\":\"script-src-elem\",\"blockedURI\":\"inline\"},{\"directive\":\"script-src-elem\",\"blockedURI\":\"inline\"}]}"
+### Ran Playwright code
+```js
+await page.evaluate('() => (JSON.stringify({theme:document.documentElement.dataset.theme,unapprovedInlineScriptBlocked:window.__cspProbeExecuted!==true,violations:window.__cspViolations}))');
+```

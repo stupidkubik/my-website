@@ -6,6 +6,7 @@ import BulletList from "@/components/ui/BulletList";
 import PageTitle from "@/components/ui/PageTitle";
 import Section from "@/components/ui/Section";
 import Stack from "@/components/ui/Stack";
+import TextLink from "@/components/ui/TextLink";
 import { ButtonLink } from "@/components/ui/Button";
 import { BodyMuted, MetaLabel } from "@/components/ui/typography";
 import { Grid, GridCol } from "@/components/ui/Grid";
@@ -70,61 +71,89 @@ export default function ProjectDetail({ project, slug }: ProjectPageProps) {
           </Grid>
 
           <Stack size="md">
-            <h2 className="text-h3 font-semibold">Context</h2>
-            <BodyMuted className="max-w-text">{project.context}</BodyMuted>
-          </Stack>
-
-          <div className="overflow-hidden rounded-lg border border-border bg-muted">
-            <Image
-              alt={project.media.alt}
-              className="h-auto w-full"
-              height={project.media.height}
-              priority
-              sizes="(min-width: 1200px) 1200px, 100vw"
-              src={project.media.src}
-              width={project.media.width}
-            />
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2">
-            <Stack size="sm">
-              <MetaLabel as="h2">Role</MetaLabel>
-              <BodyMuted>{project.role}</BodyMuted>
-            </Stack>
-            <Stack size="sm">
-              <MetaLabel as="h2">Stack</MetaLabel>
-              <ul className="flex flex-wrap gap-2">
+            <h2 className="text-h3 font-semibold">Project Snapshot</h2>
+            <dl className="grid gap-x-6 gap-y-5 border-y border-border py-5 sm:grid-cols-2">
+              {project.snapshot.map((item) => (
+                <div key={item.label}>
+                  <dt className="text-label uppercase text-muted-fg">{item.label}</dt>
+                  <dd className="mt-2 text-sm text-fg">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <div>
+              <MetaLabel>Stack</MetaLabel>
+              <ul className="mt-3 flex flex-wrap gap-2">
                 {project.stack.map((item) => (
                   <li key={item}>
                     <Badge>{item}</Badge>
                   </li>
                 ))}
               </ul>
+            </div>
+          </Stack>
+
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Context</h2>
+            <BodyMuted className="max-w-text">{project.context}</BodyMuted>
+          </Stack>
+
+          <Stack size="sm">
+            <div className="overflow-hidden rounded-lg border border-border bg-muted">
+              <Image
+                alt={project.cover.alt}
+                className="h-auto w-full"
+                height={project.cover.height}
+                priority
+                sizes="(min-width: 1200px) 1200px, 100vw"
+                src={project.cover.src}
+                width={project.cover.width}
+              />
+            </div>
+            <TextLink
+              aria-label={`Open full-size screenshot for ${project.title} (opens in a new tab)`}
+              className="w-fit"
+              href={project.cover.src}
+              openInNewTab
+            >
+              Open full-size screenshot
+            </TextLink>
+          </Stack>
+
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Constraints</h2>
+            <BulletList className="max-w-text">
+              {project.constraints.map((constraint) => (
+                <li key={constraint}>{constraint}</li>
+              ))}
+            </BulletList>
+          </Stack>
+
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Key Decisions</h2>
+            <ol className="max-w-text list-decimal space-y-3 pl-5 text-muted-fg">
+              {project.keyDecisions.map((decision) => (
+                <li key={decision.title}>
+                  <strong className="font-medium text-fg">{decision.title}.</strong> {decision.detail}
+                </li>
+              ))}
+            </ol>
+          </Stack>
+
+          <Stack size="md">
+            <h2 className="text-h3 font-semibold">Verified Outcomes</h2>
+            <BulletList className="max-w-text">
+              {project.outcomes.map((outcome) => (
+                <li key={outcome}>{outcome}</li>
+              ))}
+            </BulletList>
+          </Stack>
+
+          {project.tradeOff ? (
+            <Stack size="md">
+              <h2 className="text-h3 font-semibold">Trade-off</h2>
+              <BodyMuted className="max-w-text">{project.tradeOff}</BodyMuted>
             </Stack>
-          </div>
-
-          <Stack size="md">
-            <h2 className="text-h3 font-semibold">Challenges</h2>
-            <BulletList className="max-w-text">
-              {project.challenges.map((challenge) => (
-                <li key={challenge}>{challenge}</li>
-              ))}
-            </BulletList>
-          </Stack>
-
-          <Stack size="md">
-            <h2 className="text-h3 font-semibold">Approach</h2>
-            <BulletList className="max-w-text">
-              {project.approach.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </BulletList>
-          </Stack>
-
-          <Stack size="md">
-            <h2 className="text-h3 font-semibold">Outcome</h2>
-            <BodyMuted className="max-w-text">{project.outcome}</BodyMuted>
-          </Stack>
+          ) : null}
 
           <Stack size="md">
             <h2 className="text-h3 font-semibold">Links</h2>

@@ -1,0 +1,86 @@
+{
+  "@types/node": {
+    "current": "22.20.1",
+    "wanted": "22.20.4",
+    "latest": "26.6.3",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/@types/node"
+  },
+  "@types/react": {
+    "current": "19.2.13",
+    "wanted": "19.3.0",
+    "latest": "19.3.0",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/@types/react"
+  },
+  "@types/react-dom": {
+    "current": "19.2.3",
+    "wanted": "19.3.0",
+    "latest": "19.3.0",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/@types/react-dom"
+  },
+  "autoprefixer": {
+    "current": "10.4.24",
+    "wanted": "10.6.1",
+    "latest": "10.6.1",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/autoprefixer"
+  },
+  "eslint": {
+    "current": "9.39.2",
+    "wanted": "9.39.5",
+    "latest": "10.11.0",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/eslint"
+  },
+  "eslint-config-next": {
+    "current": "16.2.10",
+    "wanted": "16.3.7",
+    "latest": "16.3.7",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/eslint-config-next"
+  },
+  "geist": {
+    "current": "1.7.0",
+    "wanted": "1.7.2",
+    "latest": "1.7.2",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/geist"
+  },
+  "next": {
+    "current": "16.3.4",
+    "wanted": "16.3.7",
+    "latest": "16.3.7",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/next"
+  },
+  "react": {
+    "current": "19.2.4",
+    "wanted": "19.3.0",
+    "latest": "19.3.0",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/react"
+  },
+  "react-dom": {
+    "current": "19.2.4",
+    "wanted": "19.3.0",
+    "latest": "19.3.0",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/react-dom"
+  },
+  "tailwindcss": {
+    "current": "3.4.19",
+    "wanted": "3.4.19",
+    "latest": "4.3.3",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/tailwindcss"
+  },
+  "typescript": {
+    "current": "5.9.3",
+    "wanted": "5.9.3",
+    "latest": "7.0.2",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/typescript"
+  }
+}

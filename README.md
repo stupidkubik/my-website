@@ -16,7 +16,7 @@ A personal portfolio website built with Next.js (Pages Router), focused on fast,
 - Styling: `Tailwind CSS` + custom design tokens via CSS variables
 - Fonts: `Geist Sans` + `Geist Mono` (via `geist` package)
 - Linting: `ESLint 9` + `eslint-config-next`
-- Runtime: `Node.js 22.13+` (Node 22 only)
+- Runtime: `Node.js 22.23.3+` (Node 22 only)
 - Hosting target: `Vercel`
 
 ## Implemented Scope
@@ -26,7 +26,7 @@ A personal portfolio website built with Next.js (Pages Router), focused on fast,
 - Theme switcher (light/dark) with `localStorage` persistence
 - SEO baseline: title/description/canonical/OG/Twitter tags
 - Technical SEO: `sitemap.xml` and `robots.txt`
-- Defence-in-depth response headers: framing protection, nosniff, referrer, and permissions policy
+- Defence-in-depth response headers: production CSP with a hash for the theme initializer, framing protection, nosniff, referrer, and permissions policy
 - Responsive behavior including tiny-screen layer (`<=375px`)
 - Subtle motion with `prefers-reduced-motion` support
 - Project media and OG images integrated from `public/`
@@ -148,7 +148,7 @@ Notes:
 - Node.js is pinned in `.nvmrc`; `package.json` rejects unsupported major versions
 - The local quality gate is available via `npm run check`
 - SEO generator tests are available via `npm run test:seo`
-- GitHub Actions runs clean install, check, production audit, and build for pull requests and `main`
+- GitHub Actions runs clean install, check, a full dependency audit (high severity and above), a production dependency audit, and build for pull requests and `main`
 
 ## Scripts
 
@@ -188,6 +188,7 @@ README.md
 
 ## Known Technical Notes
 
+- ESLint 9 is temporarily retained because the current React, import, and jsx-a11y plugins do not support ESLint 10; a trial upgrade failed during lint. ESLint 9 reached [end of life](https://eslint.org/version-support/) on August 6, 2026. Revisit this migration when compatible plugin versions are available.
 - List and case-study content stay separate intentionally; route slugs have one shared source
 - Local TypeScript cache files (`*.tsbuildinfo`) are ignored via `.gitignore`
 - Working PDFs in repo root are ignored, but production assets in `public/` (including resume PDF) are tracked

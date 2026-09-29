@@ -40,6 +40,8 @@ export default function Projects() {
               <ProjectCard
                 key={project.slug}
                 href={`/projects/${project.slug}`}
+                cover={project.cover}
+                headingAs="h2"
                 title={project.title}
                 summary={project.summary}
               >

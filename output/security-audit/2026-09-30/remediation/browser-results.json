@@ -1,0 +1,26 @@
+{
+  "routes": [
+    {"route": "/", "status": 200, "violations": []},
+    {"route": "/about", "status": 200, "violations": []},
+    {"route": "/projects", "status": 200, "violations": []},
+    {"route": "/resume", "status": 200, "violations": []},
+    {"route": "/contact", "status": 200, "violations": []},
+    {"route": "/projects/kanban-board", "status": 200, "violations": []},
+    {"route": "/projects/stripe-mini-app", "status": 200, "violations": []},
+    {"route": "/projects/admin-dashboard", "status": 200, "violations": []},
+    {"route": "/does-not-exist", "status": 404, "violations": []}
+  ],
+  "themeToggleAndPersistence": true,
+  "clientNavigation": true,
+  "desktop1440": true,
+  "mobile375": true,
+  "invalidSavedThemeRejected": true,
+  "unexpectedConsoleErrors": 0,
+  "failedRequests": [],
+  "unapprovedInlineScriptBlocked": true,
+  "intentionalViolation": [
+    {"directive": "script-src-elem", "blockedURI": "inline"},
+    {"directive": "script-src-elem", "blockedURI": "inline"},
+    {"directive": "script-src-elem", "blockedURI": "inline"}
+  ]
+}

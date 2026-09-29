@@ -1,0 +1,60 @@
+async (page) => {
+  const errors = [];
+  const failedRequests = [];
+  page.on('pageerror', error => errors.push(error.message));
+  page.on('console', message => {
+    if (message.type() === 'error') errors.push({ text: message.text(), location: message.location() });
+  });
+  page.on('requestfailed', request => failedRequests.push({ url: request.url(), error: request.failure()?.errorText }));
+  await page.addInitScript(() => {
+    window.__cspViolations = [];
+    window.addEventListener('securitypolicyviolation', event => {
+      window.__cspViolations.push({ directive: event.effectiveDirective, blockedURI: event.blockedURI });
+    });
+  });
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const origin = 'http://127.0.0.1:4317';
+  const routes = ['/', '/about', '/projects', '/resume', '/contact', '/projects/kanban-board', '/projects/stripe-mini-app', '/projects/admin-dashboard', '/does-not-exist'];
+  const results = [];
+  for (const route of routes) {
+    const response = await page.goto(origin + route, { waitUntil: 'networkidle' });
+    const expectedStatus = route === '/does-not-exist' ? 404 : 200;
+    if (response.status() !== expectedStatus) throw new Error(route + ': unexpected HTTP ' + response.status());
+    const csp = response.headers()['content-security-policy'];
+    if (!csp?.includes("script-src 'self' 'sha256-")) throw new Error(route + ': missing production CSP');
+    const state = await page.evaluate(() => ({ textLength: document.body.innerText.trim().length, theme: document.documentElement.dataset.theme, violations: window.__cspViolations }));
+    if (state.textLength < 100 || state.theme !== 'light' || state.violations.length) throw new Error(route + ': bad render or CSP violation ' + JSON.stringify(state));
+    results.push({ route, status: response.status(), ...state });
+  }
+  await page.goto(origin, { waitUntil: 'networkidle' });
+  await page.getByRole('button', { name: 'Switch to dark theme', exact: true }).click();
+  if (await page.evaluate(() => document.documentElement.dataset.theme) !== 'dark') throw new Error('Theme toggle failed');
+  await page.reload({ waitUntil: 'networkidle' });
+  if (await page.evaluate(() => document.documentElement.dataset.theme) !== 'dark') throw new Error('Saved dark theme not restored');
+  await page.screenshot({ path: 'output/playwright/security-remediation/home-desktop-dark.png', fullPage: true });
+  await page.getByRole('link', { name: 'Projects', exact: true }).first().click();
+  await page.waitForURL(origin + '/projects');
+  await page.getByRole('button', { name: 'Switch to light theme', exact: true }).click();
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto(origin + '/projects/kanban-board', { waitUntil: 'networkidle' });
+  await page.screenshot({ path: 'output/playwright/security-remediation/case-study-mobile-light.png', fullPage: true });
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
+  if (overflow) throw new Error('Horizontal overflow at 375px');
+  await page.evaluate(() => localStorage.setItem('theme', '<script>bad</script>'));
+  await page.reload({ waitUntil: 'networkidle' });
+  if (await page.evaluate(() => document.documentElement.dataset.theme) !== 'light') throw new Error('Invalid saved theme was not rejected');
+  await page.evaluate(() => localStorage.setItem('theme', 'light'));
+  const unexpectedViolations = await page.evaluate(() => window.__cspViolations);
+  const unexpectedErrors = errors.filter(error => !(error.text === 'Failed to load resource: the server responded with a status of 404 (Not Found)' && error.location?.url === origin + '/does-not-exist'));
+  if (unexpectedViolations.length || unexpectedErrors.length || failedRequests.length) throw new Error('Unexpected browser failures: ' + JSON.stringify({ unexpectedViolations, errors: unexpectedErrors, failedRequests }));
+  await page.evaluate(() => {
+    const probe = document.createElement('script');
+    probe.textContent = 'window.__cspProbeExecuted = true';
+    document.body.appendChild(probe);
+  });
+  await page.waitForFunction(() => window.__cspViolations.some(event => event.blockedURI === 'inline'));
+  const inlineBlocked = await page.evaluate(() => window.__cspProbeExecuted !== true);
+  if (!inlineBlocked) throw new Error('Unapproved inline script executed');
+  return { routes: results, themeToggleAndPersistence: true, clientNavigation: true, desktop1440: true, mobile375: true, invalidSavedThemeRejected: true, unexpectedConsoleErrors: 0, failedRequests: [], unapprovedInlineScriptBlocked: inlineBlocked, intentionalViolation: await page.evaluate(() => window.__cspViolations) };
+}

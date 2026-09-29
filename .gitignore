@@ -41,3 +41,6 @@ node_modules/
 
 # Local architecture/audit notes
 audit-findings-*.md
+
+# Local browser audit session data
+/output/playwright/design-audit/session/

@@ -7,6 +7,11 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Grid, GridCol } from "@/components/ui/Grid";
 import { featuredProjects } from "@/data/projects";
 
+const proofPoints = [
+  { value: "3+ years", label: "production frontend delivery" },
+  { value: "20+ platforms", label: "playable-ad releases" },
+  { value: "50% less", label: "complex article assembly" }
+] as const;
 
 export default function Home() {
   return (
@@ -19,20 +24,33 @@ export default function Home() {
         path="/"
       />
       <main id="main-content" tabIndex={-1}>
-        <Section containerClassName="motion-reveal" size="lg" as="div">
+        <Section containerClassName="motion-reveal" as="div">
           <Grid>
             <GridCol lg={9}>
             <Stack size="lg">
               <p className="text-label uppercase text-muted-fg">Frontend Developer · Interactive Experiences</p>
-              <h1 className="text-[2.125rem] font-semibold leading-[1.08] tracking-[-0.02em] xs:text-[2.5rem] sm:text-display">
-                Building reliable web interfaces and interactive experiences.
+              <h1 className="text-balance text-[1.875rem] font-semibold leading-[1.08] tracking-[-0.02em] xs:text-[2.125rem] sm:text-display">
+                Frontend developer building reliable product interfaces and interactive ads.
               </h1>
               <p className="max-w-text text-body text-muted-fg">
-                I bring 3+ years of production experience across high-traffic publishing and interactive
-                advertising. My work has grown from CMS-driven web delivery and workflow automation into
-                TypeScript-powered playable experiences—always with reusable components, cross-platform QA,
-                and predictable releases at the core.
+                Production experience across high-traffic publishing and playable advertising, focused on
+                reusable systems, cross-platform QA, and predictable delivery.
               </p>
+              <ul
+                aria-label="Experience highlights"
+                className="grid gap-4 border-y border-border py-5 sm:grid-cols-3 sm:gap-6"
+              >
+                {proofPoints.map((proofPoint) => (
+                  <li key={proofPoint.value}>
+                    <p className="text-[1.375rem] font-semibold tracking-[-0.01em] text-fg">
+                      {proofPoint.value}
+                    </p>
+                    <p className="mt-1 text-xs uppercase tracking-[0.06em] text-muted-fg">
+                      {proofPoint.label}
+                    </p>
+                  </li>
+                ))}
+              </ul>
               <div className="flex flex-wrap gap-3">
                 <ButtonLink href="/projects">
                   View Projects
@@ -57,6 +75,7 @@ export default function Home() {
               <ProjectCard
                 key={project.slug}
                 href={`/projects/${project.slug}`}
+                cover={project.cover}
                 title={project.title}
                 summary={project.summary}
               />

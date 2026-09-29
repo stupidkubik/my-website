@@ -26,10 +26,10 @@ export default function Header() {
             Open to Work
           </p>
         </div>
-        <div className="flex min-w-0 flex-wrap items-center gap-2 xs:gap-3 sm:gap-5">
+        <div className="flex min-w-0 flex-wrap items-center gap-1.5 xs:gap-3 sm:gap-5">
           <nav
             aria-label="Primary"
-            className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.08em] text-muted-fg xxs:gap-2 xxs:text-[10px] xxs:tracking-[0.06em] xs:gap-4 xs:text-xs xs:tracking-[0.12em] sm:gap-6 sm:text-[0.95rem] sm:tracking-[0.02em]"
+            className="flex min-w-0 flex-1 items-center justify-between gap-1 text-xs uppercase tracking-[0.04em] text-muted-fg xs:flex-none xs:justify-start xs:gap-3 xs:tracking-[0.1em] sm:gap-6 sm:text-[0.95rem] sm:tracking-[0.02em]"
           >
             {navItems.map((item) => {
               const isActive =
@@ -39,11 +39,11 @@ export default function Header() {
                 <Link
                   key={item.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`transition ${
+                  className={`inline-flex min-h-10 items-center border-b transition ${
                     isActive
-                      ? "text-fg"
-                      : "text-muted-fg hover:text-fg"
-                  } inline-flex min-h-[2rem] items-center py-1`}
+                      ? "border-fg font-medium text-fg"
+                      : "border-transparent text-muted-fg hover:text-fg"
+                  }`}
                   href={item.href}
                 >
                   {item.label}
