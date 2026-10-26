@@ -8,7 +8,7 @@ A lightweight verification list before shipping.
 - [ ] Run `npm run check` (lint, typecheck, and tests).
 - [ ] Run `npm audit --omit=dev` (no production vulnerabilities).
 - [ ] Run `npm run build` (no errors; `postbuild` confirms the CSP allows every inline script).
-- [ ] CI is green in both jobs: `quality` (check, then build) and `audit` (full and production audits run separately, so an advisory never hides a broken build).
+- [ ] CI is green in all jobs: `quality` (check, then build), `e2e` (Playwright smoke tests) and `audit` (full and production audits run separately, so an advisory never hides a broken build).
 - [ ] Confirm the Git worktree stays clean apart from intentional source changes.
 
 ## Performance (quick pass)
@@ -17,7 +17,7 @@ A lightweight verification list before shipping.
 - [ ] **LCP**: identify LCP element on `/` and one `/projects/[slug]`; ensure the LCP image is appropriately sized and not excessively large.
 
 ## Navigation & routing
-- [ ] Internal navigation uses client-side routing (no full page reload).
+- [ ] Internal navigation uses client-side routing (no full page reload); covered by `npm run test:e2e`.
 - [ ] 404 page renders for unknown routes.
 
 ## Accessibility (baseline)
