@@ -143,7 +143,7 @@ npm run dev
 ```
 
 Notes:
-- The dev script uses `next dev --webpack` for stable local behavior
+- `dev` and `build` both use webpack. Turbopack's production build inlines a per-build bootstrap script that the hash-based CSP cannot allow, which stops client JavaScript from running
 - Node.js is pinned in `.nvmrc`; `package.json` rejects unsupported major versions
 - The local quality gate is available via `npm run check`
 - SEO generator tests are available via `npm run test:seo`
@@ -152,7 +152,7 @@ Notes:
 ## Scripts
 
 - `npm run dev` - start development server
-- `npm run build` - create production build
+- `npm run build` - create production build, then verify that every inline script in the generated HTML is allowed by the CSP (`postbuild`)
 - `npm run start` - run production server
 - `npm run lint` - run ESLint checks
 - `npm run typecheck` - run TypeScript without emitting files
@@ -161,6 +161,7 @@ Notes:
 - `npm run generate:seo` - generate static sitemap and robots files
 - `npm run test:seo` - test URL validation and deterministic SEO output
 - `npm run test:security` - test the catch-all response security-header policy
+- `npm run test:build` - check built HTML for inline scripts the CSP would block (requires `npm run build`)
 
 ## Directory Structure
 
