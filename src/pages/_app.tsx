@@ -1,9 +1,30 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { GeistMono } from "geist/font/mono";
+import localFont from "next/font/local";
 import { GeistSans } from "geist/font/sans";
 import "../styles/globals.css";
 import Layout from "@/components/Layout";
+
+// The settings of `geist/font/mono` without its preload: no page renders monospace
+// text yet, and browsers only fetch a font once a page uses it.
+const GeistMono = localFont({
+  src: "../../node_modules/geist/dist/fonts/geist-mono/GeistMono-Variable.woff2",
+  variable: "--font-geist-mono",
+  adjustFontFallback: false,
+  fallback: [
+    "ui-monospace",
+    "SFMono-Regular",
+    "Roboto Mono",
+    "Menlo",
+    "Monaco",
+    "Liberation Mono",
+    "DejaVu Sans Mono",
+    "Courier New",
+    "monospace"
+  ],
+  weight: "100 900",
+  preload: false
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
