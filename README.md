@@ -190,7 +190,7 @@ README.md
 
 ## Known Technical Notes
 
-- ESLint 9 is temporarily retained because the current React, import, and jsx-a11y plugins do not support ESLint 10; a trial upgrade failed during lint. ESLint 9 reached [end of life](https://eslint.org/version-support/) on August 6, 2026. Revisit this migration when compatible plugin versions are available.
+- ESLint 10 is used since 2026-10-26 (ESLint 9 reached [end of life](https://eslint.org/version-support/) on August 6, 2026). `eslint-plugin-react`, `eslint-plugin-import`, and `eslint-plugin-jsx-a11y` (bundled by `eslint-config-next` 16.4.3) still declare peers up to ESLint 9, so npm prints peer warnings and `npm ls --all` reports them as invalid. Lint output was verified to match ESLint 9 rule-for-rule; drop this note once the plugins widen their peer ranges.
 - List and case-study content stay separate intentionally; route slugs have one shared source
 - Local TypeScript cache files (`*.tsbuildinfo`) are ignored via `.gitignore`
 - Working PDFs in repo root are ignored, but production assets in `public/` (including resume PDF) are tracked
