@@ -1,8 +1,8 @@
 import type { ElementType, HTMLAttributes, ReactNode } from "react";
 
 const sizeClasses = {
-  default: "py-12 xs:py-14 sm:py-section",
-  lg: "py-16 xs:py-20 sm:py-24 lg:py-section-lg"
+  default: "py-12 xs:py-14",
+  lg: "py-16 xs:py-20"
 } as const;
 
 type SectionProps<T extends ElementType> = {
@@ -29,7 +29,7 @@ export default function Section<T extends ElementType = "section">({
       className={`${borderTop ? "border-t border-border" : ""} ${className}`.trim()}
       {...rest}
     >
-      <div className={`container ${sizeClasses[size]} ${containerClassName}`.trim()}>
+      <div className={`site-container ${sizeClasses[size]} ${containerClassName}`.trim()}>
         {children}
       </div>
     </Component>

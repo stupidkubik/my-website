@@ -29,7 +29,7 @@ export default function ProjectCard({
     <div className="relative flex h-full flex-col overflow-hidden rounded-lg border border-interactive-border transition hover:border-fg focus-within:border-fg focus-within:ring-2 focus-within:ring-fg/30 focus-within:ring-offset-2 focus-within:ring-offset-bg">
       <Link aria-label={`Open project: ${title}`} className="stretched-link block" href={href}>
         {cover ? (
-          <div className="aspect-[16/10] overflow-hidden bg-muted">
+          <div className="aspect-16/10 overflow-hidden bg-muted">
             <Image
               alt={cover.alt}
               className="h-full w-full object-cover"

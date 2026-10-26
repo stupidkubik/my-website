@@ -54,7 +54,7 @@ export default function ProjectDetail({ project, slug }: ProjectPageProps) {
         type="article"
       />
       <main id="main-content" tabIndex={-1}>
-        <Section containerClassName="py-10 xs:py-12 sm:py-14 motion-reveal">
+        <Section containerClassName="py-10 xs:py-12 motion-reveal">
         <Stack size="lg">
           <ButtonLink className="w-fit" href="/projects" variant="ghost">
             &larr; Back

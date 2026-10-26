@@ -59,15 +59,14 @@ A personal portfolio website built with Next.js (Pages Router), focused on fast,
 
 ### Styling and Tokens
 
-- Global styles: `src/styles/globals.css`
-- Tailwind config: `tailwind.config.js`
+- Tailwind CSS v4, configured CSS-first in `src/styles/globals.css` (`@theme`, no `tailwind.config.js`); PostCSS uses `@tailwindcss/postcss`
+- Class sources are limited to `src/pages` and `src/components` via `@source`
 - Core token groups:
-  - colors: `--color-bg`, `--color-fg`, `--color-muted`, `--color-border`, `--color-primary`
-  - typography: `display`, `h2`, `h3`, `body`, `label`
-  - spacing: `section`, `section-lg`
-- Additional breakpoints:
-  - `xxs` - `max-width: 375px`
-  - `xs` - `min-width: 376px`
+  - colors: `--color-bg`, `--color-fg`, `--color-muted`, `--color-border`, `--color-primary` (dark values are overridden on `html[data-theme="dark"]`)
+  - typography: `h3`, `body`, `label`
+  - widths: `max-w-content`, `max-w-text`
+- Layout wrapper: `site-container` (full width with `1rem` inline padding, capped at `1024px`/`1200px`)
+- Additional breakpoint: `xs` - `min-width: 376px` (`23.5rem`); use `max-xs:` for screens up to 375px
 
 ## Content and Media
 
@@ -75,7 +74,7 @@ A personal portfolio website built with Next.js (Pages Router), focused on fast,
 
 Project data is split by page needs:
 - `src/data/projects.ts` contains list/card data
-- `src/data/projectDetails.ts` contains detailed case studies
+- `src/data/project-case-studies.ts` contains detailed case studies
 - `src/data/project-slugs.mjs` is the shared route source for Next.js and the SEO generator
 
 Project media files:
