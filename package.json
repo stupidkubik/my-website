@@ -18,8 +18,9 @@
     "test:seo": "node --test scripts/generate-static-seo.test.mjs",
     "test:security": "node --test scripts/security-headers.test.mjs",
     "test:build": "node --test scripts/built-inline-scripts.test.mjs",
+    "test:metrics": "node --test scripts/collect-metrics.test.mjs",
     "test:e2e": "playwright test",
-    "test": "npm run test:seo && npm run test:security",
+    "test": "npm run test:seo && npm run test:security && npm run test:metrics",
     "check": "npm run lint && npm run typecheck && npm run test"
   },
   "dependencies": {

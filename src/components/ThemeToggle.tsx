@@ -36,18 +36,18 @@ export default function ThemeToggle() {
     window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
   };
 
-  const isDark = theme === "dark";
-  const label = isDark ? "Dark" : "Light";
-
+  // A toggle button keeps one name that contains its visible label (WCAG 2.5.3);
+  // aria-pressed carries the state. The pressed look comes from `dark:`, which the
+  // theme initializer sets before the first paint, so it never flips on hydration.
   return (
     <button
-      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-      aria-pressed={isDark}
-      className="inline-flex min-h-10 items-center rounded-md border border-interactive-border px-2 py-1 text-xs uppercase tracking-[0.06em] text-muted-fg transition hover:border-fg hover:text-fg xs:tracking-widest"
+      aria-label="Dark theme"
+      aria-pressed={theme === "dark"}
+      className="inline-flex min-h-10 items-center rounded-md border border-interactive-border px-2 py-1 text-xs uppercase tracking-[0.06em] text-muted-fg transition hover:border-fg hover:text-fg xs:tracking-widest dark:border-fg dark:bg-fg dark:text-bg dark:hover:text-bg"
       onClick={handleToggle}
       type="button"
     >
-      {label}
+      Dark
     </button>
   );
 }

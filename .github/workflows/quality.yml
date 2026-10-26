@@ -8,9 +8,10 @@ on:
 permissions:
   contents: read
 
+# Superseded pull request runs are cancelled; every commit on main is verified.
 concurrency:
   group: quality-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   quality:

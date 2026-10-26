@@ -3,6 +3,9 @@
 @source "../pages";
 @source "../components";
 
+/* `dark:` follows the theme toggle, not the system preference. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme {
   --breakpoint-xs: 23.5rem;
 
