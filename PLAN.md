@@ -42,3 +42,14 @@
 - [x] [P2] Re-check accessibility baseline end-to-end (visible focus states, skip-link target on `main`, `aria-current` in nav).
 - [x] [P3] Deduplicate project data into a single source shared by home/projects/project-detail pages.
 - [ ] [P3] Add lightweight perf verification checklist before deploy (LCP image, route transitions, no unexpected full reloads).
+
+## Remediation (2026-10-26)
+Plan and findings: `REVIEW_AND_FIX_PLAN_2026-10-26.md`. Merge in order.
+- [ ] #19 Patch zod advisory, align Next.js minors, move to Node 24 LTS, untrack `next-env.d.ts`
+- [ ] #20 Migrate to Tailwind CSS v4 (pixel-identical to the v3 build)
+- [ ] #21 Build with webpack so the hash CSP allows every inline script (production had no client JS since 2026-09-30)
+- [ ] #22 Split audit from build in CI, enforce engines, configure Dependabot
+- [ ] #23 Playwright smoke tests and `e2e` CI job
+- [ ] #24 ESLint 10 (optional)
+- [ ] Docs and evidence (`output/security-audit/2026-10-26/`)
+- [ ] Decide whether to enable the intended desktop type scale and section spacing that v3 never applied
