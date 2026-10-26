@@ -60,6 +60,6 @@ Findings: `POST_MERGE_REVIEW_2026-10-26.md`.
 - [x] Re-verify `main` after the merges: check, build, e2e, audit, production headers
 - [x] Production metrics workflow (Lighthouse, MDN HTTP Observatory) and README badges
 - [x] Verify every commit on `main` in CI instead of cancelling superseded runs
-- [ ] Theme toggle: accessible name must contain the visible label (WCAG 2.5.3)
-- [ ] Preload only the Geist Sans font; Geist Mono is preloaded on every page
+- [x] Theme toggle: accessible name must contain the visible label (WCAG 2.5.3)
+- [x] Preload only the Geist Sans font; Geist Mono is preloaded on every page
 - [ ] Delete merged branches and enable automatic head-branch deletion

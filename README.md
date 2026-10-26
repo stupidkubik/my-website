@@ -25,7 +25,7 @@ A personal portfolio website built with Next.js (Pages Router), focused on fast,
 - Framework: `Next.js 16` (Pages Router)
 - UI: `React 19`, `TypeScript`
 - Styling: `Tailwind CSS` + custom design tokens via CSS variables
-- Fonts: `Geist Sans` + `Geist Mono` (via `geist` package)
+- Fonts: `Geist Sans` + `Geist Mono` (from the `geist` package); only Geist Sans is preloaded, Geist Mono loads once a page uses it
 - Linting: `ESLint 10` + `eslint-config-next`
 - Testing: Node.js test runner for build scripts, `Playwright` smoke tests, Lighthouse and MDN HTTP Observatory for production metrics
 - Runtime: `Node.js 24.22.1+` (Node 24 LTS only)
@@ -79,6 +79,7 @@ A personal portfolio website built with Next.js (Pages Router), focused on fast,
   - widths: `max-w-content`, `max-w-text`
 - Layout wrapper: `site-container` (full width with `1rem` inline padding, capped at `1024px`/`1200px`)
 - Additional breakpoint: `xs` - `min-width: 376px` (`23.5rem`); use `max-xs:` for screens up to 375px
+- The `dark:` variant follows `html[data-theme="dark"]` (the theme toggle), not `prefers-color-scheme`
 
 ## Content and Media
 
@@ -121,6 +122,7 @@ Project media files:
 
 - Skip link at the top of layout (`Skip to content`)
 - `aria-current` on active navigation items
+- Theme toggle is a toggle button: its accessible name (`Dark theme`) stays the same and contains the visible label, and `aria-pressed` carries the state
 - Visible `focus-visible` styles for links and buttons
 - Semantic sections and heading hierarchy
 - `prefers-reduced-motion` support
@@ -143,7 +145,7 @@ Production metrics are collected by `.github/workflows/metrics.yml` against `htt
 ## Themes (Light / Dark)
 
 - Initial theme is set in `_document.tsx` before hydration
-- Theme switching is handled by `ThemeToggle`
+- Theme switching is handled by `ThemeToggle`; its pressed look uses the `dark:` variant, so it is correct from the first paint, before hydration
 - Theme state is stored in `localStorage` under the `theme` key
 - Theme colors are driven by CSS variables (`html[data-theme="dark"]`)
 
