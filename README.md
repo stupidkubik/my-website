@@ -16,7 +16,7 @@ A personal portfolio website built with Next.js (Pages Router), focused on fast,
 - Styling: `Tailwind CSS` + custom design tokens via CSS variables
 - Fonts: `Geist Sans` + `Geist Mono` (via `geist` package)
 - Linting: `ESLint 9` + `eslint-config-next`
-- Runtime: `Node.js 22.23.3+` (Node 22 only)
+- Runtime: `Node.js 24.22.1+` (Node 24 LTS only)
 - Hosting target: `Vercel`
 
 ## Implemented Scope
