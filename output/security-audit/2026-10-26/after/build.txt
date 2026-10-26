@@ -1,0 +1,51 @@
+# node v24.22.1, npm 11.19.1, branch docs/remediation-2026-10-26 @ d27f434
+# NEXT_PUBLIC_SITE_URL=https://evgenii-rubin.vercel.app VERCEL_ENV=production npm run build
+> my-website@0.1.0 prebuild
+> npm run generate:seo
+> my-website@0.1.0 generate:seo
+> node scripts/generate-static-seo.mjs
+Generated public/sitemap.xml and public/robots.txt
+> my-website@0.1.0 build
+> next build --webpack
+▲ Next.js 16.4.3 (webpack)
+- Environments: .env.local
+✓ Running next.config.js took 11ms
+  Running TypeScript ...
+  Finished TypeScript in 827ms ...
+  Creating an optimized production build ...
+✓ Compiled successfully in 595ms
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/10) ...
+  Generating static pages using 7 workers (2/10) 
+  Generating static pages using 7 workers (4/10) 
+  Generating static pages using 7 workers (7/10) 
+✓ Generating static pages using 7 workers (10/10) in 35ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+Route (pages)
+┌ ○ /
+├   /_app
+├ ○ /404
+├ ○ /about
+├ ○ /contact
+├ ○ /projects
+├   /projects/[slug]
+│ ├ ● /projects/kanban-board
+│ ├ ● /projects/stripe-mini-app
+│ └ ● /projects/admin-dashboard
+└ ○ /resume
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses getStaticProps)
+> my-website@0.1.0 postbuild
+> npm run test:build
+> my-website@0.1.0 test:build
+> node --test scripts/built-inline-scripts.test.mjs
+✔ every inline script in the production build is allowed by the CSP hash list (2.209208ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 48.775208

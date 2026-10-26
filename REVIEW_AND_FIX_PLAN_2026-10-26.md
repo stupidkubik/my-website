@@ -182,9 +182,9 @@
 
 ## 6. Definition of Done
 
-- `npm run check`, `npm run build`, `npm audit --audit-level=high`, `npm audit --omit=dev` зелёные локально под Node 22.23.3 и в CI.
-- Production-деплой Vercel с текущего `main` в статусе `success`, `curl -I` возвращает прежний набор заголовков (CSP с хэшем, HSTS, nosniff, DENY).
-- Визуальный паритет со скриншотами `after-2026-08-02` на desktop/375/320, light/dark.
+- `npm run check`, `npm run build`, `npm audit --audit-level=high`, `npm audit --omit=dev` зелёные локально под Node 24.22.1 (решение о переходе на Node 24 принято 26.10) и в CI.
+- Production-деплой Vercel с текущего `main` в статусе `success`, `curl -I` возвращает прежний набор заголовков (CSP с хэшем, HSTS, nosniff, DENY), в браузере нет CSP-нарушений, переключатель темы работает.
+- Визуальный паритет с Tailwind 3 на 1280/768/390/375/320, light/dark (серия `capture.sh`, 90 кадров).
 - Dependabot сконфигурирован явно; мажорные обновления приходят отдельными PR.
 - README/CHECKLIST/PLAN соответствуют коду.
 
@@ -207,3 +207,43 @@
   - Подключить Vercel MCP в Claude Code (`claude mcp add --transport http vercel https://mcp.vercel.com`), тогда логи и статусы деплоев читаются прямо из сессии без CLI.
 - **Playwright** (Этап 4): ставится как devDependency проекта, скилл не нужен.
 - Не нужны: скиллы Playbox/Cocos/playable, docs/pptx и прочие офисные.
+
+## 8. Ход выполнения (26.10.2026)
+
+Все этапы выполнены в виде стека PR. Каждый PR открыт в `main` и содержит коммиты предыдущих, пока те не смержены. **Мержить строго по порядку.** После мержа очередного PR его коммиты из диффа следующего исчезают сами.
+
+| Этап | PR | Ветка | Статус |
+| --- | --- | --- | --- |
+| 1. zod, минорные обновления, Node 24, `next-env.d.ts` | #19 | `chore/deps-patch-node-24` | CI: check и audit зелёные, Build красный (ожидаемо) |
+| 2. Tailwind CSS v4 | #20 | `build/tailwind-v4` | CI зелёный, Vercel preview `success` |
+| 2a. CSP: сборка через webpack (новая находка, P0) | #21 | `fix/csp-webpack-build` | см. ниже |
+| 3. CI: audit отдельным job, `engine-strict`, Dependabot | #22 | `ci/order-engines-dependabot` | |
+| 4. Playwright smoke + job `e2e` | #23 | `test/playwright-smoke` | |
+| 5. ESLint 10 (опционально) | #24 | `chore/eslint-10` | |
+| 6. Документация и evidence | этот PR | `docs/remediation-2026-10-26` | |
+
+### Находки по ходу работы
+
+- **P0, прод без клиентского JS с 30.09.** Production-сборка Turbopack вставляет inline bootstrap (`TURBOPACK.push({otherChunks…})`), хэш которого меняется от сборки к сборке. Хэш-CSP его блокирует, поэтому на проде нет гидратации и клиентской навигации, а переключатель темы не работает (в тёмной теме показывает «Light»). Отчёт от 30.09 проверял только webpack-сборку и оставил Turbopack «на проверку после публикации». Исправлено в #21: `next build --webpack` плюс `postbuild`-тест, который валит сборку (локально, в CI и на Vercel), если в HTML есть inline-скрипт без разрешённого хэша. e2e из #23 ловит то же самое в браузере: на Turbopack-сборке падают 11 из 12 тестов.
+- **Порядок брейкпоинтов в v3.** `xs` был добавлен через `theme.extend.screens` и в CSS v3 шёл после `sm/md/lg/xl`, поэтому классы `xs:` перебивали более широкие брейкпоинты. На проде никогда не применялись `sm:text-display`, `sm:text-h2`, `sm:py-section`, `lg:py-section-lg` и часть классов шапки. Для паритета они удалены в #20. **Задуманная крупная типографика и отступы на десктопе ни разу не попадали в прод.** Включить их можно отдельным дизайн-PR.
+- **`container` в v3.** Паддинги `xs`/`sm` из конфига не применялись (в `container.screens` были только `lg` и `xl`). В v4 это `site-container` с фактическими значениями.
+- **`ring-fg/30`** в v3 не генерировался (непрозрачность к `var()`-цветам не применялась), кольцо фокуса карточки было дефолтным синим. В v4 оно стало `fg/30`, как задумано.
+
+### Отклонения от плана
+
+- Добавлен переход на Node 24.22.1 (#19): Node 22 в maintenance до 30.04.2027, а пин 22.23.3 пропустил security-релиз 20.10.
+- `--webpack` в `dev` не убран (пункт 5 Этапа 2). Из-за находки P0 production-сборка тоже переведена на webpack, и паритет dev/prod восстановлен с другой стороны.
+- Визуальная QA шла не против `after-2026-08-02`, а против локальной сборки того же кода с `tailwindcss@3.4.19`. Так исключены отличия от Geist 1.8.2 и оптимизатора картинок Vercel.
+- Браузеры Playwright в CI не кэшируются: так рекомендует документация Playwright.
+
+### Этап 7
+
+- Резюме: `public/media/resume/evgenii-rubin-cv.pdf` побайтно совпадает с `evgenii-rubin-cv-08-2026.pdf` (последняя версия).
+- `@types/node`: переведён на 24.x вместе с runtime (#19). Мажоры игнорируются в `dependabot.yml`.
+- Собственная OG-картинка: не сделана, это дизайн-задача.
+
+### После мержа проверить
+
+- Production-деплой `main` в статусе `success` (`gh api repos/stupidkubik/my-website/deployments`), `curl -I` прода, отсутствие CSP-ошибок в консоли.
+- Preview #22 на Vercel: `engine-strict` упадёт, если «latest 24.x» на Vercel старше 24.22.1.
+- Первый прогон Dependabot: если он падает на `engine-strict`, оставить проверку версии Node только в CI.

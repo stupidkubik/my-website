@@ -1,0 +1,23 @@
+{
+  "@types/node": {
+    "current": "24.19.2",
+    "wanted": "24.19.2",
+    "latest": "26.6.5",
+    "dependent": "my-website",
+    "location": "<repo>/node_modules/@types/node"
+  },
+  "postcss": {
+    "current": "8.5.28",
+    "wanted": "8.5.31",
+    "latest": "8.5.31",
+    "dependent": "my-website",
+    "location": "<repo>/node_modules/postcss"
+  },
+  "typescript": {
+    "current": "5.9.3",
+    "wanted": "5.9.3",
+    "latest": "7.0.2",
+    "dependent": "my-website",
+    "location": "<repo>/node_modules/typescript"
+  }
+}

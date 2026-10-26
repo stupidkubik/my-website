@@ -1,0 +1,17 @@
+# npm run test:e2e (Playwright 1.64.1, chromium)
+> my-website@0.1.0 test:e2e
+> playwright test --reporter=list
+Running 12 tests using 1 worker
+  ✓   1 [chromium] › e2e/smoke.spec.mjs:44:3 › / renders with the production security headers (1.0s)
+  ✓   2 [chromium] › e2e/smoke.spec.mjs:44:3 › /about renders with the production security headers (650ms)
+  ✓   3 [chromium] › e2e/smoke.spec.mjs:44:3 › /projects renders with the production security headers (639ms)
+  ✓   4 [chromium] › e2e/smoke.spec.mjs:44:3 › /projects/kanban-board renders with the production security headers (642ms)
+  ✓   5 [chromium] › e2e/smoke.spec.mjs:44:3 › /projects/stripe-mini-app renders with the production security headers (657ms)
+  ✓   6 [chromium] › e2e/smoke.spec.mjs:44:3 › /projects/admin-dashboard renders with the production security headers (649ms)
+  ✓   7 [chromium] › e2e/smoke.spec.mjs:44:3 › /resume renders with the production security headers (1.0s)
+  ✓   8 [chromium] › e2e/smoke.spec.mjs:44:3 › /contact renders with the production security headers (651ms)
+  ✓   9 [chromium] › e2e/smoke.spec.mjs:44:3 › /this-page-does-not-exist renders with the production security headers (1.3s)
+  ✓  10 [chromium] › e2e/smoke.spec.mjs:59:1 › theme toggle switches and persists the theme (1.3s)
+  ✓  11 [chromium] › e2e/smoke.spec.mjs:74:1 › primary navigation routes on the client (762ms)
+  ✓  12 [chromium] › e2e/smoke.spec.mjs:87:1 › screenshots for visual review (21.0s)
+  12 passed (31.6s)

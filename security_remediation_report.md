@@ -51,3 +51,14 @@
 - [Desktop, тёмная тема](output/playwright/security-remediation/home-desktop-dark.png), [мобильная страница проекта](output/playwright/security-remediation/case-study-mobile-light.png).
 
 Изменения сгруппированы в отдельные коммиты: зависимости/runtime/CI, production CSP с тестами, документация аудита с артефактами проверок. Ветка для публикации: `codex/security-dependency-maintenance`. Deployment не выполнялся. Существующие локальные коммиты сохранены.
+
+## Обновление от 26 октября 2026
+
+Подробности: [план и находки](REVIEW_AND_FIX_PLAN_2026-10-26.md), evidence: `output/security-audit/2026-10-26/`.
+
+- **Production CSP блокировала bootstrap Turbopack.** Ограничение выше («результат Turbopack на GitHub требует проверки») подтвердилось. Production-сборка Turbopack вставляет inline-скрипт `TURBOPACK.push({otherChunks…})` с хэшем, который меняется от сборки к сборке. Политика разрешает только хэш инициализатора темы, поэтому с 30 сентября клиентский JavaScript на проде не выполнялся: не было гидратации, клиентской навигации и работающего переключателя темы. Одно из двух нарушений `script-src-elem` в `browser-proof.txt` было именно этим скриптом. Исправление: `next build --webpack` (в HTML остаётся только хэшированный инициализатор темы и JSON `__NEXT_DATA__`) и тест `postbuild`, который проваливает сборку при любом inline-скрипте вне списка хэшей CSP. Политика не ослаблена: `unsafe-inline` и `unsafe-eval` для скриптов не добавлялись.
+- **Node.js 24.22.1** вместо 22.23.3 (security-релиз 20 октября 2026). `engines` `>=24.22.1 <25`, `engine-strict` в `.npmrc`, `@types/node` 24.x.
+- **zod 4.6.7** (GHSA-mrhx-c7xc-m3w5, транзитивная dev-зависимость). Полный и production audit: **0**.
+- **Tailwind CSS 4.3.3**: миграция завершена. Сборка, сломанная Dependabot PR #18, снова проходит.
+- **ESLint 10.13.0**: срабатывание правил совпадает с ESLint 9. Плагины `react`, `import` и `jsx-a11y` по-прежнему объявляют peer до ESLint 9 (предупреждения npm, `npm ls --all` выходит с кодом 1).
+- **CI:** build больше не скрыт за audit, audit вынесен в отдельный job. Добавлен job `e2e` (Playwright), который проверяет заголовки, отсутствие CSP-ошибок, гидратацию, переключатель темы и клиентскую навигацию. Dependabot настроен явно.
