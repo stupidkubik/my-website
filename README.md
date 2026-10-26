@@ -147,7 +147,7 @@ Notes:
 - Node.js is pinned in `.nvmrc`; `engines` in `package.json` plus `engine-strict` in `.npmrc` make npm refuse other versions
 - The local quality gate is available via `npm run check`
 - SEO generator tests are available via `npm run test:seo`
-- GitHub Actions runs two jobs for pull requests and `main`: `quality` (clean install, check, build with the CSP inline-script check) and `audit` (full audit at high severity and above, plus a production audit), so an advisory never hides a broken build
+- GitHub Actions runs three jobs for pull requests and `main`: `quality` (clean install, check, build with the CSP inline-script check), `e2e` (build plus Playwright smoke tests; the report with screenshots is uploaded as an artifact) and `audit` (full audit at high severity and above, plus a production audit), so an advisory never hides a broken build
 - Dependabot (`.github/dependabot.yml`) opens weekly grouped minor/patch PRs for npm and GitHub Actions; major versions arrive as separate PRs
 
 ## Scripts
@@ -163,6 +163,7 @@ Notes:
 - `npm run test:seo` - test URL validation and deterministic SEO output
 - `npm run test:security` - test the catch-all response security-header policy
 - `npm run test:build` - check built HTML for inline scripts the CSP would block (requires `npm run build`)
+- `npm run test:e2e` - Playwright smoke tests against `next start` on port 3200: every route renders with the configured security headers, no console or CSP errors, hydration, theme toggle, client-side navigation, plus light/dark screenshots at 1280/375 in `playwright-report/` (requires `npm run build` and `npx playwright install chromium`)
 
 ## Directory Structure
 
