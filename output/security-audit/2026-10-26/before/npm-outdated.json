@@ -1,0 +1,65 @@
+{
+  "@types/node": {
+    "current": "22.20.4",
+    "wanted": "22.20.5",
+    "latest": "26.6.5",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/@types/node"
+  },
+  "eslint": {
+    "current": "9.39.5",
+    "wanted": "9.39.5",
+    "latest": "10.13.0",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/eslint"
+  },
+  "eslint-config-next": {
+    "current": "16.3.7",
+    "wanted": "16.4.3",
+    "latest": "16.4.3",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/eslint-config-next"
+  },
+  "geist": {
+    "current": "1.7.2",
+    "wanted": "1.8.2",
+    "latest": "1.8.2",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/geist"
+  },
+  "next": {
+    "current": "16.4.2",
+    "wanted": "16.4.3",
+    "latest": "16.4.3",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/next"
+  },
+  "postcss": {
+    "current": "8.5.28",
+    "wanted": "8.5.31",
+    "latest": "8.5.31",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/postcss"
+  },
+  "react": {
+    "current": "19.3.0",
+    "wanted": "19.3.1",
+    "latest": "19.3.1",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/react"
+  },
+  "react-dom": {
+    "current": "19.3.0",
+    "wanted": "19.3.1",
+    "latest": "19.3.1",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/react-dom"
+  },
+  "typescript": {
+    "current": "5.9.3",
+    "wanted": "5.9.3",
+    "latest": "7.0.2",
+    "dependent": "my-website",
+    "location": "/Users/evgenii/Desktop/dev/my-website/node_modules/typescript"
+  }
+}
