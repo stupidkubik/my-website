@@ -59,15 +59,24 @@ for (const route of [...routes, missingRoute]) {
 test("theme toggle switches and persists the theme", async ({ page }) => {
   const errors = collectErrors(page);
   await page.goto("/", { waitUntil: "networkidle" });
-  const toggle = page.getByRole("button", { name: "Switch to dark theme" });
+  const toggle = page.getByRole("button", { name: "Dark theme" });
+
+  // WCAG 2.5.3: the accessible name contains the visible label.
+  await expect(toggle).toHaveText("Dark");
+  await expect(toggle).toHaveAttribute("aria-pressed", "false");
 
   await toggle.click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
-  await expect(page.getByRole("button", { name: "Switch to light theme" })).toHaveText(/dark/i);
+  await expect(toggle).toHaveAttribute("aria-pressed", "true");
   expect(await page.evaluate(() => window.localStorage.getItem("theme"))).toBe("dark");
 
   await page.reload({ waitUntil: "networkidle" });
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await expect(toggle).toHaveAttribute("aria-pressed", "true");
+
+  await toggle.click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+  await expect(toggle).toHaveAttribute("aria-pressed", "false");
   expect(errors).toEqual([]);
 });
 
