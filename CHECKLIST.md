@@ -11,6 +11,9 @@ A lightweight verification list before shipping.
 - [ ] CI is green in all jobs: `quality` (check, then build), `e2e` (Playwright smoke tests) and `audit` (full and production audits run separately, so an advisory never hides a broken build).
 - [ ] Confirm the Git worktree stays clean apart from intentional source changes.
 
+## After deploy
+- [ ] The `Metrics` workflow ran for the production deployment and the README badges are green (per-page numbers are on the `metrics` branch).
+
 ## Performance (quick pass)
 - [ ] **Home**: hero content renders immediately; no layout jumps.
 - [ ] **Projects detail**: the main `next/image` loads fast; `sizes` looks correct on mobile/desktop.
