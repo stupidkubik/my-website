@@ -3,11 +3,12 @@
 A lightweight verification list before shipping.
 
 ## Build & hygiene
-- [ ] Use the pinned Node version with `nvm use`.
+- [ ] Use the pinned Node version with `nvm use` (`.npmrc` sets `engine-strict`, so npm refuses other versions).
 - [ ] Run `npm ci` from the committed lockfile.
 - [ ] Run `npm run check` (lint, typecheck, and tests).
 - [ ] Run `npm audit --omit=dev` (no production vulnerabilities).
-- [ ] Run `npm run build` (no errors).
+- [ ] Run `npm run build` (no errors; `postbuild` confirms the CSP allows every inline script).
+- [ ] CI is green in both jobs: `quality` (check, then build) and `audit` (full and production audits run separately, so an advisory never hides a broken build).
 - [ ] Confirm the Git worktree stays clean apart from intentional source changes.
 
 ## Performance (quick pass)

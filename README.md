@@ -144,10 +144,11 @@ npm run dev
 
 Notes:
 - `dev` and `build` both use webpack. Turbopack's production build inlines a per-build bootstrap script that the hash-based CSP cannot allow, which stops client JavaScript from running
-- Node.js is pinned in `.nvmrc`; `package.json` rejects unsupported major versions
+- Node.js is pinned in `.nvmrc`; `engines` in `package.json` plus `engine-strict` in `.npmrc` make npm refuse other versions
 - The local quality gate is available via `npm run check`
 - SEO generator tests are available via `npm run test:seo`
-- GitHub Actions runs clean install, check, a full dependency audit (high severity and above), a production dependency audit, and build for pull requests and `main`
+- GitHub Actions runs two jobs for pull requests and `main`: `quality` (clean install, check, build with the CSP inline-script check) and `audit` (full audit at high severity and above, plus a production audit), so an advisory never hides a broken build
+- Dependabot (`.github/dependabot.yml`) opens weekly grouped minor/patch PRs for npm and GitHub Actions; major versions arrive as separate PRs
 
 ## Scripts
 
