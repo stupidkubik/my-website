@@ -15,7 +15,7 @@ export default function SectionTitle<T extends ElementType = "h2">({
   const Component = (as ?? "h2") as ElementType;
   return (
     <Component
-      className={`text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2 ${className}`.trim()}
+      className={`text-[1.75rem] font-semibold leading-tight tracking-[-0.01em] xs:text-[2rem] sm:leading-[1.2] ${className}`.trim()}
       {...props}
     >
       {children}

@@ -14,22 +14,22 @@ export default function Header() {
 
   return (
     <header className="border-b border-border bg-bg">
-      <div className="container flex flex-col gap-3 py-5 xs:gap-4 xs:py-6 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between lg:flex-nowrap">
+      <div className="site-container flex flex-col gap-3 py-5 xs:gap-4 xs:py-6 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between lg:flex-nowrap">
         <div>
           <Link
-            className="text-[1.25rem] font-semibold tracking-[0.03em] xs:text-[1.375rem] sm:text-[1.5rem] lg:text-[1.75rem]"
+            className="text-[1.25rem] font-semibold tracking-[0.03em] xs:text-[1.375rem]"
             href="/"
           >
             Evgenii Rubin
           </Link>
-          <p className="mt-1.5 text-[11px] uppercase tracking-[0.1em] text-muted-fg xxs:text-[10px] xxs:tracking-[0.09em] xs:mt-2 xs:text-xs xs:tracking-[0.12em]">
+          <p className="mt-1.5 text-[11px] uppercase tracking-widest text-muted-fg max-xs:text-[10px] max-xs:tracking-[0.09em] xs:mt-2 xs:text-xs xs:tracking-[0.12em]">
             Open to Work
           </p>
         </div>
-        <div className="flex min-w-0 flex-wrap items-center gap-1.5 xs:gap-3 sm:gap-5">
+        <div className="flex min-w-0 flex-wrap items-center gap-1.5 xs:gap-3">
           <nav
             aria-label="Primary"
-            className="flex min-w-0 flex-1 items-center justify-between gap-1 text-xs uppercase tracking-[0.04em] text-muted-fg xs:flex-none xs:justify-start xs:gap-3 xs:tracking-[0.1em] sm:gap-6 sm:text-[0.95rem] sm:tracking-[0.02em]"
+            className="flex min-w-0 flex-1 items-center justify-between gap-1 text-xs uppercase tracking-[0.04em] text-muted-fg xs:flex-none xs:justify-start xs:gap-3 xs:tracking-widest sm:text-[0.95rem]"
           >
             {navItems.map((item) => {
               const isActive =

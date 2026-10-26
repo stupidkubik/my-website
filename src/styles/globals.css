@@ -1,18 +1,55 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" source(none);
+
+@source "../pages";
+@source "../components";
+
+@theme {
+  --breakpoint-xs: 23.5rem;
+
+  --color-bg: #ffffff;
+  --color-fg: #09090b;
+  --color-muted: #f4f4f5;
+  --color-muted-fg: #71717a;
+  --color-border: #e4e4e7;
+  --color-interactive-border: #8b8b94;
+  --color-primary: #09090b;
+  --color-primary-contrast: #ffffff;
+
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.3;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-label: 0.875rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.04em;
+
+  --container-content: 1200px;
+  --container-text: 65ch;
+}
+
+/* Geist variables live on the app wrapper, so utilities must resolve them in place. */
+@theme inline {
+  --font-sans: var(--font-geist-sans), Inter, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), SFMono-Regular, Menlo, monospace;
+}
+
+@utility site-container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @media (width >= 64rem) {
+    max-width: 64rem;
+  }
+
+  @media (width >= 1200px) {
+    max-width: 1200px;
+  }
+}
 
 @layer base {
   :root {
     color-scheme: light;
-    --color-bg: #ffffff;
-    --color-fg: #09090b;
-    --color-muted: #f4f4f5;
-    --color-muted-fg: #71717a;
-    --color-border: #e4e4e7;
-    --color-interactive-border: #8b8b94;
-    --color-primary: #09090b;
-    --color-primary-contrast: #ffffff;
   }
 
   html[data-theme="dark"] {
@@ -42,7 +79,12 @@
 
   a:focus-visible,
   button:focus-visible {
-    @apply outline-none ring-2 ring-fg ring-offset-2 ring-offset-bg;
+    @apply outline-hidden ring-2 ring-fg ring-offset-2 ring-offset-bg;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 }
 

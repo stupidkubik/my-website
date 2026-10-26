@@ -29,7 +29,7 @@ export default function Home() {
             <GridCol lg={9}>
             <Stack size="lg">
               <p className="text-label uppercase text-muted-fg">Frontend Developer · Interactive Experiences</p>
-              <h1 className="text-balance text-[1.875rem] font-semibold leading-[1.08] tracking-[-0.02em] xs:text-[2.125rem] sm:text-display">
+              <h1 className="text-balance text-[1.875rem] font-semibold leading-[1.08] tracking-[-0.02em] xs:text-[2.125rem] sm:leading-[1.05]">
                 Frontend developer building reliable product interfaces and interactive ads.
               </h1>
               <p className="max-w-text text-body text-muted-fg">
@@ -66,8 +66,8 @@ export default function Home() {
 
         <Section borderTop containerClassName="motion-reveal motion-delay-1">
         <Stack size="lg">
-          <div className="flex flex-col gap-2 xs:flex-row xs:items-baseline xs:justify-between lg:justify-start lg:gap-8">
-            <h2 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">Selected Work</h2>
+          <div className="flex flex-col gap-2 xs:flex-row xs:items-baseline xs:justify-between lg:gap-8">
+            <h2 className="text-[1.75rem] font-semibold leading-tight tracking-[-0.01em] xs:text-[2rem] sm:leading-[1.2]">Selected Work</h2>
             <TextLink className="self-end whitespace-nowrap xs:self-auto" href="/projects">All projects</TextLink>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
@@ -88,7 +88,7 @@ export default function Home() {
           <Grid>
             <GridCol lg={9}>
             <Stack size="md">
-              <h2 className="text-[1.75rem] font-semibold leading-[1.25] tracking-[-0.01em] xs:text-[2rem] sm:text-h2">Contact</h2>
+              <h2 className="text-[1.75rem] font-semibold leading-tight tracking-[-0.01em] xs:text-[2rem] sm:leading-[1.2]">Contact</h2>
               <p className="text-body text-muted-fg">
                 Interested in working together? I’m available via email, Telegram, and phone.
               </p>
