@@ -36,11 +36,26 @@ jobs:
       - name: Lint, typecheck, and test
         run: npm run check
 
+      # Runs the postbuild inline-script CSP check as well.
+      - name: Build
+        run: npm run build
+
+  # Separate job so a dependency advisory never hides a broken build.
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
       - name: Audit all dependencies
         run: npm audit --audit-level=high
 
       - name: Audit production dependencies
         run: npm audit --omit=dev
-
-      - name: Build
-        run: npm run build
