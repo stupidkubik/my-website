@@ -34,10 +34,10 @@ function findHtmlFiles(dir) {
 }
 
 function getExecutableInlineScripts(html) {
-  return [...html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)]
-    .filter(([, attributes]) => !/\ssrc=/.test(attributes))
+  return [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script[^>]*>/gi)]
+    .filter(([, attributes]) => !/\ssrc\s*=/i.test(attributes))
     .filter(([, attributes]) => {
-      const type = attributes.match(/\stype="([^"]*)"/)?.[1] ?? "";
+      const type = attributes.match(/\stype\s*=\s*["']?([^"'\s>]*)/i)?.[1] ?? "";
       return executableTypes.has(type.toLowerCase());
     })
     .map(([, , body]) => body);
