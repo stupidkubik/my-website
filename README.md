@@ -191,6 +191,7 @@ README.md
 ## Known Technical Notes
 
 - ESLint 10 is used since 2026-10-26 (ESLint 9 reached [end of life](https://eslint.org/version-support/) on August 6, 2026). `eslint-plugin-react`, `eslint-plugin-import`, and `eslint-plugin-jsx-a11y` (bundled by `eslint-config-next` 16.4.3) still declare peers up to ESLint 9, so npm prints peer warnings and `npm ls --all` reports them as invalid. Lint output was verified to match ESLint 9 rule-for-rule; drop this note once the plugins widen their peer ranges.
+- TypeScript stays on 6.x: TypeScript 7 has no JavaScript API yet, so `typescript-eslint` (used by `eslint-config-next`) refuses to run, and `.github/dependabot.yml` ignores `>=7`. Lift the ignore once typescript-eslint supports TS 7 ([typescript-eslint#10940](https://github.com/typescript-eslint/typescript-eslint/issues/10940)); `baseUrl` is already removed from `tsconfig.json`
 - List and case-study content stay separate intentionally; route slugs have one shared source
 - Local TypeScript cache files (`*.tsbuildinfo`) are ignored via `.gitignore`
 - Working PDFs in repo root are ignored, but production assets in `public/` (including resume PDF) are tracked
