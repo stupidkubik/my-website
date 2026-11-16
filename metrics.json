@@ -1,0 +1,137 @@
+{
+  "siteUrl": "https://evgenii-rubin.vercel.app",
+  "measuredAt": "2026-11-16T13:53:54.656Z",
+  "commit": "37e180dea804b2eb959143419ffa7451f398135f",
+  "lighthouse": {
+    "lighthouseVersion": "13.5.0",
+    "runsPerPage": 3,
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "scriptBytes": 128918,
+    "pages": [
+      {
+        "url": "https://evgenii-rubin.vercel.app/",
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "largestContentfulPaintMs": 1867,
+        "cumulativeLayoutShift": 0,
+        "totalBlockingTimeMs": 19,
+        "scriptBytes": 128918,
+        "totalBytes": 262465
+      },
+      {
+        "url": "https://evgenii-rubin.vercel.app/about",
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "largestContentfulPaintMs": 1202,
+        "cumulativeLayoutShift": 0,
+        "totalBlockingTimeMs": 6,
+        "scriptBytes": 122494,
+        "totalBytes": 223644
+      },
+      {
+        "url": "https://evgenii-rubin.vercel.app/projects",
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "largestContentfulPaintMs": 1877,
+        "cumulativeLayoutShift": 0,
+        "totalBlockingTimeMs": 62,
+        "scriptBytes": 128144,
+        "totalBytes": 268682
+      },
+      {
+        "url": "https://evgenii-rubin.vercel.app/resume",
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "largestContentfulPaintMs": 1854,
+        "cumulativeLayoutShift": 0,
+        "totalBlockingTimeMs": 10,
+        "scriptBytes": 124723,
+        "totalBytes": 224952
+      },
+      {
+        "url": "https://evgenii-rubin.vercel.app/contact",
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "largestContentfulPaintMs": 1859,
+        "cumulativeLayoutShift": 0,
+        "totalBlockingTimeMs": 37,
+        "scriptBytes": 123015,
+        "totalBytes": 223233
+      },
+      {
+        "url": "https://evgenii-rubin.vercel.app/projects/kanban-board",
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "largestContentfulPaintMs": 1874,
+        "cumulativeLayoutShift": 0,
+        "totalBlockingTimeMs": 39,
+        "scriptBytes": 127840,
+        "totalBytes": 237451
+      },
+      {
+        "url": "https://evgenii-rubin.vercel.app/projects/stripe-mini-app",
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "largestContentfulPaintMs": 1881,
+        "cumulativeLayoutShift": 0,
+        "totalBlockingTimeMs": 17,
+        "scriptBytes": 128011,
+        "totalBytes": 248306
+      },
+      {
+        "url": "https://evgenii-rubin.vercel.app/projects/admin-dashboard",
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "largestContentfulPaintMs": 1663,
+        "cumulativeLayoutShift": 0,
+        "totalBlockingTimeMs": 5,
+        "scriptBytes": 128037,
+        "totalBytes": 238891
+      }
+    ]
+  },
+  "observatory": {
+    "grade": "A+",
+    "score": 115,
+    "testsPassed": 12,
+    "testsQuantity": 12,
+    "detailsUrl": "https://developer.mozilla.org/en-US/observatory/analyze?host=evgenii-rubin.vercel.app"
+  }
+}
